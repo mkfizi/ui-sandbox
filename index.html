@@ -40,12 +40,12 @@
     <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b border-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
         <div class="flex items-center justify-end w-full h-full max-w-xl px-4 mx-auto sm:px-8">
             <button type="button" id="darkModeToggle" aria-label="Dark mode toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 transition dark:hidden stroke-black fill-black" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-black fill-black" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <circle cx="12" cy="12" r="4" />
                     <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 transition stroke-white dark:block fill-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 stroke-white dark:block fill-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
                 </svg>
@@ -98,26 +98,26 @@
             <p class="mt-8 mb-4 text-2xl font-extrabold text-black sm:text-3xl lg:text-4xl dark:text-white">Buttons</p>
             <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Regular</p>
             <div class="my-4">
-                <button type="button" class="inline-block px-8 py-2 font-semibold text-white transition bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none">Button</button>
+                <button type="button" class="inline-block px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none">Button</button>
             </div>
             <div class="my-4">
-                <a href="#" class="inline-block px-8 py-2 font-semibold text-white transition bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600">Link</a>
+                <a href="#" class="inline-block px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600">Link</a>
              </div>
              
             <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Outline</p>
             <div class="my-4">
-                <button type="button" class="inline-block px-8 py-2 font-semibold text-black transition bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none">Button</button>
+                <button type="button" class="inline-block px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none">Button</button>
             </div>
             <div class="my-4">
-                <a href="#" class="inline-block px-8 py-2 font-semibold text-black transition bg-transparent border border-black rounded-md dark:text-white hover:text-white hover:border-neutral-700 hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600">Link</a>
+                <a href="#" class="inline-block px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:text-white hover:border-neutral-700 hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600">Link</a>
             </div>
 
             <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Disabled</p>
             <div class="my-4">
-                <button type="button" class="inline-block px-8 py-2 font-semibold text-white transition bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none" disabled>Regular</button>
+                <button type="button" class="inline-block px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none" disabled>Regular</button>
             </div>
             <div class="my-4">
-                <button type="button" class="inline-block px-8 py-2 font-semibold text-black transition bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none" disabled>Outline</button>
+                <button type="button" class="inline-block px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none" disabled>Outline</button>
             </div>
         </section>
     </main>
