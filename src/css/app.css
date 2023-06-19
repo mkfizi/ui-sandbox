@@ -1054,6 +1054,11 @@ video {
   background-color: rgb(64 64 64 / 0.75);
 }
 
+:is(.dark .dark\:bg-neutral-600) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(82 82 82 / var(--tw-bg-opacity));
+}
+
 :is(.dark .dark\:text-neutral-300) {
   --tw-text-opacity: 1;
   color: rgb(212 212 212 / var(--tw-text-opacity));
