@@ -1,10 +1,16 @@
 {
-	"name": "presets",
-	"version": "0.1.0",
-	"description": "Personal preferences for Tailwindcss based presets.",
+	"name": "tailstart-style-guideline",
+	"version": "0.1.1",
+	"description": "A multipurpose Handcrafted collection of TailwindCSS starter kit boilerplates and style guideline.",
 	"keywords": [
 		"Tailwindcss",
-		"Presets"
+		"Style guideline",
+		"Template",
+		"Boilerplate",
+		"Landing page",
+		"Blog",
+		"Documentation",
+		"Dashboard"
 	],
 	"author": "hi@mkfizi.dev",
 	"license": "MIT",
