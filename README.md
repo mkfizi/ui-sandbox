@@ -1,5 +1,4 @@
 # Tailstart - Style Guideline
-
 Style guideline for Tailstart.
 
 ## Installation
