@@ -1,20 +1,22 @@
 /**
  * --------------------------------------------------------------------------
- * Presets (0.1.0): app.js
- * Licensed under MIT (https://github.com/mkfizi/presets/blob/main/LICENSE)
+ * Tailstart - Style Guideline (0.1.1): app.js
+ * Licensed under MIT (https://github.com/mkfizi/tailstart-style-guideline/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 'use strict';
 
 let app = {
-    name: 'Presets',
+    name: 'Tailstart - Style Guideline',
+    version: '0.1.1',
 };
 
 app.elements = {
     darkModeToggle: document.getElementById('darkModeToggle'),
     footerCurrentYear: document.getElementById('footerCurrentYear'),
     footerAppName: document.getElementById('footerAppName'),
+    footerAppVersion: document.getElementById('footerAppVersion'),
 };
 
 app.config = {
@@ -70,6 +72,10 @@ app.view = {
 
         if (app.elements.footerAppName) {
             app.elements.footerAppName.innerHTML = app.name;
+        }
+        
+        if (app.elements.footerAppVersion) {
+            app.elements.footerAppVersion.innerHTML = app.version;
         }
     }
 };

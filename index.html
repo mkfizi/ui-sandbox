@@ -37,97 +37,130 @@
         };
     </script>
 
-    <title>Presets</title>
+    <title>Tailstart | Style Guideline</title>
 </head>
 <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-900">
 
     <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b border-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
-        <div class="flex items-center justify-end w-full h-full max-w-xl px-4 mx-auto sm:px-8">
-            <button type="button" id="darkModeToggle" aria-label="Dark mode toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-black fill-black" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 stroke-white dark:block fill-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-                </svg>
-            </button>
+        <div class="flex items-center justify-between w-full h-full max-w-screen-xl px-4 mx-auto sm:px-8">
+            <!-- Logo -->
+            <a href="./" class="flex">
+                <img src="./src/images/logo.png" alt="Tailwind Starter Kit Logo" class="w-6 h-6 dark:hidden">
+                <img src="./src/images/logo-dark.png" alt="Tailwind Starter Kit Logo" class="hidden w-6 h-6 dark:block">
+            </a>
+            <div class="flex gap-4">
+                <!-- Dark mode toggle -->
+                <button type="button" id="darkModeToggle" aria-label="Dark mode toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-black fill-black" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 stroke-white dark:block fill-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                    </svg>
+                </button>
+
+                <!-- Github -->
+                <a href="https://github.com/mkfizi/tailstart-style-guideline" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-black dark:stroke-white fill-black dark:fill-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </nav>
-    <main class="w-full max-w-xl px-4 pt-8 pb-12 mx-auto sm:px-8">
-        <h1 class="mt-8 mb-4 text-4xl font-black text-black sm:text-5xl lg:text-6xl dark:text-white">Presets</h1>
-        <section>
-            <p class="mt-8 mb-4 text-2xl font-extrabold text-black sm:text-3xl lg:text-4xl dark:text-white">Typography</p>
-            <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Texts</p>
-            <p class="my-4 text-base text-neutral-700 dark:text-neutral-300">Regular text.</p>
-            <p class="my-4 text-base text-neutral-700 dark:text-neutral-300"><strong class="text-black dark:text-white">Bold text.</strong></p>
-            <p class="my-4 text-base text-neutral-700 dark:text-neutral-300"><em>Italic text.</em></p>
-            <div class="my-4">
-                <a href="https://laravel.com/" class="inline text-base font-bold text-black underline dark:text-white"><span>Internal Link</span><svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 h-4 mb-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 15l6 -6" /><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464" /><path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463" /></svg></a>
-            </div>
-            <div class="my-4">
-                <a href="https://laravel.com/" target="_blank" class="inline text-base font-bold text-black underline dark:text-white"><span>External Link</span><svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 h-4 mb-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" /><path d="M11 13l9 -9" /><path d="M15 4h5v5" /></svg></a>
-            </div>
 
-            <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Headings</p>
-            <h1 class="mt-8 mb-4 text-4xl text-black sm:text-5xl lg:text-6xl dark:text-white">Heading 1</h1>
-            <h2 class="mt-8 mb-4 text-2xl text-black sm:text-3xl lg:text-4xl dark:text-white">Heading 2</h2>
-            <h3 class="mt-8 mb-4 text-lg text-black sm:text-xl lg:text-2xl dark:text-white">Heading 3</h3>
-
-            <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">List</p>
-            <ul class="ml-4 list-disc marker:text-neutral-700 dark:marker:text-neutral-300">
-                <li class="pl-4">
-                    <p class="my-4 text-base text-neutral-700 dark:text-neutral-300">Item one.</p>
-                </li>
-                <li class="pl-4">
-                    <p class="my-4 text-base text-neutral-700 dark:text-neutral-300">Item two.</p>
-                </li>
-                <li class="pl-4">
-                    <p class="my-4 text-base text-neutral-700 dark:text-neutral-300">Item three.</p>
-                </li>
-            </ul>
-
-            <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Blockquote</p>
-            <blockquote class="p-4 my-4 space-y-4 border-l-2 border-black dark:border-white bg-neutral-100 dark:bg-neutral-800">
-                <p class="block text-base text-neutral-700 dark:text-neutral-300">Blockquote text.</p>
-            </blockquote>
-
-            <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Badge</p>
-            <span class="inline-block px-2 py-1 text-sm font-semibold text-black rounded-md dark:text-white bg-neutral-200 dark:bg-neutral-600">Badge</span>
-        </section>
-
-        <section>
-            <p class="mt-8 mb-4 text-2xl font-extrabold text-black sm:text-3xl lg:text-4xl dark:text-white">Buttons</p>
-            <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Regular</p>
-            <div class="my-4">
-                <button type="button" class="inline-block px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none">Button</button>
+    <!-- Content -->
+    <main class="w-full max-w-screen-xl px-4 py-16 mx-auto sm:px-8">
+        <div class="max-w-xl space-y-8">
+            <p class="text-2xl font-black text-black sm:text-3xl lg:text-4xl dark:text-white">Tailstart Style Guideline</p>
+            <div class="space-y-4">
+                <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Typography</p>    
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Paragraph</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300">This is a text sentence.</p>
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><em>This is a text sentence.</em></p>
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>This is a text sentence.</strong></p>
+                    </div>
+                </div>  
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Footnote</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <p class="text-sm text-neutral-700 dark:text-neutral-300">This is a text sentence.</p>
+                    </div>
+                </div>  
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Headings</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <h1 class="text-4xl text-black sm:text-5xl lg:text-6xl dark:text-white">Heading 1</h1>
+                        <h2 class="text-3xl text-black sm:text-4xl lg:text-5xl dark:text-white">Heading 2</h2>
+                        <h3 class="text-2xl text-black sm:text-3xl lg:text-4xl dark:text-white">Heading 3</h3>
+                        <h4 class="text-xl text-black sm:text-2xl lg:text-3xl dark:text-white">Heading 4</h4>
+                        <h5 class="text-lg text-black sm:text-xl lg:text-2xl dark:text-white">Heading 5</h5>
+                        <h6 class="text-base text-black sm:text-lg lg:text-xl dark:text-white">Heading 6</h6>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Link</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <a href="https://laravel.com/" class="text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black hover:dark:text-white">Link</a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">List</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <ul class="ml-4 space-y-4 list-disc marker:text-neutral-700 dark:marker:text-neutral-300">
+                            <li class="pl-2">
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">Item one.</p>
+                            </li>
+                            <li class="pl-2">
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">Item two.</p>
+                            </li>
+                            <li class="pl-2">
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">Item three.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="my-4">
-                <a href="#" class="inline-block px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600">Link</a>
-             </div>
-             
-            <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Outline</p>
-            <div class="my-4">
-                <button type="button" class="inline-block px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none">Button</button>
-            </div>
-            <div class="my-4">
-                <a href="#" class="inline-block px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:text-white hover:border-neutral-700 hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600">Link</a>
-            </div>
-
-            <p class="mt-8 mb-4 text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Disabled</p>
-            <div class="my-4">
-                <button type="button" class="inline-block px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none" disabled>Regular</button>
-            </div>
-            <div class="my-4">
-                <button type="button" class="inline-block px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none" disabled>Outline</button>
-            </div>
-        </section>
+            <div class="space-y-4">
+                <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Elements</p> 
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Badge</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <div>
+                            <span class="px-2 py-1 text-sm font-semibold text-black rounded-md dark:text-white bg-neutral-200 dark:bg-neutral-600">Badge Text</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Buttons</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <button type="button" class="px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none">Primary</button>
+                        <button type="button" class="px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-700 dark:hover:border-neutral-600 dark:hover:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none">Secondary</button>
+                    </div>
+                </div>   
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Blockquote</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <blockquote class="p-2 space-y-4 border-l-2 border-black dark:border-white bg-neutral-100 dark:bg-neutral-800">
+                            <p class="text-base text-neutral-700 dark:text-neutral-300">This is a text sentence.</p>
+                        </blockquote>
+                    </div>
+                </div>    
+            </div>  
+        </div>
     </main>
-    <footer class="absolute bottom-0 w-full pb-px text-center">
-        <p class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footerAppName"></span> © <span id="footerCurrentYear"></span></p>
+    
+    <!-- Footer -->
+    <footer class="absolute bottom-0 flex flex-col items-center justify-between w-full max-w-screen-xl px-4 pb-px transform -translate-x-1/2 sm:flex-row left-1/2 sm:px-8">
+        <p class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footerAppName"></span> v<span id="footerAppVersion"></span></p>
+        <span class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footerCurrentYear"></span> © Crafted by <a href="https://mkfizi.dev" target="_blank" class="inline-block text-black dark:text-white">mkfizi</a></span>
     </footer>
 </body>
 </html>
