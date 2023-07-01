@@ -4,12 +4,12 @@ Style guideline for Tailstart.
 ## Installation
 Clone this repository to get started.
 
-Run the following command in project directory to install TailwindCSS dependencies.
+Run the following command in project directory to install dependencies.
 ```bash
 npm install
 ```
 
-To compile the CSS file with TailwindCSS classes, use one of the following commands:
+To compile the CSS file, use one of the following commands:
 ```bash
 npm run build
 npm run watch
