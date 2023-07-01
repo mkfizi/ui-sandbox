@@ -16,9 +16,10 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.1.1] - 2023-06-29
+## [0.1.1] - 2023-07-02
 ### Added
 - Add all headings `<h1>` to `<h6>` styles.
+- Add forms
 
 ### Changed
 - Rewrite layout.
