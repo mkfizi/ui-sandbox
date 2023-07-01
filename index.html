@@ -53,7 +53,7 @@
             </a>
             <div class="flex gap-4">
                 <!-- Dark mode toggle -->
-                <button type="button" id="darkModeToggle" aria-label="Dark mode toggle">
+                <button type="button" id="dark-mode-toggle" aria-label="Dark mode toggle">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-black fill-black" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <circle cx="12" cy="12" r="4" />
@@ -142,6 +142,12 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Divider</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <hr class="h-px border-neutral-300 dark:border-neutral-700">
+                    </div>
+                </div>  
+                <div class="grid grid-cols-3 sm:grid-cols-4">
                     <p class="text-base text-neutral-700 dark:text-neutral-300">Buttons</p>
                     <div class="col-span-2 sm:col-span-3">
                         <button type="button" class="px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Primary</button>
@@ -164,13 +170,81 @@
                     </div>
                 </div>    
             </div>  
+            <div class="space-y-4">
+                <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Forms</p> 
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Label</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <label for="#" class="text-base font-semibold text-neutral-700 dark:text-neutral-300">Input label</label>
+                    </div>
+                </div> 
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Input</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <input id="input-text" type="text" name="input" class="w-full text-base bg-transparent rounded-md text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none" placeholder="Input placeholder">
+                    </div>
+                </div> 
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Select</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <select id="input-select" name="select" class="w-full text-base bg-transparent rounded-md text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none">
+                            <option value="" selected class="dark:bg-transparent">Select Option</option>
+                            <option value="Option 1" class="dark:bg-transparent">Option 1</option>
+                            <option value="Option 2" class="dark:bg-transparent">Option 2</option>
+                            <option value="Option 3" class="dark:bg-transparent">Option 3</option>
+                        </select>
+                    </div>
+                </div> 
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Text Area</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <textarea id="input-textarea" name="select" class="w-full text-base bg-transparent rounded-md text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none" placeholder="Text area placeholder"></textarea>
+                    </div>
+                </div> 
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Date</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <input id="input-date" type="date" name="date" class="w-full text-base bg-transparent rounded-md text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none">
+                    </div>
+                </div> 
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Checkbox</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="checkbox-example" name="checkbox_example" class="bg-transparent rounded appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none">
+                            <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Checkbox</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">Radio</p>
+                    <div class="flex col-span-2 gap-4 sm:col-span-3">
+                        <div class="flex items-center gap-2">
+                            <input type="radio" id="checkbox-example-1" name="checkbox_example" class="bg-transparent appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none">
+                            <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Radio 1</label>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input type="radio" id="checkbox-example-2" name="checkbox_example" class="bg-transparent appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50">
+                            <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Radio 2</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 sm:grid-cols-4">
+                    <p class="text-base text-neutral-700 dark:text-neutral-300">File</p>
+                    <div class="col-span-2 space-y-4 sm:col-span-3">
+                        <div class="flex items-center gap-2">
+                            <input type="file" id="checkbox-example" name="checkbox_example" class="file:px-8 file:py-2 file:font-semibold file:text-white file:bg-black file:border file:border-black file:rounded-md file:hover:border-neutral-700 file:hover:bg-neutral-700 file:dark:bg-neutral-600 file:dark:border-neutral-600 file:dark:hover:border-neutral-500 file:dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none file:mr-2">
+                        </div>
+                    </div>
+                </div>
+            </div>  
         </div>
     </main>
     
     <!-- Footer -->
     <footer class="absolute bottom-0 flex flex-col items-center justify-between w-full max-w-screen-xl px-4 pb-px transform -translate-x-1/2 sm:flex-row left-1/2 sm:px-8">
-        <p class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footerAppName"></span> v<span id="footerAppVersion"></span></p>
-        <span class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footerCurrentYear"></span> © Crafted by <a href="https://mkfizi.dev" target="_blank" class="inline-block text-black dark:text-white">mkfizi</a></span>
+        <p class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-app-name"></span> v<span id="footer-app-version"></span></p>
+        <span class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-current-year"></span> © Crafted by <a href="https://mkfizi.dev" target="_blank" class="inline-block text-black dark:text-white">mkfizi</a></span>
     </footer>
 </body>
 </html>
