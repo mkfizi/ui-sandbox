@@ -1,19 +1,20 @@
 /**
  * --------------------------------------------------------------------------
- * Tailstart - Style Guideline (0.1.1): app.js
- * Licensed under MIT (https://github.com/mkfizi/tailstart-style-guideline/blob/main/LICENSE)
+ * Style Guideline: app.js
+ * Licensed under MIT (https://github.com/mkfizi/style-guideline/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 'use strict';
 
 let app = {
-    name: 'Tailstart - Style Guideline',
-    version: '0.1.1',
+    name: 'Style Guideline',
+    version: '0.2.0',
 };
 
 app.elements = {
-    footerCurrentYear: document.getElementById('footer-current-year'),
+    darkModeToggle: document.getElementById('dark-mode-toggle'),
+    footerYear: document.getElementById('footer-year'),
     footerAppName: document.getElementById('footer-app-name'),
     footerAppVersion: document.getElementById('footer-app-version'),
 };
@@ -29,33 +30,36 @@ app.init = () => {
 
 app.event = {
     init: () => {
-        document.addEventListener('click', app.event.handleClick);
-        window.addEventListener('resize', app.view.updateViewportHeight);
-        window.addEventListener('scroll', app.view.updateNavbar);
+        document.addEventListener('click', app.event.handleDocumentClick);
+        window.addEventListener('resize', app.event.handleWindowResize);
     },
 
-    handleClick: event => {
+    handleDocumentClick: event => {
         const target = event.target;
 
         if (target.closest('[id="dark-mode-toggle"]')) {
-            app.view.updateDarkMode();
+            app.view.toggleDarkMode();
         }
     },
+
+    handleWindowResize: event => {
+        app.view.toggleViewportHeight();
+    }
 };
 
 app.view = {
     init: () => {
-        app.view.updateViewportHeight();
-        app.view.updateAppInfo();
+        app.view.toggleViewportHeight();
+        app.view.toggleFooterData();
     },
 
     // Update the height of the viewport. This is a workaround fix for [viewport height issue on mobile browsers](https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser) 
-    updateViewportHeight: () => {
+    toggleViewportHeight: () => {
         document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
     },
 
-    // Update dark mode based on value in 'localStorage.theme'
-    updateDarkMode: () => {
+    // Toogle dark mode based on value in 'localStorage.theme'
+    toggleDarkMode: () => {
         app.util.toggleTransition();
 
         const isLightMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
@@ -63,10 +67,10 @@ app.view = {
         document.documentElement.classList.toggle('dark', isLightMode);
     },
 
-    // Update the footer with current year, app name, and version
-    updateAppInfo: () => {
-        if (app.elements.footerCurrentYear) {
-            app.elements.footerCurrentYear.innerHTML = new Date().getFullYear();
+    // Toogle footer data for year and app name
+    toggleFooterData: () => {
+        if (app.elements.footerYear) {
+            app.elements.footerYear.innerHTML = new Date().getFullYear();
         }
 
         if (app.elements.footerAppName) {
@@ -89,7 +93,7 @@ app.util = {
                 transition.classList.remove('transition-none');
             }, 100);
         }
-    },
+    }
 };
 
 app.init();
