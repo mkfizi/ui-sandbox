@@ -1,5 +1,5 @@
-# Tailstart - Style Guideline
-Style guideline for Tailstart.
+# Style Guideline
+Personal preferences of style guideline for my open source projects.
 
 ## Installation
 Clone this repository to get started.
@@ -19,4 +19,4 @@ npm run watch
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://github.com/tailstart/style-guideline/blob/main/LICENSE)
+[MIT](https://github.com/mkfizi/style-guideline/blob/main/LICENSE)
