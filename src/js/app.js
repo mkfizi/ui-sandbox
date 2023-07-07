@@ -81,12 +81,14 @@
             },
 
             init: () => {
+                app.views.viewportHeight.toggle();
                 app.views.footer.toggle();
             }
         },
 
         utils: {
             transition: {
+                // Temporary disable and enable CSS transitions
                 toggle: () => {
                     const transitions = document.querySelectorAll('.transition, .transition-all, .transition-colors, .transition-opacity, .transition-shadow, .transition-transform');
                     for (const transition of transitions) {
