@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Style Guideline v0.2.0: app.js
- * Licensed under MIT (https://github.com/mkfizi/style-guideline/blob/main/LICENSE)
+ * Style Guide v0.2.0: app.js
+ * Licensed under MIT (https://github.com/mkfizi/style-guide/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -9,7 +9,7 @@
     'use strict';
 
     const app = {
-        name: 'Style Guideline',
+        name: 'Style Guide',
         version:'0.2.0',
         elements: {
             id: {

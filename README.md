@@ -1,4 +1,4 @@
-# Style Guideline
+# Style Guide
 Personal preferences of style guideline for my open source projects.
 
 ## Installation
