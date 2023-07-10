@@ -1,16 +1,10 @@
 {
-	"name": "tailstart-style-guideline",
-	"version": "0.1.1",
-	"description": "A multipurpose Handcrafted collection of TailwindCSS starter kit boilerplates and style guideline.",
+	"name": "style-guide",
+	"version": "0.2.0",
+	"description": "Personal preferences of style guideline for my open source projects.",
 	"keywords": [
 		"Tailwindcss",
-		"Style guideline",
-		"Template",
-		"Boilerplate",
-		"Landing page",
-		"Blog",
-		"Documentation",
-		"Dashboard"
+		"Style guideline"
 	],
 	"author": "hi@mkfizi.dev",
 	"license": "MIT",
