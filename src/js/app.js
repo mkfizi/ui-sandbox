@@ -11,11 +11,11 @@
     const app = {
         name: 'Style Guide',
         version:'0.2.0',
-        
+
         elements: {
             id: {
                 darkMode: {
-                    toggle: 'dark-mode-toggle'
+                    toggle: 'darkmode-toggle'
                 }
             },
 
