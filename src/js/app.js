@@ -17,6 +17,7 @@
                     toggle: 'dark-mode-toggle'
                 }
             },
+            
             node: {
                 footer: {
                     year: document.getElementById('footer-year'),
