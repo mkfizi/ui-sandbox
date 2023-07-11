@@ -11,13 +11,14 @@
     const app = {
         name: 'Style Guide',
         version:'0.2.0',
+        
         elements: {
             id: {
                 darkMode: {
                     toggle: 'dark-mode-toggle'
                 }
             },
-            
+
             node: {
                 footer: {
                     year: document.getElementById('footer-year'),
