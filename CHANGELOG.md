@@ -16,16 +16,18 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.2.0] - 2023-07-08
+## [0.2.0] - 2023-07-13
 ### Add
 - Internal and external link styles.
 
 ### Changed
 - Checkbox and radio to follow default browser appearance which changed accent colour.
-- Restructure `app.js` functions to include IIFE for more conventional standards.
+- Adapt `app.js` to use IIFE for more conventional standards.
+- Rewrite `app` object for more structured content.
 
 ### Removed
 - TailwindCSS Forms plugin.
+- Remove unnecessary toogle all transition function since there's no transition classes
 
 ## [0.1.1] - 2023-07-02
 ### Added
