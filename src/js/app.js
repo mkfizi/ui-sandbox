@@ -83,7 +83,7 @@
                 const targetElement = event.target.closest('[id]');
                 if (targetElement) {
                     const targetId = targetElement.getAttribute('id');
-                    if(document.getElementById(targetId) == app.element.darkModeToggle) {
+                    if (document.getElementById(targetId) == app.element.darkModeToggle) {
                         app.view.darkMode.toggle();
                     }
                 }
