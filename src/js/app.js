@@ -85,11 +85,7 @@
                     const targetId = targetElement.getAttribute('id');
                     if(document.getElementById(targetId) == app.element.darkModeToggle) {
                         app.view.darkMode.toggle();
-                    } else if(document.getElementById(targetId) == app.element.navbarMenuOpen) {
-                        app.view.navbar.menu.open();
-                    }  else if(document.getElementById(targetId) == app.element.navbarMenuClose) {
-                        app.view.navbar.menu.close();
-                    } 
+                    }
                 }
             }
         },
