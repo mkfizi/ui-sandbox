@@ -16,9 +16,10 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.2.0] - 2023-07-13
+## [0.2.0] - 2023-07-16
 ### Add
 - Internal and external link styles.
+- Input search bar.
 
 ### Changed
 - Checkbox and radio to follow default browser appearance which changed accent colour.
@@ -27,6 +28,7 @@ Put unreleased changes here.
 
 ### Removed
 - TailwindCSS Forms plugin.
+- Input date.
 - Remove unnecessary toogle all transition function since there's no transition classes
 
 ## [0.1.1] - 2023-07-02
