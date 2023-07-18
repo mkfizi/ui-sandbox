@@ -178,14 +178,14 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Input</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
-                        <input id="input-text" type="text" name="input" class="w-full p-2 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none" placeholder="Input placeholder">
+                        <input id="input" type="text" name="input" class="w-full p-2 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none" placeholder="Input placeholder">
                     </div>
                 </div> 
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Select</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
                         <div class="relative">
-                            <select id="input-select" name="select" class="relative w-full py-2 pl-2 pr-12 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none peer">
+                            <select id="select" name="select" class="relative w-full py-2 pl-2 pr-12 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none peer">
                                 <option value="" class="dark:bg-transparent" selected>Select Option</option>
                                 <option value="Option 1" class="dark:bg-transparent">Option 1</option>
                                 <option value="Option 2" class="dark:bg-transparent">Option 2</option>
@@ -201,14 +201,14 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Text Area</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
-                        <textarea id="input-textarea" name="select" class="w-full h-16 p-2 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none" placeholder="Text area placeholder"></textarea>
+                        <textarea id="textarea" name="textarea" class="w-full h-16 p-2 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none" placeholder="Text area placeholder"></textarea>
                     </div>
                 </div> 
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Search Bar</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
                         <div class="relative">
-                            <input id="input-search-bar" type="text" name="input-serach-bar" class="w-full py-2 pl-2 pr-12 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none peer" placeholder="Search bar placeholder">
+                            <input id="searchbar" type="text" name="searchbar" class="w-full py-2 pl-2 pr-12 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none peer" placeholder="Search bar placeholder">
                             <button type="button" class="absolute top-0 right-0 flex items-center h-full p-2 border group rounded-r-md border-neutral-600 dark:border-neutral-400 hover:bg-neutral-700 dark:hover:bg-neutral-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-white dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -223,7 +223,7 @@
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Checkbox</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
                         <div class="flex items-center gap-2">
-                            <input type="checkbox" id="checkbox-example" name="checkbox_example" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
+                            <input type="checkbox" id="input-checkbox" name="checkbox" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
                             <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Checkbox</label>
                         </div>
                     </div>
@@ -232,11 +232,11 @@
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Radio</p>
                     <div class="flex col-span-2 gap-4 sm:col-span-3">
                         <div class="flex items-center gap-2">
-                            <input type="radio" id="checkbox-example-1" name="checkbox_example" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
+                            <input type="radio" id="input-radio-1" name="radio" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
                             <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Radio 1</label>
                         </div>
                         <div class="flex items-center gap-2">
-                            <input type="radio" id="checkbox-example-2" name="checkbox_example" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
+                            <input type="radio" id="input-radio-2" name="radio" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
                             <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Radio 2</label>
                         </div>
                     </div>
@@ -244,7 +244,7 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">File</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
-                        <input type="file" id="checkbox-example" name="checkbox_example" class="text-neutral-700 dark:text-neutral-300 file:px-8 file:py-2 file:font-semibold file:text-white file:bg-black file:border file:border-black file:rounded-md file:hover:border-neutral-700 file:hover:bg-neutral-700 file:dark:bg-neutral-600 file:dark:border-neutral-600 file:dark:hover:border-neutral-500 file:dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none file:mr-2">
+                        <input type="file" id="file" name="file" class="text-neutral-700 dark:text-neutral-300 file:px-8 file:py-2 file:font-semibold file:text-white file:bg-black file:border file:border-black file:rounded-md file:hover:border-neutral-700 file:hover:bg-neutral-700 file:dark:bg-neutral-600 file:dark:border-neutral-600 file:dark:hover:border-neutral-500 file:dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none file:mr-2">
                     </div>
                 </div>
             </div>  
