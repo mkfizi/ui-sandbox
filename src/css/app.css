@@ -558,8 +558,20 @@ video {
   right: 0px;
 }
 
+.right-2 {
+  right: 0.5rem;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
 .z-10 {
   z-index: 10;
+}
+
+.-z-10 {
+  z-index: -10;
 }
 
 .col-span-2 {
@@ -820,6 +832,10 @@ video {
   stroke: #525252;
 }
 
+.stroke-neutral-700 {
+  stroke: #404040;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -872,6 +888,14 @@ video {
 
 .pb-24 {
   padding-bottom: 6rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
+}
+
+.pr-12 {
+  padding-right: 3rem;
 }
 
 .text-center {
@@ -1150,6 +1174,10 @@ video {
 
 :is(.dark .dark\:stroke-neutral-400) {
   stroke: #a3a3a3;
+}
+
+:is(.dark .dark\:stroke-neutral-300) {
+  stroke: #d4d4d4;
 }
 
 :is(.dark .dark\:text-neutral-300) {
