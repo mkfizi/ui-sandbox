@@ -16,6 +16,10 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.2.1] - 2023-08-07
+### Changed
+- Search bar appearance.
+
 ## [0.2.0] - 2023-07-16
 ### Add
 - Internal and external link styles.
