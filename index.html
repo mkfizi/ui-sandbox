@@ -45,7 +45,7 @@
         <div class="flex items-center justify-end w-full h-full max-w-screen-md px-4 mx-auto sm:px-8">
             <div class="flex gap-4">
                 <!-- Dark mode toggle button -->
-                <button type="button" id="dark-mode-toggle" aria-label="Toggle dark mode" class="group">
+                <button id="dark-mode-toggle" type="button" class="group" aria-label="Toggle dark mode">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-neutral-600 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
@@ -75,7 +75,7 @@
 
             <!-- Typography -->
             <div class="space-y-8">
-                <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Typography</p>    
+                <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Typography</p>
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Paragraph</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
@@ -223,7 +223,7 @@
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Checkbox</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
                         <div class="flex items-center gap-2">
-                            <input type="checkbox" id="input-checkbox" name="checkbox" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
+                            <input id="input-checkbox" type="checkbox" name="checkbox" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
                             <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Checkbox</label>
                         </div>
                     </div>
@@ -232,11 +232,11 @@
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Radio</p>
                     <div class="flex col-span-2 gap-4 sm:col-span-3">
                         <div class="flex items-center gap-2">
-                            <input type="radio" id="input-radio-1" name="radio" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
+                            <input id="input-radio-1" type="radio" name="radio" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
                             <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Radio 1</label>
                         </div>
                         <div class="flex items-center gap-2">
-                            <input type="radio" id="input-radio-2" name="radio" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
+                            <input id="input-radio-2" type="radio" name="radio" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
                             <label for="#" class="text-base text-neutral-700 dark:text-neutral-300">Radio 2</label>
                         </div>
                     </div>
