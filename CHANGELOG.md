@@ -16,12 +16,20 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.3.0] - 2023-08-15
+### Added
+- Tailstart Kit metadata.
+- Tailstart Kit logo to navbar.
+
+### Changed
+- Logo to Tailstart Kit logo.
+
 ## [0.2.1] - 2023-08-07
 ### Changed
 - Search bar appearance.
 
 ## [0.2.0] - 2023-07-16
-### Add
+### Added
 - Internal and external link styles.
 - Input search bar.
 
