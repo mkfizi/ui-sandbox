@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Style Guide v0.2.1: app.js
- * Licensed under MIT (https://github.com/mkfizi/style-guide/blob/main/LICENSE)
+ * Style Guide v0.3.0: app.js
+ * Licensed under MIT (https://github.com/mkfizi/tailstart-kit-style-guide/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -11,8 +11,7 @@
     const app = {};
 
     app.name = 'Style Guide';
-    app.version = '0.2.1';
-    app.breakpointSize = 1024;
+    app.version = '0.3.0';
 
     app.element = {
         navbar: document.getElementById('navbar'),
