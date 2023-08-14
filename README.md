@@ -1,5 +1,5 @@
-# Style Guide
-Personal preferences of style guideline for my open source projects.
+# Tailstart Kit - Style Guide
+Style guide for Tailstart Kit.
 
 ## Installation
 Clone this repository to get started.
