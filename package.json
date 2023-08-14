@@ -1,7 +1,7 @@
 {
-	"name": "style-guide",
-	"version": "0.2.0",
-	"description": "Personal preferences of style guideline for my open source projects.",
+	"name": "tailstart-kit-style-guide",
+	"version": "0.3.0",
+	"description": "Style guide for Tailstart Kit.",
 	"keywords": [
 		"Tailwindcss",
 		"Style guideline"
