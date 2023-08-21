@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Tailstart - Style Guide v0.3.0: app.js
- * Licensed under MIT (https://github.com/tailstart/library-styleguide/blob/main/LICENSE)
+ * Tailstart UI Kit - Style Guide v0.3.0: app.js
+ * Licensed under MIT (https://github.com/tailstart/uikit-styleguide/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -10,7 +10,7 @@
 
     const app = {};
 
-    app.name = 'Tailstart - Style Guide';
+    app.name = 'Tailstart UI Kit - Style Guide';
     app.version = '0.3.0';
 
     app.element = {

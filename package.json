@@ -1,10 +1,10 @@
 {
-	"name": "@tailstart/library-styleguide",
+	"name": "@tailstart/uikit-styleguide",
 	"version": "0.3.0",
-	"description": "Tailstart style guide library.",
+	"description": "Tailstart style guide UI kit.",
 	"keywords": [
 		"Tailwindcss",
-		"Style guideline"
+		"UI Kit"
 	],
 	"author": "hi@mkfizi.dev",
 	"license": "MIT",
