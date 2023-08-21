@@ -1,5 +1,5 @@
 # Tailstart - Style Guide UI Kit
-[Tailstart](https://tailstart.github.io) style guide UI Kit.
+[Tailstart](https://tailstart.github.io) development sandbox for style guide UI Kit.
 
 ## Installation
 Clone this repository to get started.
