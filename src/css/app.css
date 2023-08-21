@@ -696,10 +696,6 @@ video {
   align-items: center;
 }
 
-.justify-end {
-  justify-content: flex-end;
-}
-
 .justify-center {
   justify-content: center;
 }
@@ -832,6 +828,11 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .px-8 {
@@ -995,6 +996,11 @@ video {
 .file\:py-2::file-selector-button {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.file\:px-6::file-selector-button {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .file\:font-semibold::file-selector-button {

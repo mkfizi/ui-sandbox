@@ -1,5 +1,5 @@
-# Tailstart Kit - Style Guide
-Style guide for Tailstart Kit.
+# Tailstart - Style Guide
+[Tailstart](https://tailstart.github.io) style guide library..
 
 ## Installation
 Clone this repository to get started.
@@ -19,4 +19,4 @@ npm run watch
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://github.com/mkfizi/style-guideline/blob/main/LICENSE)
+[MIT](https://github.com/tailstart/library-styleguide/blob/main/LICENSE)

@@ -1,7 +1,7 @@
 {
-	"name": "tailstart-kit-style-guide",
+	"name": "@tailstart/library-styleguide",
 	"version": "0.3.0",
-	"description": "Style guide for Tailstart Kit.",
+	"description": "Tailstart style guide library.",
 	"keywords": [
 		"Tailwindcss",
 		"Style guideline"
