@@ -1,7 +1,7 @@
 {
 	"name": "@tailstart/uikit-styleguide",
 	"version": "0.3.0",
-	"description": "Tailstart style guide UI kit.",
+	"description": "Tailstart development sandbox for style guide UI Kit.",
 	"keywords": [
 		"Tailwindcss",
 		"UI Kit"
