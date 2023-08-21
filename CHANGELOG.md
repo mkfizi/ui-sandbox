@@ -16,13 +16,14 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.3.0] - 2023-08-15
+## [0.3.0] - 2023-08-21
 ### Added
-- Tailstart Kit metadata.
-- Tailstart Kit logo to navbar.
+- Tailstart metadata.
+- Tailstart logo to navbar.
 
 ### Changed
-- Logo to Tailstart Kit logo.
+- Logo to Tailstart logo.
+- Reduce button x-axis padding size.
 
 ## [0.2.1] - 2023-08-07
 ### Changed
