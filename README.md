@@ -1,4 +1,4 @@
-# Tailstart UI Kit - Style Guide
+# Tailstart - Style Guide UI Kit
 [Tailstart](https://tailstart.github.io) style guide UI Kit.
 
 ## Installation
