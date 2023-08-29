@@ -24,6 +24,8 @@ Put unreleased changes here.
 ### Changed
 - Logo to Tailstart logo.
 - Reduce button x-axis padding size.
+- Revise content padding size.
+- Revise footer appearance.
 
 ## [0.2.1] - 2023-08-07
 ### Changed
