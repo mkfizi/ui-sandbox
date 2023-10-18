@@ -16,6 +16,10 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.3.1] - 2023-10-18
+- Remove from Tailstart.
+- Update metadata.
+
 ## [0.3.0] - 2023-08-21
 ### Added
 - Tailstart metadata.

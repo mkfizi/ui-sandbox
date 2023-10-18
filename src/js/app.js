@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Tailstart - Style Guide UI Kit v0.3.0: app.js
- * Licensed under MIT (https://github.com/tailstart/uikit-styleguide/blob/main/LICENSE)
+ * Style Guide v0.3.1: app.js
+ * Licensed under MIT (https://github.com/mkfizi/styleguide/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -10,8 +10,8 @@
 
     const app = {};
 
-    app.name = 'Tailstart - Style Guide UI Kit';
-    app.version = '0.3.0';
+    app.name = 'Style Guide';
+    app.version = '0.3.1';
 
     app.element = {
         navbar: document.getElementById('navbar'),

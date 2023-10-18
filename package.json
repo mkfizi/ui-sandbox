@@ -1,10 +1,10 @@
 {
-	"name": "@tailstart/uikit-styleguide",
-	"version": "0.3.0",
-	"description": "Tailstart development sandbox for style guide UI Kit.",
+	"name": "@mkfizi/styleguide",
+	"version": "0.3.1",
+	"description": "Curated style guide preferences for @mkfizi projects.",
 	"keywords": [
 		"Tailwindcss",
-		"UI Kit"
+		"Style guide"
 	],
 	"author": "hi@mkfizi.dev",
 	"license": "MIT",
