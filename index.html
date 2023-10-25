@@ -65,7 +65,7 @@
                     </svg>
                 </button>
 
-                <a href="https://github.com/mkfizi/styleguide" target="_blank" class="group">
+                <a href="https://github.com/mkfizi/styleguide" target="_blank" class="group" aria-label="Go to Github repository">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
@@ -177,9 +177,9 @@
             <div class="space-y-8">
                 <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Form</p> 
                 <div class="grid gap-4 font-semibold sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base text-neutral-700 dark:text-neutral-300">Label</p>
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Label</p>
                     <div class="col-span-2 space-y-4 sm:col-span-3">
-                        <label for="#" class="text-base font-bold text-neutral-700 dark:text-neutral-300">Input label</label>
+                        <label for="" class="text-base font-bold text-neutral-700 dark:text-neutral-300">Input label</label>
                     </div>
                 </div> 
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -216,7 +216,7 @@
                     <div class="col-span-2 space-y-4 sm:col-span-3">
                         <div class="flex">
                             <input id="searchbar" type="text" name="searchbar" class="w-full py-2 pl-2 pr-12 text-base bg-transparent border border-r-0 appearance-none rounded-l-md text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none peer" placeholder="Search bar placeholder">
-                            <button type="button" class="flex items-center h-full p-2 border group rounded-r-md border-neutral-600 dark:border-neutral-400 hover:bg-neutral-700 dark:hover:bg-neutral-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none">
+                            <button type="button" class="flex items-center h-full p-2 border group rounded-r-md border-neutral-600 dark:border-neutral-400 hover:bg-neutral-700 dark:hover:bg-neutral-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none" aria-label="Search">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-white dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
@@ -231,7 +231,7 @@
                     <div class="col-span-2 space-y-4 sm:col-span-3">
                         <div class="flex items-center gap-2">
                             <input id="input-checkbox" type="checkbox" name="checkbox" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
-                            <label for="#input-checkbox" class="text-base text-neutral-700 dark:text-neutral-300">Checkbox</label>
+                            <label for="input-checkbox" class="text-base text-neutral-700 dark:text-neutral-300">Checkbox</label>
                         </div>
                     </div>
                 </div>
@@ -240,11 +240,11 @@
                     <div class="flex col-span-2 gap-4 sm:col-span-3">
                         <div class="flex items-center gap-2">
                             <input id="input-radio-1" type="radio" name="radio" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
-                            <label for="#input-radio-1" class="text-base text-neutral-700 dark:text-neutral-300">Radio 1</label>
+                            <label for="input-radio-1" class="text-base text-neutral-700 dark:text-neutral-300">Radio 1</label>
                         </div>
                         <div class="flex items-center gap-2">
                             <input id="input-radio-2" type="radio" name="radio" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
-                            <label for="#input-radio-2" class="text-base text-neutral-700 dark:text-neutral-300">Radio 2</label>
+                            <label for="input-radio-2" class="text-base text-neutral-700 dark:text-neutral-300">Radio 2</label>
                         </div>
                     </div>
                 </div>
