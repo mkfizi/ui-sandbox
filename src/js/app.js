@@ -61,7 +61,7 @@
 
         navbar: {
 
-            // Update navbar appearance base on window scroll Y position
+            // Update navbar appearance based on window scroll Y position
             toggle: () => {
                 if (app.element.navbar) {
                     const isScrolled = window.scrollY > (app.element.navbar.offsetHeight - app.element.navbar.clientHeight);
