@@ -33,8 +33,8 @@
 
         footer: {
 
-            // Toogle footer content with current year, app name and version
-            toggle: () => {
+            // Initialize footer content with current year, app name and version
+            init: () => {
                 if (app.element.footerCurrentYear) {
                     app.element.footerCurrentYear.innerHTML = new Date().getFullYear();
                 }
@@ -74,7 +74,7 @@
         // Initialize view
         init: () => {
             app.view.viewportHeight.toggle();
-            app.view.footer.toggle();
+            app.view.footer.init();
         }
     }
 
