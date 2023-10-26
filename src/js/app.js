@@ -86,7 +86,7 @@
                 const targetElement = event.target.closest('[id]');
                 if (targetElement) {
                     
-                    // Delegated method calls using switch case on element id
+                    // Delegate method calls using switch case on element id
                     switch (targetElement.id) {
                         case app.element.darkModeToggle?.id:
                             app.view.darkMode.toggle();
