@@ -31,34 +31,6 @@
             }
         },
 
-        footer: {
-
-            // Initialize footer content with current year, app name and version
-            init: () => {
-                if (app.element.footerCurrentYear) {
-                    app.element.footerCurrentYear.innerHTML = new Date().getFullYear();
-                }
-
-                if (app.element.footerAppName) {
-                    app.element.footerAppName.innerHTML = app.name;
-                }
-
-                if (app.element.footerAppVersion) {
-                    app.element.footerAppVersion.innerHTML = app.version;
-                }
-            }
-        },
-
-        darkMode: {
-
-            // Toggle dark mode
-            toggle: () => {
-                const isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
-                localStorage.theme = isDarkMode ? 'dark' : 'light';
-                document.documentElement.classList.toggle('dark', isDarkMode);
-            }
-        },
-
         navbar: {
 
             // Update navbar appearance based on window scroll Y position
@@ -75,6 +47,34 @@
         init: () => {
             app.view.viewportHeight.toggle();
             app.view.footer.init();
+        },
+
+        darkMode: {
+
+            // Toggle dark mode
+            toggle: () => {
+                const isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
+                localStorage.theme = isDarkMode ? 'dark' : 'light';
+                document.documentElement.classList.toggle('dark', isDarkMode);
+            }
+        },
+
+        footer: {
+
+            // Initialize footer content with current year, app name and version
+            init: () => {
+                if (app.element.footerCurrentYear) {
+                    app.element.footerCurrentYear.innerHTML = new Date().getFullYear();
+                }
+
+                if (app.element.footerAppName) {
+                    app.element.footerAppName.innerHTML = app.name;
+                }
+
+                if (app.element.footerAppVersion) {
+                    app.element.footerAppVersion.innerHTML = app.version;
+                }
+            }
         }
     }
 
