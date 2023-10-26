@@ -43,12 +43,6 @@
             },
         },
 
-        // Initialize view
-        init: () => {
-            app.view.viewportHeight.toggle();
-            app.view.footer.init();
-        },
-
         darkMode: {
 
             // Toggle dark mode
@@ -75,6 +69,12 @@
                     app.element.footerAppVersion.innerHTML = app.version;
                 }
             }
+        },
+
+        // Initialize view
+        init: () => {
+            app.view.viewportHeight.toggle();
+            app.view.footer.init();
         }
     }
 
