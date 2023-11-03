@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Style Guide v0.3.1: app.js
+ * Style Guide v0.3.2: app.js
  * Licensed under MIT (https://github.com/mkfizi/styleguide/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
