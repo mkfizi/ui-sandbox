@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -815,10 +815,6 @@ video {
   stroke: #404040;
 }
 
-.stroke-neutral-500 {
-  stroke: #737373;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -926,11 +922,6 @@ video {
 .text-neutral-500 {
   --tw-text-opacity: 1;
   color: rgb(115 115 115 / var(--tw-text-opacity));
-}
-
-.text-neutral-600 {
-  --tw-text-opacity: 1;
-  color: rgb(82 82 82 / var(--tw-text-opacity));
 }
 
 .text-neutral-700 {
@@ -1132,10 +1123,6 @@ video {
 
 :is(.dark .dark\:stroke-neutral-400) {
   stroke: #a3a3a3;
-}
-
-:is(.dark .dark\:stroke-neutral-500) {
-  stroke: #737373;
 }
 
 :is(.dark .dark\:text-neutral-300) {
