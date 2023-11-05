@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Style Guide v0.3.2: app.js
+ * Style Guide v0.4.0: app.js
  * Licensed under MIT (https://github.com/mkfizi/styleguide/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -11,7 +11,7 @@
     const app = {};
 
     app.name = 'Style Guide';
-    app.version = '0.3.2';
+    app.version = '0.4.0';
 
     app.element = {
         navbar: document.getElementById('navbar'),
