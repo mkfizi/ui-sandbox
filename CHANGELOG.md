@@ -16,7 +16,10 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.3.2] - 2023-11-03
+## [0.4.0] - 2023-11-05
+### Added
+- Table element.
+
 ### Changed
 - Change link colours to `neutral-500` for light mode.
 
