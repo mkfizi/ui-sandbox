@@ -16,9 +16,10 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.4.0] - 2023-11-05
+## [0.4.0] - 2023-11-11
 ### Added
 - Table element.
+- Range slider input.
 
 ### Changed
 - Change link colours to `neutral-500` for light mode.
