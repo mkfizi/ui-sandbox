@@ -20,6 +20,7 @@ Put unreleased changes here.
 ### Removed
 - Footnote typography.
 - Link `block` display class.
+- Internal and external link.
 
 ## [0.4.0] - 2023-11-11
 ### Added
