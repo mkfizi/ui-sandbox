@@ -16,6 +16,11 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.4.1] - 2023-12-01
+### Removed
+- Footnote typography.
+- Link `block` display class.
+
 ## [0.4.0] - 2023-11-11
 ### Added
 - Table element.
