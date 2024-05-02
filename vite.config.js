@@ -4,8 +4,8 @@ import { resolve, relative } from 'path';
 const outDir = '../docs';
 
 module.exports = {
+    base: './',
     root: 'src',
-    assetsPublicPath: 'src/assets',
     build: {
         outDir: outDir,
         emptyOutDir: true,
