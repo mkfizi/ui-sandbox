@@ -1,311 +1,957 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+	<head>
+		<!-- Metadata -->
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta
+			name="theme-color"
+			content="#ffffff"
+		/>
 
-    <!-- Metadata -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
+		<!-- SEO -->
+		<meta
+			name="title"
+			content="Style Guide"
+		/>
+		<meta
+			name="description"
+			content="Curated style guide preferences for @mkfizi projects."
+		/>
+		<meta
+			name="robots"
+			content="index, follow"
+		/>
 
-    <!-- SEO -->
-    <meta name="title" content="Style Guide">
-    <meta name="description" content="Curated style guide preferences for @mkfizi projects.">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="./src/css/app.css">
-    <link rel="preload" href="./src/css/app.css" as="style">
+		<!-- Favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./favicon-16x16.png"
+		/>
+		<link
+			rel="manifest"
+			href="./site.webmanifest"
+		/>
 
-    <!-- Scripts -->
-    <script src="./src/js/app.js" defer></script>
-    <link rel="preload" href="./src/js/app.js" as="script">
-    
-    <!-- 
-        Handle dark mode toggle when the page is loaded.
+		<!-- Styles -->
+		<link
+			rel="stylesheet"
+			href="./assets/css/index.css"
+		/>
+		<link
+			rel="preload"
+			href="./assets/css/index.css"
+			as="style"
+		/>
 
-        These codes below are called here instead of being inside app.js 
-        to avoid FOUC should app.js type is defined as a module. 
-    -------------------------------------------------------------------------->
-    <script>
-        if (localStorage.theme === "light" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: light)").matches)) {
-            localStorage.theme = 'light';
-            document.documentElement.classList.remove("dark");
-        } else if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-            localStorage.theme = 'dark';
-            document.documentElement.classList.add("dark")
-        };
-    </script>
+		<!-- Scripts -->
+		<script
+			type="module"
+			src="./assets/js/index.js"
+			defer
+		></script>
+		<link
+			rel="preload"
+			href="./assets/js/index.js"
+			as="script"
+		/>
 
-    <title>Style Guide</title>
-</head>
-<body class="relative min-h-screen antialiased bg-white dark:bg-neutral-900">
+		<!-- Below code must execute here to avoid FOUC. -->
+		<script defer>
+			// Handle dark mode toggle when the page is loaded.
+			if (
+				localStorage.theme === "dark" ||
+				(!("theme" in localStorage) &&
+					window.matchMedia("(prefers-color-scheme: dark)").matches)
+			) {
+				document.documentElement.classList.add("dark");
+			} else {
+				document.documentElement.classList.remove("dark");
+			}
 
-    <!-- Navbar -->
-    <nav id="navbar" class="sticky top-0 z-10 bg-white border-b border-transparent dark:border-transparent dark:bg-neutral-900">
-        <div class="flex items-center justify-between w-full h-16 max-w-screen-sm px-4 mx-auto sm:px-8">
+			// Workaround fix to handle viewport height issue on mobile browsers
+			// https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+			function resizeViewportHeight() {
+				document.documentElement.style.setProperty(
+					"--vh",
+					window.innerHeight * 0.01 + "px"
+				);
+			}
 
-            <!-- Logo -->
-            <a href="./" class="flex gap-4">
-                <img src="./src/images/logo.png" alt="Logo" class="w-6 h-6 dark:hidden">
-                <img src="./src/images/logo-dark.png" alt="Logo" class="hidden w-6 h-6 dark:block">
-            </a>
-            
-            <div class="flex gap-4">
+			window.addEventListener("resize", resizeViewportHeight);
+			resizeViewportHeight();
+		</script>
 
-                <!-- Dark mode toggle button -->
-                <button id="dark-mode-toggle" type="button" class="group" aria-label="Toggle dark mode">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-neutral-600 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 dark:block dark:stroke-neutral-400 group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-                    </svg>
-                </button>
+		<title>Style Guide</title>
+	</head>
+	<body
+		class="relative min-h-screen antialiased bg-white dark:bg-neutral-950"
+	>
+		<!-- Navbar -->
+		<header
+			class="sticky top-0 z-10 bg-white dark:bg-neutral-950"
+			x-data="{
+				navbarHeight: $el.clientHeight,
+				isNavbarScrolled: false,
+				navbarScroll() {
+					this.isNavbarScrolled = window.scrollY > 0;
+				}
+			}"
+			x-init="navbarScroll()"
+			@scroll.window="navbarScroll()"
+			:class="isNavbarScrolled ? 'border-b border-neutral-200 dark:border-neutral-800' : 'border-b border-transparent dark:border-transparent'"
+		>
+			<div
+				class="flex items-center justify-between w-full max-w-screen-xl px-4 py-4 mx-auto sm:px-6 xl:px-8"
+			>
+				<!-- Logo -->
+				<a href="./">
+					<img
+						src="./assets/images/logo.png"
+						alt="Logo"
+						class="w-5 h-5 dark:hidden"
+					/>
+					<img
+						src="./assets/images/logo-dark.png"
+						alt="Logo"
+						class="hidden w-5 h-5 dark:block"
+					/>
+				</a>
 
-                <a href="https://github.com/mkfizi/styleguide" target="_blank" class="group" aria-label="Go to Github repository">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </nav>
+				<div class="flex gap-4">
+					<a
+						href="https://github.com/mkfizi/styleguide"
+						target="_blank"
+						class="group"
+						aria-label="Go to Github repository"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path
+								stroke="none"
+								d="M0 0h24v24H0z"
+								fill="none"
+							/>
+							<path
+								d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+							/>
+						</svg>
+					</a>
 
-    <!-- Content -->
-    <main class="w-full max-w-screen-sm px-4 pt-16 pb-32 mx-auto sm:px-8">
-        <div class="w-full space-y-16">
-            <p class="text-2xl font-black text-black sm:text-3xl lg:text-4xl dark:text-white">Style Guide</p>
+					<!-- Dark mode toggle dropdown -->
+					<div
+						class="relative"
+						x-data="{ 
+							isDropdownOpen: false,
+							updateTheme() {
+								if (localStorage.theme === 'dark' || (!('theme' in localStorage) &&window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+									document.documentElement.classList.add('dark');
+								} else {
+									document.documentElement.classList.remove('dark');
+								}
+							},
+							toggleTheme(theme = null) {
+								theme != null ? localStorage.theme = theme : localStorage.removeItem('theme');
+								this.updateTheme();
+								this.isDropdownOpen = false;
+							},
+						}"
+						x-init="
+							window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => {
+								updateTheme();
+							})
+						"
+						@click.outside="isDropdownOpen=false"
+						@keydown.escape.window="isDropdownOpen = false"
+					>
+						<div class="flex items-center">
+							<button
+								class="group"
+								aria-label="Toggle dark mode toggle."
+								@click="isDropdownOpen = !isDropdownOpen"
+								:aria-expanded="isDropdownOpen ? true : false"
+								type="button"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="w-5 h-5 dark:hidden stroke-neutral-500 group-hover:stroke-black"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									fill="none"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										stroke="none"
+										d="M0 0h24v24H0z"
+										fill="none"
+									></path>
+									<path
+										d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"
+									></path>
+									<path d="M6.343 17.657l-1.414 1.414"></path>
+									<path d="M6.343 6.343l-1.414 -1.414"></path>
+									<path d="M17.657 6.343l1.414 -1.414"></path>
+									<path d="M17.657 17.657l1.414 1.414"></path>
+									<path d="M4 12h-2"></path>
+									<path d="M12 4v-2"></path>
+									<path d="M20 12h2"></path>
+									<path d="M12 20v2"></path>
+								</svg>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="hidden w-5 h-5 dark:block stroke-neutral-400 group-hover:stroke-white"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									fill="none"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										stroke="none"
+										d="M0 0h24v24H0z"
+										fill="none"
+									></path>
+									<path
+										d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+									></path>
+									<path
+										d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"
+									></path>
+									<path d="M19 11h2m-1 -1v2"></path>
+								</svg>
+							</button>
+						</div>
+						<ul
+							class="absolute right-0 z-10 invisible hidden w-36 p-0.5 top-8 bg-white border rounded-md border-neutral-200 dark:border-neutral-800 dark:bg-neutral-950"
+							aria-labelledby="Dark mode toggle dropdown"
+							:class="{ 
+								'hidden invisible': !isDropdownOpen 
+							}"
+							:aria-hidden="isDropdownOpen ? false : true"
+						>
+							<li>
+								<button
+									type="button"
+									class="flex items-center w-full gap-2 px-2 py-1.5 text-left rounded-md group hover:bg-neutral-100 dark:hover:bg-neutral-800"
+									@click="toggleTheme('light')"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										class="w-5 h-5 stroke-black dark:stroke-white"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										fill="none"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path
+											stroke="none"
+											d="M0 0h24v24H0z"
+											fill="none"
+										></path>
+										<path
+											d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"
+										></path>
+										<path
+											d="M6.343 17.657l-1.414 1.414"
+										></path>
+										<path
+											d="M6.343 6.343l-1.414 -1.414"
+										></path>
+										<path
+											d="M17.657 6.343l1.414 -1.414"
+										></path>
+										<path
+											d="M17.657 17.657l1.414 1.414"
+										></path>
+										<path d="M4 12h-2"></path>
+										<path d="M12 4v-2"></path>
+										<path d="M20 12h2"></path>
+										<path d="M12 20v2"></path>
+									</svg>
+									<span
+										class="text-sm font-medium text-black dark:text-white"
+										>Light</span
+									>
+								</button>
+							</li>
+							<li>
+								<button
+									type="button"
+									class="flex items-center w-full gap-2 px-2 py-1.5 text-left rounded-md group hover:bg-neutral-100 dark:hover:bg-neutral-800"
+									@click="toggleTheme('dark')"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										class="w-5 h-5 stroke-black dark:stroke-white"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="#2c3e50"
+										fill="none"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path
+											stroke="none"
+											d="M0 0h24v24H0z"
+											fill="none"
+										></path>
+										<path
+											d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+										></path>
+										<path
+											d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"
+										></path>
+										<path d="M19 11h2m-1 -1v2"></path>
+									</svg>
+									<span
+										class="text-sm font-medium text-black dark:text-white"
+										>Dark</span
+									>
+								</button>
+							</li>
+							<li>
+								<button
+									type="button"
+									class="flex items-center w-full gap-2 px-2 py-1.5 text-left rounded-md group hover:bg-neutral-100 dark:hover:bg-neutral-800"
+									@click="toggleTheme()"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										class="w-5 h-5 stroke-black dark:stroke-white"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="#2c3e50"
+										fill="none"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path
+											stroke="none"
+											d="M0 0h24v24H0z"
+											fill="none"
+										></path>
+										<path
+											d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"
+										></path>
+										<path d="M7 20h10"></path>
+										<path d="M9 16v4"></path>
+										<path d="M15 16v4"></path>
+									</svg>
 
-            <!-- Typography -->
-            <div class="space-y-8">
-                <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Typography</p>
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Paragraph</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <p class="text-base text-neutral-700 dark:text-neutral-300">This is a text sentence.</p>
-                        <p class="text-base text-neutral-700 dark:text-neutral-300"><em>This is a text sentence.</em></p>
-                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>This is a text sentence.</strong></p>
-                    </div>
-                </div>  
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Heading</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <h1 class="text-4xl font-black text-black sm:text-5xl lg:text-6xl dark:text-white">Heading 1</h1>
-                        <h2 class="text-3xl font-black text-black sm:text-4xl lg:text-5xl dark:text-white">Heading 2</h2>
-                        <h3 class="text-2xl font-extrabold text-black sm:text-3xl lg:text-4xl dark:text-white">Heading 3</h3>
-                        <h4 class="text-xl font-extrabold text-black sm:text-2xl lg:text-3xl dark:text-white">Heading 4</h4>
-                        <h5 class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Heading 5</h5>
-                        <h6 class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Heading 6</h6>
-                    </div>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Link</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <a href="#" class="text-base font-semibold text-neutral-500 dark:text-neutral-400 hover:text-black hover:dark:text-white">Link</a>
-                    </div>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">List</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <ul class="ml-4 list-disc marker:text-neutral-700 dark:marker:text-neutral-300">
-                            <li class="pl-2">
-                                <p class="text-base text-neutral-700 dark:text-neutral-300">Item one.</p>
-                            </li>
-                            <li class="pl-2">
-                                <p class="text-base text-neutral-700 dark:text-neutral-300">Item two.</p>
-                            </li>
-                            <li class="pl-2">
-                                <p class="text-base text-neutral-700 dark:text-neutral-300">Item three.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+									<span
+										class="text-sm font-medium text-black dark:text-white"
+										>System</span
+									>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
 
-            <!-- Elements -->
-            <div class="space-y-8">
-                <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Element</p> 
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Badge</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <span class="inline-block px-2 py-px text-sm font-semibold text-black rounded-md dark:text-white bg-neutral-200 dark:bg-neutral-700">Badge Text</span>
-                    </div>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Divider</p>
-                    <div class="mt-4 sm:col-span-2 lg:col-span-3">
-                        <hr class="h-px border-neutral-300 dark:border-neutral-700">
-                    </div>
-                </div>  
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Button</p>
-                    <div class="sm:col-span-2 lg:col-span-3">
-                        <button type="button" class="px-4 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Primary</button>
-                        <button type="button" class="px-4 py-2 text-base font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Secondary</button>
-                    </div>
-                </div>  
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Button Link</p>
-                    <div class="sm:col-span-2 lg:col-span-3">
-                        <a href="#" class="inline-block px-4 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500">Primary</a>
-                        <a href="#" class="inline-block px-4 py-2 text-base font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500">Secondary</a>
-                    </div> 
-                </div>  
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Blockquote</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <blockquote class="p-2 space-y-4 border-l-2 border-black dark:border-white bg-neutral-100 dark:bg-neutral-800">
-                            <p class="text-base text-black dark:text-white">This is a text sentence.</p>
-                        </blockquote>
-                    </div>
-                </div> 
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Table</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <div class="overflow-hidden bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800">
-                            <div class="overflow-x-auto">
-                                <table class="w-full divide-y whitespace-nowrap divide-neutral-300 dark:divide-neutral-700">
-                                    <thead class="text-left bg-neutral-100 dark:bg-neutral-800">
-                                        <tr>
-                                            <th class="p-4 text-base font-bold text-neutral-700 dark:text-neutral-300">No</th> 
-                                            <th class="p-4 text-base font-bold text-neutral-700 dark:text-neutral-300">Name</th>
-                                            <th class="p-4 text-base font-bold text-neutral-700 dark:text-neutral-300">Role</th> 
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-neutral-300 dark:divide-neutral-700 dark:bg-neutral-900">
-                                        <tr>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">1</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Matthew Sanders</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Vocalist</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">2</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Zachary Baker</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Rhythm Guitarist</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">3</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Brian Haner Jr.</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Lead Guitarist</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">4</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Jonathan Seward</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Bassist</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">5</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Brooks Wackerman</td>
-                                            <td class="px-4 py-3 text-base text-neutral-700 dark:text-neutral-300">Drummer</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>    
-                    </div>
-                </div>    
-            </div>  
+		<!-- Content -->
+		<main>
+			<section
+				class="max-w-screen-xl px-4 py-16 mx-auto space-y-8 sm:py-24 lg:py-32 sm:px-6 lg:px-8"
+			>
+				<div class="w-full max-w-screen-md space-y-16">
+					<!-- Typography -->
+					<div class="space-y-8">
+						<p
+							class="text-lg font-semibold text-black dark:text-white"
+						>
+							Typography
+						</p>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Heading
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<h1
+									class="text-4xl font-black text-black sm:text-5xl lg:text-6xl dark:text-white"
+								>
+									Heading 1
+								</h1>
+								<h2
+									class="text-2xl font-extrabold text-black sm:text-3xl lg:text-4xl dark:text-white"
+								>
+									Heading 2
+								</h2>
+								<h3
+									class="text-xl font-bold text-black sm:text-2xl dark:text-white"
+								>
+									Heading 3
+								</h3>
+								<h4
+									class="text-lg font-semibold text-black dark:text-white"
+								>
+									Heading 4
+								</h4>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Subtitle
+							</p>
+							<div class="col-span-2 sm:col-span-3">
+								<p
+									class="text-base text-neutral-800 dark:text-neutral-200"
+								>
+									This is subtitle text sentence.
+								</p>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Paragraph
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<p
+									class="text-sm text-neutral-800 dark:text-neutral-200"
+								>
+									This is a text sentence.
+								</p>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Link
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<a
+									href="#"
+									class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-black hover:dark:text-white"
+									>Inactive link</a
+								>
+								<br />
+								<a
+									href="#"
+									class="text-sm text-black dark:text-white hover:text-neutral-700 hover:dark:text-neutral-200"
+									>Active link</a
+								>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								List
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<ul
+									class="ml-4 list-disc marker:text-neutral-800 dark:marker:text-neutral-200"
+								>
+									<li>
+										<p
+											class="text-sm text-neutral-800 dark:text-neutral-200"
+										>
+											Item one.
+										</p>
+									</li>
+									<li>
+										<p
+											class="text-sm text-neutral-800 dark:text-neutral-200"
+										>
+											Item two.
+										</p>
+									</li>
+									<li>
+										<p
+											class="text-sm text-neutral-800 dark:text-neutral-200"
+										>
+											Item three.
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 
-            <!-- Forms -->
-            <div class="space-y-8">
-                <p class="text-lg font-extrabold text-black sm:text-xl lg:text-2xl dark:text-white">Form</p> 
-                <div class="grid gap-4 font-semibold sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Label</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <label for="" class="text-base font-bold text-neutral-700 dark:text-neutral-300">Input label</label>
-                    </div>
-                </div> 
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Input</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <input type="text" id="input" name="input" value="" class="w-full p-2 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none" placeholder="Input placeholder">
-                    </div>
-                </div> 
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Select</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <div class="relative">
-                            <select id="select" name="select" class="relative w-full py-2 pl-2 pr-12 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none peer">
-                                <option value="" class="dark:bg-transparent" selected disabled>Select Option</option>
-                                <option value="Option 1" class="dark:bg-transparent">Option 1</option>
-                                <option value="Option 2" class="dark:bg-transparent">Option 2</option>
-                                <option value="Option 3" class="dark:bg-transparent">Option 3</option>
-                            </select>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6 top-2 right-2 stroke-neutral-700 dark:stroke-neutral-300 -z-10 peer-disabled:opacity-50" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M6 9l6 6l6 -6" />
-                            </svg>
-                        </div>
-                    </div>
-                </div> 
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Text Area</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <textarea id="textarea" name="textarea" class="w-full h-16 p-2 text-base bg-transparent border rounded-md appearance-none text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none" placeholder="Text area placeholder"></textarea>
-                    </div>
-                </div> 
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Search Bar</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <div class="flex">
-                            <input id="searchbar" type="text" name="searchbar" class="w-full py-2 pl-2 pr-12 text-base bg-transparent border border-r-0 appearance-none rounded-l-md text-neutral-700 dark:text-neutral-300 border-neutral-600 dark:border-neutral-400 disabled:opacity-50 disabled:pointer-events-none peer" placeholder="Search bar placeholder">
-                            <button type="button" class="flex items-center h-full p-2 border group rounded-r-md border-neutral-600 dark:border-neutral-400 hover:bg-neutral-700 dark:hover:bg-neutral-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none" aria-label="Search">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-white dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                                    <path d="M21 21l-6 -6" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div> 
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Checkbox</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <div class="flex items-center gap-2">
-                            <input id="input-checkbox" type="checkbox" name="checkbox" value="" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
-                            <label for="input-checkbox" class="text-base text-neutral-700 dark:text-neutral-300">Checkbox</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Radio</p>
-                    <div class="flex gap-4 sm:col-span-2 lg:col-span-3">
-                        <div class="flex items-center gap-2">
-                            <input id="input-radio-1" type="radio" name="radio" value="" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
-                            <label for="input-radio-1" class="text-base text-neutral-700 dark:text-neutral-300">Radio 1</label>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <input id="input-radio-2" type="radio" name="radio" value="" class="accent-neutral-700 dark:accent-neutral-300 disabled:opacity-50 disabled:pointer-events-none">
-                            <label for="input-radio-2" class="text-base text-neutral-700 dark:text-neutral-300">Radio 2</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Range</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <input  id="range" type="range" name="range" min="1" max="100" value="50" class="w-full disabled:opacity-50 disabled:pointer-events-none">
-                    </div>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">File</p>
-                    <div class="space-y-4 sm:col-span-2 lg:col-span-3">
-                        <input id="file" type="file" name="file" class="w-full text-neutral-700 dark:text-neutral-300 file:px-6 file:py-2 file:font-semibold file:text-white file:bg-black file:border file:border-black file:rounded-md file:hover:border-neutral-700 file:hover:bg-neutral-700 file:dark:bg-neutral-600 file:dark:border-neutral-600 file:dark:hover:border-neutral-500 file:dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none file:mr-2">
-                    </div>
-                </div>
-            </div>  
-        </div>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="absolute bottom-0 w-full max-w-screen-sm px-4 pb-px text-center transform -translate-x-1/2 left-1/2 sm:px-8">
-        <p class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-app-name"></span> v<span id="footer-app-version"></span></p>
-        <span class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-year"></span> © Developed by <a href="https://mkfizi.dev" target="_blank" class="inline-block font-semibold text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white">mkfizi</a></span>
-    </footer>
-</body>
+					<!-- Element -->
+					<div class="space-y-8">
+						<p
+							class="text-lg font-semibold text-black dark:text-white"
+						>
+							Element
+						</p>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Divider
+							</p>
+							<div class="col-span-2 mt-4 lg:col-span-3">
+								<hr
+									class="h-px border-neutral-200 dark:border-neutral-800"
+								/>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Badge
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<div
+									class="inline-block px-2 py-px text-xs text-black rounded-md dark:text-white bg-neutral-200 dark:bg-neutral-800"
+								>
+									Badge text
+								</div>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Button
+							</p>
+							<div
+								class="flex flex-wrap col-span-2 gap-2 lg:col-span-3"
+							>
+								<button
+									type="button"
+									class="px-4 py-2 text-sm font-medium text-white bg-black border border-black rounded-md dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white hover:border-neutral-800 dark:border-neutral-100 dark:hover:border-white disabled:pointer-events-none disabled:opacity-60"
+								>
+									Primary
+								</button>
+								<button
+									type="button"
+									class="px-4 py-2 text-sm font-medium text-black border rounded-md bg-neutral-100 hover:bg-neutral-200 border-neutral-100 dark:bg-neutral-700 dark:text-white dark:border-neutral-700 hover:border-neutral-200 dark:hover:bg-neutral-600 dark:hover:border-neutral-600 disabled:pointer-events-none disabled:opacity-60"
+								>
+									Secondary
+								</button>
+								<button
+									type="button"
+									class="px-4 py-2 text-sm font-medium text-black border rounded-md border-neutral-300 dark:text-white hover:border-neutral-400 dark:border-neutral-700 dark:hover:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60"
+								>
+									Outline
+								</button>
+								<button
+									type="button"
+									class="px-4 py-2 text-sm font-medium text-black rounded-md dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60"
+								>
+									Ghost
+								</button>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Table
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<div
+									class="overflow-hidden border rounded-md border-neutral-200 dark:border-neutral-800"
+								>
+									<div class="overflow-x-auto">
+										<table
+											class="w-full divide-y whitespace-nowrap divide-neutral-200 dark:divide-neutral-800"
+										>
+											<thead
+												class="text-left bg-neutral-50 dark:bg-neutral-900"
+											>
+												<tr>
+													<th
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														No
+													</th>
+													<th
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Name
+													</th>
+													<th
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Role
+													</th>
+												</tr>
+											</thead>
+											<tbody
+												class="divide-y divide-neutral-200 dark:divide-neutral-800"
+											>
+												<tr>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														1
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Matthew Sanders
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Vocalist
+													</td>
+												</tr>
+												<tr>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														2
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Zachary Baker
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Rhythm Guitarist
+													</td>
+												</tr>
+												<tr>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														3
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Brian Haner Jr.
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Lead Guitarist
+													</td>
+												</tr>
+												<tr>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														4
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Jonathan Seward
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Bassist
+													</td>
+												</tr>
+												<tr>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														5
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Brooks Wackerman
+													</td>
+													<td
+														class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200"
+													>
+														Drummer
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Form -->
+					<div class="space-y-8">
+						<p
+							class="text-lg font-semibold text-black dark:text-white"
+						>
+							Form
+						</p>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Label
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<label
+									for=""
+									class="block text-sm text-neutral-800 dark:text-neutral-200"
+								>
+									Input label
+								</label>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Input
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<input
+									type="text"
+									id="input"
+									name="input"
+									value=""
+									class="w-full p-2 text-sm bg-transparent border rounded-md appearance-none text-neutral-800 dark:text-neutral-200 border-neutral-400 dark:border-neutral-600 disabled:opacity-60 disabled:pointer-events-none"
+									placeholder="Input placeholder"
+								/>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Select
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<div class="relative">
+									<select
+										id="select"
+										name="select"
+										class="relative w-full py-2 pl-2 pr-10 text-sm bg-transparent border rounded-md appearance-none text-neutral-800 dark:text-neutral-200 border-neutral-400 dark:border-neutral-600 disabled:opacity-60 disabled:pointer-events-none peer"
+									>
+										<option
+											value=""
+											class="dark:bg-transparent"
+											selected
+											disabled
+										>
+											Select Option
+										</option>
+										<option
+											value="Option 1"
+											class="dark:bg-transparent"
+										>
+											Option 1
+										</option>
+										<option
+											value="Option 2"
+											class="dark:bg-transparent"
+										>
+											Option 2
+										</option>
+										<option
+											value="Option 3"
+											class="dark:bg-transparent"
+										>
+											Option 3
+										</option>
+									</select>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										class="absolute w-5 h-5 top-2 right-2 stroke-neutral-700 dark:stroke-neutral-300 -z-10 peer-disabled:opacity-60"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										fill="none"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path
+											stroke="none"
+											d="M0 0h24v24H0z"
+											fill="none"
+										/>
+										<path d="M6 9l6 6l6 -6" />
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Text Area
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<textarea
+									id="textarea"
+									name="textarea"
+									class="w-full h-16 p-2 text-sm bg-transparent border rounded-md appearance-none text-neutral-800 dark:text-neutral-200 border-neutral-400 dark:border-neutral-600 disabled:opacity-60 disabled:pointer-events-none"
+									placeholder="Text area placeholder"
+								></textarea>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Checkbox
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<div class="flex items-center gap-2">
+									<input
+										id="input-checkbox"
+										type="checkbox"
+										name="checkbox"
+										value=""
+										class="accent-neutral-800 dark:accent-neutral-200 disabled:opacity-60 disabled:pointer-events-none"
+									/>
+									<label
+										for="input-checkbox"
+										class="text-sm text-neutral-800 dark:text-neutral-200"
+										>Checkbox</label
+									>
+								</div>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Radio
+							</p>
+							<div class="flex col-span-2 gap-4 lg:col-span-3">
+								<div class="flex items-center gap-2">
+									<input
+										id="input-radio-1"
+										type="radio"
+										name="radio"
+										value=""
+										class="accent-neutral-800 dark:accent-neutral-200 disabled:opacity-60 disabled:pointer-events-none"
+									/>
+									<label
+										for="input-radio-1"
+										class="text-sm text-neutral-800 dark:text-neutral-200"
+										>Radio 1</label
+									>
+								</div>
+								<div class="flex items-center gap-2">
+									<input
+										id="input-radio-2"
+										type="radio"
+										name="radio"
+										value=""
+										class="accent-neutral-800 dark:accent-neutral-200 disabled:opacity-60 disabled:pointer-events-none"
+									/>
+									<label
+										for="input-radio-2"
+										class="text-sm text-neutral-800 dark:text-neutral-200"
+										>Radio 2</label
+									>
+								</div>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								Range
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<input
+									id="range"
+									type="range"
+									name="range"
+									min="1"
+									max="100"
+									value="50"
+									class="w-full h-2 bg-transparent border rounded-md appearance-none border-neutral-300 dark:border-neutral-700 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:bg-neutral-800 dark:[&::-webkit-slider-thumb]:bg-neutral-200 disabled:opacity-60 disabled:pointer-events-none"
+								/>
+							</div>
+						</div>
+						<div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+							<p
+								class="text-sm text-neutral-800 dark:text-neutral-200"
+							>
+								File
+							</p>
+							<div class="col-span-2 lg:col-span-3">
+								<input
+									type="file"
+									id="file"
+									name="file"
+									value=""
+									class="w-full p-0.5 text-sm bg-transparent border rounded-md appearance-none text-neutral-800 dark:text-neutral-200 border-neutral-400 dark:border-neutral-600 file:px-4 file:py-1.5 file:mr-2 file:text-white dark:file:text-black file:bg-black dark:file:bg-neutral-100 file:hover:bg-neutral-800 dark:file:hover:bg-white file:border file:border-solid file:border-black dark:file:border-neutral-100 file:hover:border-neutral-800 dark:file:hover:border-white file:rounded-md disabled:opacity-60 disabled:pointer-events-none"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer
+			class="absolute bottom-0 w-full max-w-screen-xl px-4 pb-px text-center sm:px-6 xl:px-8"
+		>
+			<span class="text-sm text-neutral-800 dark:text-neutral-200">
+				<span
+					x-data="{ currentYear: new Date().getFullYear() }"
+					x-text="currentYear"
+					>0000</span
+				>&nbsp;© Developed by
+				<a
+					href="https://mkfizi.dev"
+					target="_blank"
+					class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-black hover:dark:text-white"
+					>mkfizi</a
+				>
+			</span>
+		</footer>
+	</body>
 </html>
