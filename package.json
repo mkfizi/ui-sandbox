@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Curated style guide preferences for @mkfizi projects.",
 	"keywords": [
+		"Alpinejs",
 		"Tailwindcss",
 		"Style guide"
 	],
