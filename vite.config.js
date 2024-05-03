@@ -1,26 +1,26 @@
 import { glob } from 'glob';
 import { resolve, relative } from 'path';
 
-const outDir = '../docs';
+const outputPath = '../docs';
 
 module.exports = {
     base: './',
     root: 'src',
     build: {
-        outDir: outDir,
+        outDir: outputPath,
         emptyOutDir: true,
         rollupOptions: {
 			input: glob
 				.sync(resolve(__dirname, '**/*.html'))
-				.filter((path) => !path.startsWith(resolve(__dirname, outDir)))
+				.filter((path) => !path.startsWith(resolve(__dirname, outputPath)))
 				.reduce((entries, path) => {
 					entries[relative(__dirname, path).replace(/\.[^/.]+$/, '')] = path;
 					return entries;
 				}, {}),
 			output: {
-				chunkFileNames: 'assets/[name]-[hash].js',
-				entryFileNames: 'assets/[name]-[hash].js',
-				assetFileNames: 'assets/[name]-[hash][extname]'
+				chunkFileNames: '[name]-[hash].js',
+				entryFileNames: '[name]-[hash].js',
+				assetFileNames: '[name]-[hash][extname]'
 			},
 		},
     },

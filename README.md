@@ -6,19 +6,18 @@ Tech stacks:
 
 -   AlpineJS
 -   TailwindCSS
--   ViteJS
 
 ## Installation
 
 Clone this repository to get started.
 
-Run the following command in project directory to install dependencies.
+Execute the following command in project directory to install dependencies.
 
 ```bash
 npm install
 ```
 
-To execute Vite, use one of the following commands:
+This project utilize Vite for source code bundling. To run, execute one of the following commands:
 
 ```bash
 npm run dev

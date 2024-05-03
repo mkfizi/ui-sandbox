@@ -34,7 +34,7 @@ Put unreleased changes here.
 ### Changed
 
 -   Source files into `src` directory.
--   Aassets into `/src/assets` directory.
+-   Asset files into respective directories.
 -   `app.*` to `index.*`.
 -   Rewrite Javascript codebase into AlpineJS.
 -   Dark mode background to `bg-neutral-950`.
