@@ -1,5 +1,6 @@
 {
 	"name": "@mkfizi/styleguide",
+	"type": "module",
 	"version": "1.0.0",
 	"description": "Curated style guide preferences for @mkfizi projects.",
 	"keywords": [
