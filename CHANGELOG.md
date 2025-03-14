@@ -25,6 +25,7 @@ Put unreleased changes here.
 - Pagination button element.
 
 ### Changed
+- Renamed project to `UI Style` as part of `@mkfizi/ui` sandbox.
 - Source files back into `./` directory.
 - Seperate `index.html` content into `typography.html`, `element.html` and `form.html`.
 - Update Vite configuration.
