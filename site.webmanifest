@@ -1,6 +1,6 @@
 {
-    "name": "Style Guide",
-    "short_name": "Style Guide",
+    "name": "Components",
+    "short_name": "Components",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
