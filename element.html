@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <!-- END Metadata -->
+
+    <!-- SEO -->
+    <meta name="title" content="UI Interactive">
+    <meta name="description" content="Style UI sandbox in TailwindCSS.">
+    <meta name="robots" content="index, follow">
+    <!-- END SEO -->
+ 
+    <!-- Facebook open graph -->
+    <meta property="og:url" content="https://mkfizi.dev">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UI Interactive">
+    <meta property="og:image" content="path/to/img/meta-og.jpg">
+    <meta property="og:description" content="Style UI sandbox in TailwindCSS.">
+    <meta property="og:site_name" content="UI Interactives">
+    <!-- END Facebook open graph -->
+
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@mkfizi">
+    <meta name="twitter:creator" content="@mkfizi">
+    <meta name="twitter:url" content="https://mkfizi.dev">
+    <meta name="twitter:title" content="UI Interactive">
+    <meta name="twitter:description" content="Style UI sandbox in TailwindCSS.">
+    <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+    <!-- END Twitter cards -->
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- END Favicon -->
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/css/index.css">
+    <link rel="preload" href="./src/css/index.css" as="style">
+    <!-- END Styles -->
+
+    <!-- Scripts -->
+    <script src="./src/js/index.js" type="module" defer></script>
+    <link rel="preload" href="./src/js/index.js" as="script">
+    <!-- END Scripts -->
+
+    <!-- Inline code to avoid FOUC -->
+    <script>
+        // Toggle theme.
+        localStorage.theme = "light";
+        document.documentElement.classList.toggle("dark", localStorage.theme === "dark" ||(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));
+        
+        // Viewport height issue on mobile browsers fix
+        // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+        const setVH = () => document.documentElement.style.setProperty("--vh", innerHeight * 0.01 + "px");
+        addEventListener("resize", setVH);
+        setVH();
+    </script>
+     <!-- END Inline code to avoid FOUC -->
+    
+    <title>UI Style | Element</title>
+</head>
+<body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
+    <!-- Content -->
+    <main class="w-full max-w-screen-sm px-4 mx-auto my-32 space-y-4">
+         
+        <!-- Badge -->
+        <div class="space-y-4">
+            <!-- Badge Text -->
+            <div class="px-2 py-px text-xs text-black rounded w-max dark:text-white bg-neutral-200 dark:bg-neutral-800">Badge Text</div>
+            <!-- END Badge Text -->
+            <!-- Badge Icon -->
+            <div class="flex items-center gap-1 px-2 py-px text-xs text-black rounded w-max dark:text-white bg-neutral-200 dark:bg-neutral-800">
+                <span>Badge Icon</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 stroke-black dark:stroke-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+                    <path d="M12 9v4"/>
+                    <path d="M12 16v.01"/>
+                </svg>
+            </div>
+            <!-- END Badge Icon -->
+        </div>
+        <!-- END Badge -->
+
+        <!-- Button -->
+        <div class="space-y-4">
+            <div>
+                <!-- Button Primary -->
+                <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-label="Button.">
+                    <span>Button Primary</span>
+                </button>
+                <!-- END Button Primary -->
+            </div>
+            <div>
+                <!-- Button Secondary -->
+                <button type="button" class="px-4 py-2 text-sm font-medium text-black rounded cursor-pointer bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-600 disabled:pointer-events-none disabled:opacity-60">
+                    <span>Button Secondary</span>
+                </button>
+                <!-- END Button Secondary -->
+            </div>
+            <div>
+                <!-- Button Outline -->
+                <button type="button" class="px-4 py-2 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">
+                    <span>Button Outline</span>
+                </button>
+                <!-- END Button Outline -->
+            </div>
+            <div>
+                <!-- Button Ghost -->
+                <button type="button" class="px-4 py-2 text-sm font-medium text-black rounded cursor-pointer dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">
+                    <span>Button Ghost</span>
+                </button>
+                <!-- END Button Ghost -->
+            </div>
+            <div>
+                <!-- Button Icon -->
+                <button type="button" class="flex items-center p-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white ddisabled:pointer-events-none disabled:opacity-60" aria-label="Button.">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white dark:stroke-black" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+                        <path d="M12 9v4"/>
+                        <path d="M12 16v.01"/>
+                    </svg>
+                </button>
+            <!-- END Button Icon -->
+            </div>
+            <div>
+                <!-- Button Text Icon -->
+                <button type="button" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white  disabled:pointer-events-none disabled:opacity-60" aria-label="Button.">
+                    <span>Button Icon</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white dark:stroke-black" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+                        <path d="M12 9v4"/>
+                        <path d="M12 16v.01"/>
+                    </svg>
+                </button>
+                <!-- END Button Text Icon -->
+            </div>
+        </div>
+        <!-- END Button -->
+
+        <!-- Card -->
+        <div class="space-y-4">
+            <!-- Card Text -->
+            <div class="p-4 overflow-hidden border rounded border-neutral-200 dark:border-neutral-800">
+                <p class="text-sm text-neutral-800 dark:text-neutral-200">This is a card text.</p>
+            </div>
+            <!-- END Card Text -->
+        </div>
+        <!-- END Card -->
+
+        <!-- Divider -->
+        <hr class="h-px border-neutral-200 dark:border-neutral-800"/>
+        <!-- END Divider -->
+
+        <!-- Menu List -->
+        <div class="w-48">
+            <p class="uppercase text-sm font-medium text-neutral-800 dark:text-neutral-200">Menu title</p>
+            <ul class="mt-2 space-y-0.5">
+                <li>
+                    <a href="#" class="inline-block w-full p-2 text-sm font-medium text-left text-black rounded dark:text-white bg-neutral-100 dark:bg-neutral-800">Active menu link</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-block w-full p-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Inactive menu link</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-block w-full p-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Inactive menu link</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END Menu List -->
+
+        <!-- Table -->
+        <div class="overflow-hidden border rounded border-neutral-200 dark:border-neutral-800">
+            <div class="overflow-x-auto">
+              <table class="w-full divide-y whitespace-nowrap divide-neutral-200 dark:divide-neutral-800">
+                <thead class="text-left bg-neutral-50 dark:bg-neutral-900">
+                  <tr>
+                    <th class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">No</th>
+                    <th class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Name</th>
+                    <th class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Role</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-neutral-200 dark:divide-neutral-800">
+                  <tr>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">1</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Matthew Sanders</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Vocalist</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">2</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Zachary Baker</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Rhythm Guitarist</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">3</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Brian Haner Jr.</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Lead Guitarist</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">4</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Jonathan Seward</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Bassist</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">5</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Brooks Wackerman</td>
+                    <td class="px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200">Drummer</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+        <!-- END Table -->
+         
+        <!-- Pagination -->
+        <div class="flex gap-2">
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M7 6v12" />
+                    <path d="M18 6l-6 6l6 6" />
+                </svg>
+            </a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M15 6l-6 6l6 6" />
+                </svg>
+            </a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">1</a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">2</a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60">3</a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">4</a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">5</a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M9 6l6 6l-6 6" />
+                </svg>
+            </a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-sm font-medium text-black rounded cursor-pointer dark:text-white inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:inset-ring-neutral-700 dark:hover:inset-ring-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M6 6l6 6l-6 6" />
+                    <path d="M17 5v13" />
+                </svg>
+            </a>
+        </div>
+        <!-- Pagination -->
+    </main>
+    <!-- END Content -->
+     
+</body>
+</html>
