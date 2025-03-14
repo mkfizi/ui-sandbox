@@ -2,7 +2,7 @@
 Style UI sandbox in TailwindCSS.
 
 ## Usage
-This sandbox is for experimenting and building UI style guide TailwindCSS. By default, this project is utilizing [Vite](https://vitejs.dev/) for source code bundling.
+This sandbox is for experimenting and building UI style guide in TailwindCSS. By default, this project is utilizing [Vite](https://vitejs.dev/) for source code bundling.
 
 ## Installation
 Clone this repository to get started.
