@@ -27,6 +27,7 @@ Put unreleased changes here.
 ### Changed
 - Source files back into `./` directory.
 - Seperate `index.html` content into `typography.html`, `element.html` and `form.html`.
+- Update Vite configuration.
 - Update TailwindCSS to v4.
 - Redefine typography styles.
 - Redefine element styles.
