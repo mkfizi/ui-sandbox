@@ -18,7 +18,7 @@ Put unreleased changes here.
 
 ## [2.0.0] - 2025-03-15
 ### Added
-- Badge icon variant
+- Badge icon variants.
 - Button icon variants.
 - Card element.
 - Menu list element.
