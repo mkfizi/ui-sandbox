@@ -55,52 +55,52 @@
     <!-- Inline code to avoid FOUC -->
     <script>
         // Toggle theme.
-        // localStorage.theme = "dark";
-        document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
+        // localStorage.theme = 'dark';
+        document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
     </script>
-     <!-- END Inline code to avoid FOUC -->
+    <!-- END Inline code to avoid FOUC -->
     
     <title>UI Style | Form</title>
 </head>
-<body class="relative min-h-dvh antialiased bg-white dark:bg-neutral-950">
+<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
     <!-- Content -->
-    <main class="w-full max-w-screen-sm px-4 sm:px-8 mx-auto my-32 space-y-4">
+    <main class="space-y-4 mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
         
         <!-- Label -->
-        <label for="" class="block text-sm text-neutral-800 dark:text-neutral-200">Label</label>
+        <label for="" class="block text-neutral-800 dark:text-neutral-200 text-sm">Label</label>
         <!-- END Label -->
 
         <!-- Input -->
-        <input type="text" id="input" name="input" value="" class="w-full p-2 text-sm bg-transparent inset-ring rounded appearance-none cursor-text text-neutral-800 dark:text-neutral-200 inset-ring-neutral-400 dark:inset-ring-neutral-600 disabled:opacity-60 disabled:pointer-events-none" placeholder="Input"/>
+        <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 p-2 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Input"/>
         <!-- END Input -->
 
         <!-- Input Icon -->
-        <div class="relative overflow-hidden rounded">
+        <div class="relative rounded overflow-hidden">
             <div class="absolute inset-y-0 flex items-center pl-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-400 dark:stroke-neutral-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-400 dark:stroke-neutral-600 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
                     <path d="M12 9v4"/>
                     <path d="M12 16v.01"/>
                 </svg>
             </div>
-            <input type="text" id="input" name="input" value="" class="w-full py-2 pl-8 pr-2 text-sm bg-transparent inset-ring rounded appearance-none cursor-text text-neutral-800 dark:text-neutral-200 inset-ring-neutral-400 dark:inset-ring-neutral-600 disabled:opacity-60 disabled:pointer-events-none" placeholder="Input Icon"/>
+            <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-2 pl-8 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Input Icon"/>
         </div>
         <!-- END Input Icon -->
 
         <!-- Text Area -->
-        <textarea id="textarea" name="textarea" class="flex w-full p-2 text-sm bg-transparent inset-ring rounded appearance-none cursor-text min-h-16 text-neutral-800 dark:text-neutral-200 inset-ring-neutral-400 dark:inset-ring-neutral-600 disabled:opacity-60 disabled:pointer-events-none" placeholder="Text area placeholder"></textarea>
+        <textarea id="textarea" name="textarea" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 flex bg-transparent disabled:opacity-60 p-2 rounded w-full min-h-16 text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Text area placeholder"></textarea>
         <!-- END Text Area -->
 
         <!-- Select -->
         <div class="relative">
-            <select id="select" name="select" class="relative w-full py-2 pl-2 pr-10 text-sm bg-transparent inset-ring rounded appearance-none cursor-pointer text-neutral-800 dark:text-neutral-200 inset-ring-neutral-400 dark:inset-ring-neutral-600 disabled:opacity-60 disabled:pointer-events-none peer">
+            <select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-10 pl-2 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
                 <option value="" class="dark:bg-transparent" selected disabled>Select Option</option>
                 <option value="Option 1" class="dark:bg-transparent">Option 1</option>
                 <option value="Option 2" class="dark:bg-transparent">Option 2</option>
                 <option value="Option 3" class="dark:bg-transparent">Option 3</option>
             </select>
-            <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-5 h-5 top-2 right-2 stroke-neutral-700 dark:stroke-neutral-300 -z-10 peer-disabled:opacity-60" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M6 9l6 6l6 -6" />
             </svg>
@@ -109,8 +109,8 @@
 
         <!-- Checkbox -->
         <div class="flex items-center gap-2">
-            <label for="input-checkbox" class="flex items-center gap-2 text-sm cursor-pointer text-neutral-800 dark:text-neutral-200">
-                <input id="input-checkbox" type="checkbox" name="checkbox" value="" class="cursor-pointer accent-neutral-800 dark:accent-neutral-200 disabled:opacity-60 disabled:pointer-events-none"/>
+            <label for="input-checkbox" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
+                <input id="input-checkbox" type="checkbox" name="checkbox" value="" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
                 <span>Checkbox</span>
             </label>
         </div>
@@ -118,19 +118,19 @@
 
         <!-- Radio -->
         <div class="flex items-center gap-2">
-            <label for="input-radio" class="flex items-center gap-2 text-sm cursor-pointer text-neutral-800 dark:text-neutral-200">
-                <input id="input-radio" type="radio" name="radio" value="" class="cursor-pointer accent-neutral-800 dark:accent-neutral-200 disabled:opacity-60 disabled:pointer-events-none"/>
+            <label for="input-radio" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
+                <input id="input-radio" type="radio" name="radio" value="" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
                 <span>Checkbox</span>
             </label>
         </div>
         <!-- END Radio -->
 
         <!-- Range -->
-        <input id="range" type="range" name="range" min="1" max="100" value="50" class="w-full h-2 cursor-pointer bg-transparent inset-ring rounded appearance-none inset-ring-neutral-300 dark:inset-ring-neutral-700 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:bg-neutral-800 dark:[&::-webkit-slider-thumb]:bg-neutral-200 disabled:opacity-60 disabled:pointer-events-none"/>
+        <input id="range" type="range" name="range" min="1" max="100" value="50" class="inset-ring inset-ring-neutral-300 dark:inset-ring-neutral-700 bg-transparent [&::-webkit-slider-thumb]:bg-neutral-800 dark:[&::-webkit-slider-thumb]:bg-neutral-200 disabled:opacity-60 rounded [&::-webkit-slider-thumb]:rounded-full w-full [&::-webkit-slider-thumb]:w-4 h-2 [&::-webkit-slider-thumb]:h-4 appearance-none [&::-webkit-slider-thumb]:appearance-none cursor-pointer disabled:pointer-events-none"/>
         <!-- END Range -->
 
         <!-- File -->
-        <input type="file" id="file" name="file" value="" class="cursor-pointer w-full p-1 text-sm bg-transparent inset-ring rounded appearance-none text-neutral-800 file:cursor-pointer dark:text-neutral-200 inset-ring-neutral-400 dark:inset-ring-neutral-600 file:px-4 file:py-1 file:mr-2 file:text-white dark:file:text-black file:bg-black dark:file:bg-neutral-100 file:hover:bg-neutral-800 dark:file:hover:bg-white  file:rounded disabled:opacity-60 disabled:pointer-events-none"/>
+        <input type="file" id="file" name="file" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent file:hover:bg-neutral-800 dark:file:hover:bg-white dark:file:bg-neutral-100 file:bg-black disabled:opacity-60 file:mr-2 p-1 file:px-4 file:py-1 rounded file:rounded w-full text-neutral-800 dark:text-neutral-200 dark:file:text-black file:text-white text-sm appearance-none cursor-pointer file:cursor-pointer disabled:pointer-events-none"/>
         <!-- END File -->
     </main>
     <!-- END Content -->

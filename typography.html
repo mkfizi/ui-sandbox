@@ -55,57 +55,57 @@
     <!-- Inline code to avoid FOUC -->
     <script>
         // Toggle theme.
-        // localStorage.theme = "dark";
-        document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
+        // localStorage.theme = 'dark';
+        document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
     </script>
-     <!-- END Inline code to avoid FOUC -->
+    <!-- END Inline code to avoid FOUC -->
     
     <title>UI Style | Typography</title>
 </head>
-<body class="relative min-h-dvh antialiased bg-white dark:bg-neutral-950">
+<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
     <!-- Content -->
-    <main class="w-full max-w-screen-sm px-4 sm:px-8 mx-auto my-32 space-y-4">
+    <main class="space-y-4 mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
 
         <!-- Heading -->
-        <h1 class="text-4xl font-extrabold text-black sm:text-5xl lg:text-6xl dark:text-white">Heading 1</h1>
-		<h2 class="text-2xl font-bold text-black sm:text-3xl lg:text-4xl dark:text-white">Heading 2</h2>
-        <h3 class="text-xl font-semibold text-black sm:text-2xl lg:text-3xl dark:text-white">Heading 3</h3>
-        <h4 class="text-lg font-medium text-black sm:text-xl lg:2xl dark:text-white">Heading 4</h4>
+        <h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Heading 1</h1>
+		<h2 class="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-4xl">Heading 2</h2>
+        <h3 class="font-semibold text-black dark:text-white text-xl sm:text-2xl lg:text-3xl">Heading 3</h3>
+        <h4 class="font-medium text-black dark:text-white text-lg sm:text-xl lg:2xl">Heading 4</h4>
         <!-- END Heading -->
 
         <!-- Link -->
         <div>
             <!-- Link Inactive-->
-            <a href="#" class="text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:text-black hover:dark:text-white">Inactive link</a>
+            <a href="#" class="font-medium text-neutral-500 hover:text-black hover:dark:text-white dark:text-neutral-400 text-sm cursor-pointer">Inactive link</a>
             <!-- END Link Inactive-->
         </div>
         <div>
             <!-- Link Active-->
-            <a href="#" class="text-sm font-medium text-black dark:text-white hover:text-neutral-700 hover:dark:text-neutral-200">Active link</a>
+            <a href="#" class="font-medium text-black hover:text-neutral-700 hover:dark:text-neutral-200 dark:text-white text-sm cursor-pointer">Active link</a>
             <!-- END Link Active -->
         </div>
         <!-- END Link -->
 
         <!-- List -->
-        <ul class="ml-4 list-disc marker:text-neutral-800 dark:marker:text-neutral-200">
+        <ul class="ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 list-disc">
             <li>
-                <p class="text-sm text-neutral-800 dark:text-neutral-200">List item 1.</p>
+                <p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 1.</p>
             </li>
             <li>
-                <p class="text-sm text-neutral-800 dark:text-neutral-200">List item 2.</p>
+                <p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 2.</p>
             </li>
             <li>
-                <p class="text-sm text-neutral-800 dark:text-neutral-200">List item 3.</p>
+                <p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 3.</p>
             </li>
         </ul>
         <!-- END List -->
 
         <!-- Paragraph -->
-        <p class="text-sm text-neutral-800 dark:text-neutral-200">This is a paragraph text.</p>
+        <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a paragraph text.</p>
         <!-- END Paragraph -->
 
         <!-- Title -->
-        <p class="text-base font-medium text-neutral-800 sm:text-lg lg:text-xl dark:text-neutral-200">This is a title text.</p>
+        <p class="font-medium text-neutral-800 dark:text-neutral-200 text-base sm:text-lg lg:text-xl">This is a title text.</p>
         <!-- END Title -->
 
     </main>
