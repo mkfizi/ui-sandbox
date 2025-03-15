@@ -39,6 +39,7 @@ Put unreleased changes here.
 - Button `border` classes.
 - PostCSS config.
 - Dark mode toggle.
+- Dynamic viewport height fallback.
 
 ## [1.0.0] - 2024-05-03
 ### Added.
