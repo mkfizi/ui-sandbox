@@ -2,114 +2,99 @@
 <html lang="en">
     <head>
        <!-- Metadata -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-    <!-- END Metadata -->
-
-    <!-- SEO -->
-    <meta name="title" content="UI Interactive">
-    <meta name="description" content="Style UI sandbox in TailwindCSS.">
-    <meta name="robots" content="index, follow">
-    <!-- END SEO -->
- 
-    <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://mkfizi.dev">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="UI Interactive">
-    <meta property="og:image" content="path/to/img/meta-og.jpg">
-    <meta property="og:description" content="Style UI sandbox in TailwindCSS.">
-    <meta property="og:site_name" content="UI Interactives">
-    <!-- END Facebook Open Graph -->
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@mkfizi">
-    <meta name="twitter:creator" content="@mkfizi">
-    <meta name="twitter:url" content="https://mkfizi.dev">
-    <meta name="twitter:title" content="UI Interactive">
-    <meta name="twitter:description" content="Style UI sandbox in TailwindCSS.">
-    <meta name="twitter:image" content="path/to/img/meta-card.jpg">
-    <!-- END Twitter Card -->
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="/site.webmanifest">
-    <!-- END Favicon -->
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="./src/css/index.css">
-    <link rel="preload" href="./src/css/index.css" as="style">
-    <!-- END Styles -->
-
-    <!-- Scripts -->
-    <script src="./src/js/index.js" type="module" defer></script>
-    <link rel="preload" href="./src/js/index.js" as="script">
-    <!-- END Scripts -->
-
-    <!-- Inline code to avoid FOUC -->
-    <script>
-        // Toggle theme.
-        // localStorage.theme = 'dark';
-        document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-    </script>
-    <!-- END Inline code to avoid FOUC -->
-    
-    <title>UI Style | Typography</title>
-</head>
-<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
-    <!-- Content -->
-    <main class="space-y-4 mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
-
-        <!-- Heading -->
-        <h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Heading 1</h1>
-		<h2 class="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-4xl">Heading 2</h2>
-        <h3 class="font-semibold text-black dark:text-white text-xl sm:text-2xl lg:text-3xl">Heading 3</h3>
-        <h4 class="font-medium text-black dark:text-white text-lg sm:text-xl lg:2xl">Heading 4</h4>
-        <!-- END Heading -->
-
-        <!-- Link -->
-        <div>
-            <!-- Link Inactive-->
-            <a href="#" class="font-medium text-neutral-500 hover:text-black hover:dark:text-white dark:text-neutral-400 text-sm cursor-pointer">Inactive link</a>
-            <!-- END Link Inactive-->
-        </div>
-        <div>
-            <!-- Link Active-->
-            <a href="#" class="font-medium text-black hover:text-neutral-700 hover:dark:text-neutral-200 dark:text-white text-sm cursor-pointer">Active link</a>
-            <!-- END Link Active -->
-        </div>
-        <!-- END Link -->
-
-        <!-- List -->
-        <ul class="ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
-            <li>
-                <p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 1.</p>
-            </li>
-            <li>
-                <p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 2.</p>
-            </li>
-            <li>
-                <p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 3.</p>
-            </li>
-        </ul>
-        <!-- END List -->
-
-        <!-- Paragraph -->
-        <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a paragraph text.</p>
-        <!-- END Paragraph -->
-
-        <!-- Title -->
-        <p class="font-medium text-neutral-800 dark:text-neutral-200 text-base sm:text-lg lg:text-xl">This is a title text.</p>
-        <!-- END Title -->
-
-    </main>
-    <!-- END Content -->
-     
-</body>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#ffffff">
+		<!-- END Metadata -->
+		<!-- SEO -->
+		<meta name="title" content="UI Interactive">
+		<meta name="description" content="Style UI sandbox in TailwindCSS.">
+		<meta name="robots" content="index, follow">
+		<!-- END SEO -->
+		<!-- Facebook Open Graph -->
+		<meta property="og:url" content="https://mkfizi.dev">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="UI Interactive">
+		<meta property="og:image" content="path/to/img/meta-og.jpg">
+		<meta property="og:description" content="Style UI sandbox in TailwindCSS.">
+		<meta property="og:site_name" content="UI Interactives">
+		<!-- END Facebook Open Graph -->
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mkfizi">
+		<meta name="twitter:creator" content="@mkfizi">
+		<meta name="twitter:url" content="https://mkfizi.dev">
+		<meta name="twitter:title" content="UI Interactive">
+		<meta name="twitter:description" content="Style UI sandbox in TailwindCSS.">
+		<meta name="twitter:image" content="path/to/img/meta-card.jpg">
+		<!-- END Twitter Card -->
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="manifest" href="/site.webmanifest">
+		<!-- END Favicon -->
+		<!-- Style -->
+		<link rel="stylesheet" href="./src/css/index.css">
+		<link rel="preload" href="./src/css/index.css" as="style">
+		<!-- END Style -->
+		<!-- Script -->
+		<script src="./src/js/index.js" type="module" defer></script>
+		<link rel="preload" href="./src/js/index.js" as="script">
+		<!-- END Script -->
+		<!-- Prevent FOUC -->
+		<script>
+			// Toggle theme.
+			// localStorage.theme = 'dark';
+			document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+		</script>
+		<!-- END Prevent FOUC -->		
+		<title>UI Style | Typography</title>
+	</head>
+	<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+		<!-- Content -->
+		<main class="space-y-4 mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
+			<!-- Heading -->
+			<h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Heading 1</h1>
+			<h2 class="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-4xl">Heading 2</h2>
+			<h3 class="font-semibold text-black dark:text-white text-xl sm:text-2xl lg:text-3xl">Heading 3</h3>
+			<h4 class="font-medium text-black dark:text-white text-lg sm:text-xl lg:2xl">Heading 4</h4>
+			<!-- END Heading -->
+			<!-- Link -->
+			<div>
+				<!-- Link Inactive-->
+				<a href="#" class="font-medium text-neutral-500 hover:text-black hover:dark:text-white dark:text-neutral-400 text-sm cursor-pointer">Inactive link</a>
+				<!-- END Link Inactive-->
+			</div>
+			<div>
+				<!-- Link Active-->
+				<a href="#" class="font-medium text-black hover:text-neutral-700 hover:dark:text-neutral-200 dark:text-white text-sm cursor-pointer">Active link</a>
+				<!-- END Link Active -->
+			</div>
+			<!-- END Link -->
+			<!-- List -->
+			<ul class="ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
+				<li>
+					<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 1.</p>
+				</li>
+				<li>
+					<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 2.</p>
+				</li>
+				<li>
+					<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 3.</p>
+				</li>
+			</ul>
+			<!-- END List -->
+			<!-- Paragraph -->
+			<p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a paragraph text.</p>
+			<!-- END Paragraph -->
+			<!-- Title -->
+			<p class="font-medium text-neutral-800 dark:text-neutral-200 text-base sm:text-lg lg:text-xl">This is a title text.</p>
+			<!-- END Title -->
+		</main>
+		<!-- END Content -->
+	</body>
 </html>

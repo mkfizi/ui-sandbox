@@ -2,138 +2,140 @@
 <html lang="en">
     <head>
        <!-- Metadata -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-    <!-- END Metadata -->
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#ffffff">
+		<!-- END Metadata -->
 
-    <!-- SEO -->
-    <meta name="title" content="UI Interactive">
-    <meta name="description" content="Style UI sandbox in TailwindCSS.">
-    <meta name="robots" content="index, follow">
-    <!-- END SEO -->
- 
-    <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://mkfizi.dev">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="UI Interactive">
-    <meta property="og:image" content="path/to/img/meta-og.jpg">
-    <meta property="og:description" content="Style UI sandbox in TailwindCSS.">
-    <meta property="og:site_name" content="UI Interactives">
-    <!-- END Facebook Open Graph -->
+		<!-- SEO -->
+		<meta name="title" content="UI Interactive">
+		<meta name="description" content="Style UI sandbox in TailwindCSS.">
+		<meta name="robots" content="index, follow">
+		<!-- END SEO -->
+	
+		<!-- Facebook Open Graph -->
+		<meta property="og:url" content="https://mkfizi.dev">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="UI Interactive">
+		<meta property="og:image" content="path/to/img/meta-og.jpg">
+		<meta property="og:description" content="Style UI sandbox in TailwindCSS.">
+		<meta property="og:site_name" content="UI Interactives">
+		<!-- END Facebook Open Graph -->
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@mkfizi">
-    <meta name="twitter:creator" content="@mkfizi">
-    <meta name="twitter:url" content="https://mkfizi.dev">
-    <meta name="twitter:title" content="UI Interactive">
-    <meta name="twitter:description" content="Style UI sandbox in TailwindCSS.">
-    <meta name="twitter:image" content="path/to/img/meta-card.jpg">
-    <!-- END Twitter Card -->
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mkfizi">
+		<meta name="twitter:creator" content="@mkfizi">
+		<meta name="twitter:url" content="https://mkfizi.dev">
+		<meta name="twitter:title" content="UI Interactive">
+		<meta name="twitter:description" content="Style UI sandbox in TailwindCSS.">
+		<meta name="twitter:image" content="path/to/img/meta-card.jpg">
+		<!-- END Twitter Card -->
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="/site.webmanifest">
-    <!-- END Favicon -->
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="manifest" href="/site.webmanifest">
+		<!-- END Favicon -->
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="./src/css/index.css">
-    <link rel="preload" href="./src/css/index.css" as="style">
-    <!-- END Styles -->
+		<!-- Style -->
+		<link rel="stylesheet" href="./src/css/index.css">
+		<link rel="preload" href="./src/css/index.css" as="style">
+		<!-- END Style -->
 
-    <!-- Scripts -->
-    <script src="./src/js/index.js" type="module" defer></script>
-    <link rel="preload" href="./src/js/index.js" as="script">
-    <!-- END Scripts -->
+		<!-- Script -->
+		<script src="./src/js/index.js" type="module" defer></script>
+		<link rel="preload" href="./src/js/index.js" as="script">
+		<!-- END Script -->
 
-    <!-- Inline code to avoid FOUC -->
-    <script>
-        // Toggle theme.
-        // localStorage.theme = 'dark';
-        document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-    </script>
-    <!-- END Inline code to avoid FOUC -->
-    
-    <title>UI Style | Form</title>
-</head>
-<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
-    <!-- Content -->
-    <main class="space-y-4 mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
-        
-        <!-- Label -->
-        <label for="" class="block text-neutral-800 dark:text-neutral-200 text-sm">Label</label>
-        <!-- END Label -->
+		<!-- Prevent FOUC -->
+		<script>
+			// Toggle theme.
+			// localStorage.theme = 'dark';
+			document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+		</script>
+		<!-- END Prevent FOUC -->
+		
+		<title>UI Style | Form</title>
+	</head>
+	<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+		
+		<!-- Content -->
+		<main class="space-y-4 mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
+			
+			<!-- Label -->
+			<label for="" class="block text-neutral-800 dark:text-neutral-200 text-sm">Label</label>
+			<!-- END Label -->
 
-        <!-- Input -->
-        <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 p-2 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Input"/>
-        <!-- END Input -->
+			<!-- Input -->
+			<input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 p-2 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Input"/>
+			<!-- END Input -->
 
-        <!-- Input Icon -->
-        <div class="relative rounded overflow-hidden">
-            <div class="absolute inset-y-0 flex items-center pl-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-400 dark:stroke-neutral-600 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
-                    <path d="M12 9v4"/>
-                    <path d="M12 16v.01"/>
-                </svg>
-            </div>
-            <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-2 pl-8 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Input Icon"/>
-        </div>
-        <!-- END Input Icon -->
+			<!-- Input Icon -->
+			<div class="relative rounded overflow-hidden">
+				<div class="absolute inset-y-0 flex items-center pl-2">
+					<svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-400 dark:stroke-neutral-600 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+						<path d="M12 9v4"/>
+						<path d="M12 16v.01"/>
+					</svg>
+				</div>
+				<input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-2 pl-8 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Input Icon"/>
+			</div>
+			<!-- END Input Icon -->
 
-        <!-- Text Area -->
-        <textarea id="textarea" name="textarea" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 flex bg-transparent disabled:opacity-60 p-2 rounded w-full min-h-16 text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Text area placeholder"></textarea>
-        <!-- END Text Area -->
+			<!-- Text Area -->
+			<textarea id="textarea" name="textarea" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 flex bg-transparent disabled:opacity-60 p-2 rounded w-full min-h-16 text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Text area placeholder"></textarea>
+			<!-- END Text Area -->
 
-        <!-- Select -->
-        <div class="relative">
-            <select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-10 pl-2 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
-                <option value="" class="dark:bg-transparent" selected disabled>Select Option</option>
-                <option value="Option 1" class="dark:bg-transparent">Option 1</option>
-                <option value="Option 2" class="dark:bg-transparent">Option 2</option>
-                <option value="Option 3" class="dark:bg-transparent">Option 3</option>
-            </select>
-            <svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M6 9l6 6l6 -6" />
-            </svg>
-        </div>
-        <!--END Select -->
+			<!-- Select -->
+			<div class="relative">
+				<select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-10 pl-2 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
+					<option value="" class="dark:bg-transparent" selected disabled>Select Option</option>
+					<option value="Option 1" class="dark:bg-transparent">Option 1</option>
+					<option value="Option 2" class="dark:bg-transparent">Option 2</option>
+					<option value="Option 3" class="dark:bg-transparent">Option 3</option>
+				</select>
+				<svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path d="M6 9l6 6l6 -6" />
+				</svg>
+			</div>
+			<!--END Select -->
 
-        <!-- Checkbox -->
-        <div class="flex items-center gap-2">
-            <label for="input-checkbox" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
-                <input id="input-checkbox" type="checkbox" name="checkbox" value="" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
-                <span>Checkbox</span>
-            </label>
-        </div>
-        <!-- END Checkbox -->
+			<!-- Checkbox -->
+			<div class="flex items-center gap-2">
+				<label for="input-checkbox" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
+					<input id="input-checkbox" type="checkbox" name="checkbox" value="" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
+					<span>Checkbox</span>
+				</label>
+			</div>
+			<!-- END Checkbox -->
 
-        <!-- Radio -->
-        <div class="flex items-center gap-2">
-            <label for="input-radio" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
-                <input id="input-radio" type="radio" name="radio" value="" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
-                <span>Checkbox</span>
-            </label>
-        </div>
-        <!-- END Radio -->
+			<!-- Radio -->
+			<div class="flex items-center gap-2">
+				<label for="input-radio" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
+					<input id="input-radio" type="radio" name="radio" value="" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
+					<span>Checkbox</span>
+				</label>
+			</div>
+			<!-- END Radio -->
 
-        <!-- Range -->
-        <input id="range" type="range" name="range" min="1" max="100" value="50" class="inset-ring inset-ring-neutral-300 dark:inset-ring-neutral-700 bg-transparent [&::-webkit-slider-thumb]:bg-neutral-800 dark:[&::-webkit-slider-thumb]:bg-neutral-200 disabled:opacity-60 rounded [&::-webkit-slider-thumb]:rounded-full w-full [&::-webkit-slider-thumb]:w-4 h-2 [&::-webkit-slider-thumb]:h-4 appearance-none [&::-webkit-slider-thumb]:appearance-none cursor-pointer disabled:pointer-events-none"/>
-        <!-- END Range -->
+			<!-- Range -->
+			<input id="range" type="range" name="range" min="1" max="100" value="50" class="inset-ring inset-ring-neutral-300 dark:inset-ring-neutral-700 bg-transparent [&::-webkit-slider-thumb]:bg-neutral-800 dark:[&::-webkit-slider-thumb]:bg-neutral-200 disabled:opacity-60 rounded [&::-webkit-slider-thumb]:rounded-full w-full [&::-webkit-slider-thumb]:w-4 h-2 [&::-webkit-slider-thumb]:h-4 appearance-none [&::-webkit-slider-thumb]:appearance-none cursor-pointer disabled:pointer-events-none"/>
+			<!-- END Range -->
 
-        <!-- File -->
-        <input type="file" id="file" name="file" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent file:hover:bg-neutral-800 dark:file:hover:bg-white file:focus:bg-neutral-800 dark:file:focus:bg-white dark:file:bg-neutral-100 file:bg-black disabled:opacity-60 file:mr-2 p-1 file:px-4 file:py-1 rounded file:rounded w-full text-neutral-800 dark:text-neutral-200 dark:file:text-black file:text-white text-sm appearance-none cursor-pointer file:cursor-pointer disabled:pointer-events-none"/>
-        <!-- END File -->
-    </main>
-    <!-- END Content -->
-     
-</body>
+			<!-- File -->
+			<input type="file" id="file" name="file" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent file:hover:bg-neutral-800 dark:file:hover:bg-white file:focus:bg-neutral-800 dark:file:focus:bg-white dark:file:bg-neutral-100 file:bg-black disabled:opacity-60 file:mr-2 p-1 file:px-4 file:py-1 rounded file:rounded w-full text-neutral-800 dark:text-neutral-200 dark:file:text-black file:text-white text-sm appearance-none cursor-pointer file:cursor-pointer disabled:pointer-events-none"/>
+			<!-- END File -->
+
+		</main>
+		<!-- END Content -->
+		
+	</body>
 </html>
