@@ -1,22 +1,21 @@
 {
-	"name": "@mkfizi/ui-style",
-	"version": "2.0.0",
-	"description": "Style UI sandbox in Javascript and TailwindCSS.",
-	"keywords": [
-		"Tailwindcss",
-		"Sandbox"
-	],
-	"license": "MIT",
-	"author": "@mkfizi",
+	"name": "@mkfizi/ui-sandbox",
+	"private": true,
+	"version": "0.7.0",
+	"description": "@mkfizi UI sandbox.",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build",
+		"build": "tsc && vite build",
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@tailwindcss/vite": "^4.0.10",
-		"tailwindcss": "^4.0.10",
-		"vite": "^6.2.1"
+		"@tailwindcss/vite": "^4.1.11",
+		"@types/alpinejs": "^3.13.11",
+		"alpinejs": "^3.14.9",
+		"glob": "^11.0.3",
+		"tailwindcss": "^4.1.11",
+		"typescript": "~5.8.3",
+		"vite": "^7.0.4"
 	}
 }
