@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app">
+    <head>
+       	<!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="robots" content="noindex">
+        <!-- END Metadata -->
+        <!-- Style-->
+		<link rel="preload" href="/css/app.css" as="style">
+		<link rel="stylesheet" href="/css/app.css">
+		<!-- END Style -->
+		<!-- Script -->
+		<link rel="preload" href="/js/app.ts" as="script">
+		<script src="/js/app.ts" type="module" defer></script>
+		<!-- END Script -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
+		<title>UI Sandbox</title>
+	</head>
+    <body class="relative flex bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <!-- Sidebar Component -->
+        <aside id="sidebar" class="top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
+            x-data="{
+                breakpoint: 1024,
+                isOpen: false,
+                windowWidth: window.innerWidth,
+            }"
+            x-init="$watch('isOpen', isOpen => $dispatch('set-expanded', isOpen))"
+            x-show="isOpen || windowWidth >= breakpoint"
+            x-cloak
+            x-trap.noautofocus.noscroll="isOpen && windowWidth < breakpoint"
+            @resize.window="
+                windowWidth = window.innerWidth;
+                windowWidth >= breakpoint && isOpen && (isOpen = false);
+            "
+            @click.self="isOpen = false"
+            @keydown.escape.window="isOpen = false"
+            @open-sidebar.window="isOpen = true"
+            :inert="!isOpen && windowWidth < breakpoint"
+        >
+            <!-- Sidebar Drawer -->
+            <div class="top-0 left-0 fixed lg:relative bg-white dark:bg-neutral-950 px-4 sm:px-8 py-4 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full overflow-y-auto">
+                <!-- Sidebar Close -->
+                <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Close sidebar."
+                    @click="isOpen = false"
+                    :aria-expanded="isOpen"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
+                </button>
+                <!-- END Sidebar Close -->
+                <a href="#" class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
+                <ul class="space-y-1 mt-4 leading-0">
+                    <li>
+                        <a href="#" class="inline-block bg-neutral-100 dark:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 3</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END Sidebar Drawer -->
+        </aside>
+        <!-- END Sidebar Component -->
+        <!-- Content -->
+        <main class="flex-auto mx-auto mb-32 px-4 sm:px-8 pt-32 max-w-screen-sm">  
+            <!-- Sidebar Open -->
+            <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Open sidebar."
+                x-data="{ isOpen: false }"
+                @click="$dispatch('open-sidebar');"
+                @set-expanded.window="isOpen = $event.detail"
+                :aria-expanded="isOpen"
+            >
+                <span>Sidebar</span>
+            </button>
+            <!-- END Sidebar Open -->
+            <div class="mt-16">
+                <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+            </div>
+        </main>
+        <!-- END Content -->   
+    </body>
+</html>
