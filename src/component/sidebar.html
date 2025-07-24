@@ -73,19 +73,21 @@
         </aside>
         <!-- END Sidebar Component -->
         <!-- Content -->
-        <main class="flex-auto mx-auto mb-32 px-4 sm:px-8 pt-32 max-w-screen-xl">  
-            <!-- Sidebar Open -->
-            <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Open sidebar."
-                x-data="{ isOpen: false }"
-                @click="$dispatch('open-sidebar');"
-                @set-expanded.window="isOpen = $event.detail"
-                :aria-expanded="isOpen"
-            >
-                <span>Sidebar</span>
-            </button>
-            <!-- END Sidebar Open -->
-            <div class="mt-16">
-                <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+        <main class="flex-auto mx-auto px-4 sm:px-8 max-w-screen-xl">  
+            <div class="pt-32 max-w-screen-sm">
+                <!-- Sidebar Open -->
+                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Open sidebar."
+                    x-data="{ isOpen: false }"
+                    @click="$dispatch('open-sidebar');"
+                    @set-expanded.window="isOpen = $event.detail"
+                    :aria-expanded="isOpen"
+                >
+                    <span>Sidebar</span>
+                </button>
+                <!-- END Sidebar Open -->
+                <div class="mt-16">
+                    <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                </div>
             </div>
         </main>
         <!-- END Content -->   

@@ -27,65 +27,67 @@
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="mx-auto mb-32 px-4 sm:px-8 pt-32 w-full max-w-screen-xl">  
-            <div class="relative flex gap-2">
-                <!-- Scroll Spy Component -->
-                <ul class="top-0 sticky space-y-1 w-32 h-fit leading-0 shrink-0"
-                    x-data="{ 
-                        active: null,
-                        toggleActive() {
-                            const sections = document.querySelectorAll(`div[id^='section-']`);
-                            sections.forEach(section => {
-                                const rect = section.getBoundingClientRect();
-                                if(rect.top <= 0 && rect.top + rect.height >= 0) {
-                                    this.active = section.id;
-                                }
-                            });
-                        }
-                    }"
-                    x-init="toggleActive()"
-                    @scroll.window="toggleActive()"
-                >
-                    <li>
-                        <a href="#section-1" class="inline-block bg-neutral-100 dark:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
-                            :class="{ 
-                                'bg-neutral-100 dark:bg-neutral-800': active === 'section-1',
-                                'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-1' 
-                            }"
-                        >Section 1</a>
-                    </li>
-                    <li>
-                        <a href="#section-2" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
-                            :class="{ 
-                                'bg-neutral-100 dark:bg-neutral-800': active === 'section-2',
-                                'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-2' 
-                            }"
-                        >Section 2</a>
-                    </li>
-                    <li>
-                        <a href="#section-3" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
-                            :class="{ 
-                                'bg-neutral-100 dark:bg-neutral-800': active === 'section-3',
-                                'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-3' 
-                            }"
-                        >Section 3</a>
-                    </li>
-                </ul>
-                <!-- END Scroll Spy Component -->
-                <div class="flex-auto space-y-4">
-                    <div id="section-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded h-dvh overflow-hidden">
-                        <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a section 1 text.</p>
-                    </div>
-                    <div id="section-2" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded h-dvh overflow-hidden">
-                        <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a section 2 text.</p>
-                    </div>
-                    <div id="section-3" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded h-dvh overflow-hidden">
-                        <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a section 3 text.</p>
+        <main class="mx-auto px-4 sm:px-8 w-full max-w-screen-xl">  
+            <div class="pt-32 max-w-screen-sm">
+                <div class="relative flex gap-2">
+                    <!-- Scroll Spy Component -->
+                    <ul class="top-0 sticky space-y-1 w-32 h-fit leading-0 shrink-0"
+                        x-data="{ 
+                            active: null,
+                            toggleActive() {
+                                const sections = document.querySelectorAll(`section[id]`);
+                                sections.forEach(section => {
+                                    const rect = section.getBoundingClientRect();
+                                    if(rect.top <= 0 && rect.top + rect.height >= 0) {
+                                        this.active = section.id;
+                                    }
+                                });
+                            }
+                        }"
+                        x-init="toggleActive()"
+                        @scroll.window="toggleActive()"
+                    >
+                        <li>
+                            <a href="#section-1" class="inline-block bg-neutral-100 dark:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
+                                :class="{ 
+                                    'bg-neutral-100 dark:bg-neutral-800': active === 'section-1',
+                                    'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-1' 
+                                }"
+                            >Section 1</a>
+                        </li>
+                        <li>
+                            <a href="#section-2" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
+                                :class="{ 
+                                    'bg-neutral-100 dark:bg-neutral-800': active === 'section-2',
+                                    'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-2' 
+                                }"
+                            >Section 2</a>
+                        </li>
+                        <li>
+                            <a href="#section-3" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
+                                :class="{ 
+                                    'bg-neutral-100 dark:bg-neutral-800': active === 'section-3',
+                                    'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-3' 
+                                }"
+                            >Section 3</a>
+                        </li>
+                    </ul>
+                    <!-- END Scroll Spy Component -->
+                    <div class="flex-auto space-y-4">
+                        <section id="section-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded h-dvh overflow-hidden">
+                            <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a section 1 text.</p>
+                        </section>
+                        <section id="section-2" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded h-dvh overflow-hidden">
+                            <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a section 2 text.</p>
+                        </section>
+                        <section id="section-3" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded h-dvh overflow-hidden">
+                            <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a section 3 text.</p>
+                        </section>
                     </div>
                 </div>
-            </div>
-            <div class="mt-16">
-                <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                <div class="mt-16">
+                    <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                </div>
             </div>
         </main>
         <!-- END Content -->   

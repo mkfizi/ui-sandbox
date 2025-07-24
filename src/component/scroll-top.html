@@ -27,18 +27,20 @@
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 h-[200dvh] min-h-dvh antialiased">
         <!-- Content -->
-        <main class="mx-auto mb-32 px-4 sm:px-8 pt-32 w-full max-w-screen-xl">  
-            <p class="text-neutral-800 dark:text-neutral-200 text-sm">Scroll down and click on scroll top button.</p>
-            <!-- Scroll Top Component -->
-            <button type="button" class="right-8 bottom-8 fixed inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Close modal."
-                x-data
-                @click="window.scrollTo({ top: 0 })"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14"/><path d="M18 11l-6 -6"/><path d="M6 11l6 -6"/></svg>
-            </button>
-            <!-- END Scroll Top Component -->
-            <div class="mt-16">
-                <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+        <main class="mx-auto px-4 sm:px-8 w-full max-w-screen-xl">  
+            <div class="pt-32 max-w-screen-sm">
+                <p class="text-neutral-800 dark:text-neutral-200 text-sm">Scroll down and click on scroll top button.</p>
+                <!-- Scroll Top Component -->
+                <button type="button" class="right-4 sm:right-8 bottom-4 sm:bottom-8 fixed inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Close modal."
+                    x-data
+                    @click="window.scrollTo({ top: 0 })"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14"/><path d="M18 11l-6 -6"/><path d="M6 11l6 -6"/></svg>
+                </button>
+                <!-- END Scroll Top Component -->
+                <div class="mt-16">
+                    <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                </div>
             </div>
         </main>
         <!-- END Content -->   

@@ -27,49 +27,51 @@
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="mx-auto mb-32 px-4 sm:px-8 pt-32 w-full max-w-screen-xl"> 
-            <div class="h-dvh"></div>
-            <!-- Dropdown Component -->
-            <div class="inline-block relative"
-                x-data="{ isOpen: false }"
-                @click.away="isOpen = false"
-                @keydown.escape.window="isOpen = false"
-            >
-                <!-- Dropdown Toggle -->
-                <button type="button" class="flex items-center gap-2 bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dropdown" aria-label="Toggle dropdown."
-                    x-ref="button"
-                    @click="isOpen = !isOpen"
-                    :aria-expanded="isOpen"
+        <main class="mx-auto px-4 sm:px-8 w-full max-w-screen-xl"> 
+            <div class="pt-32 max-w-screen-sm">
+                <div class="h-dvh"></div>
+                <!-- Dropdown Component -->
+                <div class="inline-block relative"
+                    x-data="{ isOpen: false }"
+                    @click.away="isOpen = false"
+                    @keydown.escape.window="isOpen = false"
                 >
-                    <span>Dropdown</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-white dark:stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6"/></svg>
-                </button>
-                <!-- END Dropdown Toggle -->
-                <!-- Dropdown Menu -->
-                <div id="dropdown" class="left-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48" aria-describedby="dropdown"
-                    x-show="isOpen"
-                    x-cloak
-                    x-anchor.no-style.offset.8="$refs.button"
-                    :inert="!isOpen"
-                    :style="{ top: $anchor.y+'px'}"
-                >
-                    <ul class="space-y-1 p-1 leading-0">
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Dropdown item 1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Dropdown item 2</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Dropdown item 3</a>
-                        </li>
-                    </ul>
+                    <!-- Dropdown Toggle -->
+                    <button type="button" class="flex items-center gap-2 bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dropdown" aria-label="Toggle dropdown."
+                        x-ref="button"
+                        @click="isOpen = !isOpen"
+                        :aria-expanded="isOpen"
+                    >
+                        <span>Dropdown</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-white dark:stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6"/></svg>
+                    </button>
+                    <!-- END Dropdown Toggle -->
+                    <!-- Dropdown Menu -->
+                    <div id="dropdown" class="left-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48" aria-describedby="dropdown"
+                        x-show="isOpen"
+                        x-cloak
+                        x-anchor.no-style.offset.8="$refs.button"
+                        :inert="!isOpen"
+                        :style="{ top: $anchor.y+'px'}"
+                    >
+                        <ul class="space-y-1 p-1 leading-0">
+                            <li>
+                                <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Dropdown item 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Dropdown item 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Dropdown item 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END Dropdown Menu -->
                 </div>
-                <!-- END Dropdown Menu -->
-            </div>
-            <!-- END Dropdown Component -->            
-            <div class="mt-16">
-                <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                <!-- END Dropdown Component -->            
+                <div class="mt-16">
+                    <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                </div>
             </div>
         </main>
         <!-- END Content -->   
