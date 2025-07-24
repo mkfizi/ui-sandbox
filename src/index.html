@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="app">
     <head>
         <!-- Metadata -->
         <meta charset="UTF-8">
@@ -45,7 +45,7 @@
 		<link rel="preload" href="/js/app.ts" as="script">
 		<script src="/js/app.ts" type="module" defer></script>
 		<!-- END Script -->
-		 <!-- Prevent FOUC -->
+        <!-- Prevent FOUC -->
         <script>
             // Toggle theme.
             // localStorage.theme = 'dark';
@@ -56,19 +56,75 @@
     </head>
 	<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="space-y-4 mx-auto px-4 sm:px-8 py-32 w-full max-w-screen-sm">
-			<p class="text-neutral-800 dark:text-neutral-200 text-sm"><strong>Style</strong></p>
-            <ul class="ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
-				<li>
-                    <a href="./style/typography.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Typography</a>
-				</li>
-				<li>
-                    <a href="./style/form.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Form</a>
-				</li>
-				<li>
-                    <a href="./style/element.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Element</a>
-				</li>
-			</ul>
+        <main class="mx-auto mb-32 px-4 sm:px-8 pt-32 w-full max-w-screen-sm">
+			<div class="space-y-4">
+                <p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Style</p>
+                <ul class="ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
+                    <li>
+                        <a href="./style/element.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Element</a>
+                    </li>
+                    <li>
+                        <a href="./style/form.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Form</a>
+                    </li>
+                    <li>
+                        <a href="./style/typography.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Typography</a>
+                    </li>
+                </ul>
+                <p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Component</p>
+                <ul class="ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
+                    <li>
+                        <a href="./component/accordion.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Accordion</a>
+                    </li>
+                    <li>
+                        <a href="./component/alert.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Alert</a>
+                    </li>
+                    <li>
+                        <a href="./component/breakpoint.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Breakpoint</a>
+                    </li>
+                    <li>
+                        <a href="./component/collapse.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Collapse</a>
+                    </li>
+                    <li>
+                        <a href="./component/dark-mode.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Dark Mode</a>
+                    </li>
+                    <li>
+                        <a href="./component/dark-mode-menu.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Dark Mode Menu</a>
+                    </li>
+                    <li>
+                        <a href="./component/dropdown.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Dropdown</a>
+                    </li>
+                    <li>
+                        <a href="./component/modal.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Modal</a>
+                    </li>
+                    <li>
+                        <a href="./component/navbar.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Navbar</a>
+                    </li>
+                    <li>
+                        <a href="./component/navbar-sticky.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Navbar Sticky</a>
+                    </li>
+                    <li>
+                        <a href="./component/offcanvas.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Offcanvas</a>
+                    </li>
+                    <li>
+                        <a href="./component/offcanvas-breakpoint.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Offcanvas Breakpoint</a>
+                    </li>
+                    <li>
+                        <a href="./component/overlay.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Overlay</a>
+                    </li>
+                    <li>
+                        <a href="./component/scroll-spy.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Scroll Spy</a>
+                    </li>
+                    <li>
+                        <a href="./component/scroll-top.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Scroll Top</a>
+                    </li>
+                    <li>
+                        <a href="./component/tabs.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Tabs</a>
+                    </li>
+                    <li>
+                        <a href="./component/toast.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Toast</a>
+                    </li>
+                </ul>
+            </div>
         </main>
         <!-- END Content -->   
     </body>

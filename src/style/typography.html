@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="app">
     <head>
        	<!-- Metadata -->
         <meta charset="UTF-8">
@@ -8,60 +8,65 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
-        <!-- Style -->
-        <style>
-            @import 'tailwindcss';
-
-			@custom-variant dark (&:where(.dark, .dark *));
-        </style>
-		<script>
-			// Toggle theme.
-			// localStorage.theme = 'dark';
-			document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-		</script>
-		<!-- END Prevent FOUC -->		
+        <!-- Style-->
+		<link rel="preload" href="/css/app.css" as="style">
+		<link rel="stylesheet" href="/css/app.css">
+		<!-- END Style -->
+		<!-- Script -->
+		<link rel="preload" href="/js/app.ts" as="script">
+		<script src="/js/app.ts" type="module" defer></script>
+		<!-- END Script -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
 		<title>UI Sandbox</title>
 	</head>
 	<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
 		<!-- Content -->
-		<main class="space-y-4 mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
-			<!-- Heading -->
-			<h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Heading 1</h1>
-			<h2 class="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-4xl">Heading 2</h2>
-			<h3 class="font-semibold text-black dark:text-white text-xl sm:text-2xl lg:text-3xl">Heading 3</h3>
-			<h4 class="font-medium text-black dark:text-white text-lg sm:text-xl lg:2xl">Heading 4</h4>
-			<!-- END Heading -->
-			<!-- Link -->
-			<div>
-				<!-- Link Inactive-->
-				<a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Inactive link</a>
-				<!-- END Link Inactive-->
+        <main class="mx-auto mb-32 px-4 sm:px-8 pt-32 w-full max-w-screen-sm">
+			<div class="space-y-4">
+				<!-- Heading -->
+				<h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Heading 1</h1>
+				<h2 class="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-4xl">Heading 2</h2>
+				<h3 class="font-semibold text-black dark:text-white text-xl sm:text-2xl lg:text-3xl">Heading 3</h3>
+				<h4 class="font-medium text-black dark:text-white text-lg sm:text-xl lg:2xl">Heading 4</h4>
+				<!-- END Heading -->
+				<!-- Link -->
+				<div>
+					<!-- Link Inactive-->
+					<a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Inactive link</a>
+					<!-- END Link Inactive-->
+				</div>
+				<div>
+					<!-- Link Active-->
+					<a href="#" class="font-medium text-black hover:dark:text-neutral-200 hover:text-neutral-700 focus:dark:text-neutral-200 focus:text-neutral-700 dark:text-white text-sm cursor-pointer">Active link</a>
+					<!-- END Link Active -->
+				</div>
+				<!-- END Link -->
+				<!-- List -->
+				<ul class="ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
+					<li>
+						<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 1.</p>
+					</li>
+					<li>
+						<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 2.</p>
+					</li>
+					<li>
+						<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 3.</p>
+					</li>
+				</ul>
+				<!-- END List -->
+				<!-- Paragraph -->
+				<p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a paragraph text.</p>
+				<!-- END Paragraph -->
+				<!-- Title -->
+				<p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">This is a title text.</p>
+				<!-- END Title -->
 			</div>
-			<div>
-				<!-- Link Active-->
-				<a href="#" class="font-medium text-black hover:dark:text-neutral-200 hover:text-neutral-700 focus:dark:text-neutral-200 focus:text-neutral-700 dark:text-white text-sm cursor-pointer">Active link</a>
-				<!-- END Link Active -->
-			</div>
-			<!-- END Link -->
-			<!-- List -->
-			<ul class="ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
-				<li>
-					<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 1.</p>
-				</li>
-				<li>
-					<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 2.</p>
-				</li>
-				<li>
-					<p class="text-neutral-800 dark:text-neutral-200 text-sm">List item 3.</p>
-				</li>
-			</ul>
-			<!-- END List -->
-			<!-- Paragraph -->
-			<p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a paragraph text.</p>
-			<!-- END Paragraph -->
-			<!-- Title -->
-			<p class="font-medium text-neutral-800 dark:text-neutral-200 text-base sm:text-lg lg:text-xl">This is a title text.</p>
-			<!-- END Title -->
             <div class="mt-16">
                 <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
             </div>

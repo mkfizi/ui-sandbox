@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app">
+    <head>
+       	<!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="robots" content="noindex">
+        <!-- END Metadata -->
+        <!-- Style-->
+		<link rel="preload" href="/css/app.css" as="style">
+		<link rel="stylesheet" href="/css/app.css">
+		<!-- END Style -->
+		<!-- Script -->
+		<link rel="preload" href="/js/app.ts" as="script">
+		<script src="/js/app.ts" type="module" defer></script>
+		<!-- END Script -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
+		<title>UI Sandbox</title>
+	</head>
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <!-- Content -->
+        <main class="mx-auto mb-32 px-4 sm:px-8 pt-32 w-full max-w-screen-sm">  
+            <p class="text-neutral-800 dark:text-neutral-200 text-sm">Open the offcanvas on a screen less than 1024px and resize window more than 1024px.</p>
+            <!-- Offcanvas Open -->
+            <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Open offcanvas."
+                x-data="{ isOpen: false }"
+                @click="$dispatch('open-offcanvas');"
+                @set-expanded.window="isOpen = $event.detail"
+                :aria-expanded="isOpen"
+            >
+                <span>Offcanvas</span>
+            </button>
+            <!-- END Offcanvas Open -->
+            <!-- Offcanvas Component -->
+            <div id="offcanvas" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
+                x-data="{
+                    breakpoint: 1024,
+                    isOpen: false
+                }"
+                x-init="$watch('isOpen', isOpen => $dispatch('set-expanded', isOpen))"
+                x-show="isOpen"
+                x-cloak
+                x-trap.noautofocus.noscroll="isOpen"
+                @click.self="isOpen = false"
+                @keydown.escape.window="isOpen = false"
+                @open-offcanvas.window="isOpen = true"
+                @resize.window="window.innerWidth >= breakpoint && isOpen && (isOpen = false)"
+                :inert="!isOpen" 
+            >
+                <!-- Offcanvas Drawer -->
+                <div class="top-0 left-0 fixed bg-white dark:bg-neutral-950 p-8 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full overflow-y-auto">
+                    <!-- Offcanvas Close -->
+                    <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Close offcanvas."
+                        @click="isOpen = false"
+                        :aria-expanded="isOpen"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
+                    </button>
+                    <!-- END Offcanvas Close -->
+                    <!-- Insert Content Here -->
+                </div>
+                <!-- END Offcanvas Drawer -->
+            </div>
+            <!-- END Offcanvas Component -->
+            <div class="mt-16">
+                <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+            </div>
+        </main>
+        <!-- END Content -->   
+    </body>
+</html>

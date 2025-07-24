@@ -16,7 +16,19 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [2.0.0] - 2025-03-15
+## [0.7.0]
+### Added
+- Typescript support.
+- Added Components.
+
+### Changed
+- Revise to a modern directory structure.
+- Revise Vite config to support dynamic build entries.
+
+### Removed
+- Button group element.
+
+## [0.6.0] - 2025-03-15
 ### Added
 - Badge icon variants.
 - Button icon variants.
@@ -41,7 +53,7 @@ Put unreleased changes here.
 - Dark mode toggle.
 - Dynamic viewport height fallback.
 
-## [1.0.0] - 2024-05-03
+## [0.5.0] - 2024-05-03
 ### Added.
 - Vite compiler.
 - AlpineJS, PostCSS and Autoprefixer packages.
