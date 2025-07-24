@@ -1,4 +1,4 @@
-# UI Sandhox
+# UI Sandbox
 @mkfizi UI sandbox.
 
 ## Usage
@@ -24,7 +24,6 @@ npm run preview
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
 
 ## License
 [MIT](https://github.com/mkfizi/ui-style/blob/main/LICENSE)
