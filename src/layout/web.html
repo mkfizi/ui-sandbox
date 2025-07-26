@@ -27,26 +27,19 @@
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Navbar Component -->
-        <nav class="top-0 z-10 sticky w-full"
+        <nav class="w-full"
             x-data="{
                 breakpoint: 1024,
                 isOpen: false,
-                isScrolled: window.scrollY > 0,
                 windowWidth: window.innerWidth,
             }"
             @resize.window="
                 windowWidth = window.innerWidth;
                 windowWidth >= breakpoint && isOpen && (isOpen = false);
             "
-            @scroll.window="isScrolled = window.scrollY > 0;"
-            :class="{
-                'bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800': isScrolled,
-                'bg-transparent dark:bg-transparent border-transparent': !isScrolled
-            }"
         >
             <div class="flex justify-between items-center mx-auto px-4 sm:px-8 py-2 max-w-screen-xl">
                 <a href="#" class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
-
                 <div class="flex items-center gap-2 lg:gap-6">
                     <!-- Navbar Menu -->
                     <div id="navbar-menu" class="top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
@@ -68,45 +61,15 @@
                             </button>
                             <!-- END Navbar Menu Close -->
                             <!-- Navbar Menu Links -->
-                            <ul class="lg:flex lg:items-center lg:gap-8 space-y-1 lg:space-y-0 mt-8 lg:mt-0 leading-0"
-                                x-data="{ 
-                                    active: 'home',
-                                    toggleActive() {
-                                        const sections = document.querySelectorAll(`section[id]`);
-                                        sections.forEach(section => {
-                                            const rect = section.getBoundingClientRect();
-                                            if(rect.top <= 0 && rect.top + rect.height >= 0) {
-                                                this.active = section.id;
-                                            }
-                                        });
-                                    }
-                                }"
-                                x-init="toggleActive()"
-                                @scroll.window="toggleActive()"
-                            >
+                            <ul class="lg:flex lg:items-center lg:gap-8 space-y-1 lg:space-y-0 mt-8 lg:mt-0 leading-0">
                                 <li>
-                                    <a href="#home" class="inline-block bg-neutral-100 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 p-2 lg:p-0 rounded w-full font-medium text-black lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700 dark:text-white text-sm text-left cursor-pointer"
-                                        :class="{ 
-                                            'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700': active === 'home',
-                                            'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500': active !== 'home' 
-                                        }"
-                                    >Home</a>
+                                    <a href="#" class="inline-block bg-neutral-100 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 p-2 lg:p-0 rounded w-full font-medium text-black lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700 dark:text-white text-sm text-left cursor-pointer">Link 1</a>
                                 </li>
                                 <li>
-                                    <a href="#section-2" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 lg:p-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer"
-                                        :class="{ 
-                                            'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700': active === 'section-2',
-                                            'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500': active !== 'section-2' 
-                                        }"
-                                    >Section 2</a>
+                                    <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 lg:p-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500 lg:visited:text-neutral-700 dark:text-white text-sm text-left cursor-pointer">Link 2</a>
                                 </li>
                                 <li>
-                                    <a href="#section-3" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 lg:p-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer"
-                                        :class="{ 
-                                            'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700': active === 'section-3',
-                                            'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500': active !== 'section-3'  
-                                        }"
-                                    >Section 3</a>
+                                    <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 lg:p-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500 lg:visited:text-neutral-700 dark:text-white text-sm text-left cursor-pointer">Link 3</a>
                                 </li>
                             </ul>
                             <!-- END Navbar Menu Links -->
@@ -115,7 +78,7 @@
                     </div>  
                     <!-- END Navbar Menu -->
                     <!-- Dark Mode Menu Component -->
-                    <div class="inline-block relative"
+                    <div class="relative"
                         x-data="{ 
                             isOpen: false,
                             theme: localStorage.theme || null,
@@ -181,13 +144,13 @@
                         </div>
                         <!-- END Dropdown Menu -->
                     </div>
-                    <!-- END Dark Mode Menu Component --> 
+                    <!-- END Dark Mode Menu Component -->  
                     <!-- Navbar Menu Open -->
                     <button type="button" class="lg:hidden lg:invisible hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Open navbar menu."
                         @click="isOpen = true"
                         :aria-expanded="isOpen"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l16 0"/><path d="M4 16l16 0"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg>
                     </button>
                     <!-- END Navbar Menu Open -->
                 </div>
@@ -195,8 +158,8 @@
         </nav>
         <!-- END Navbar Component -->
         <!-- Content -->
-        <main class="mx-auto px-4 sm:px-8 w-full max-w-screen-xl">  
-            <section id="home" class="space-y-4 pt-48 sm:pt-64 max-w-4xl h-dvh">
+        <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
+            <section class="space-y-2 mt-48 sm:mt-64 max-w-4xl">
                 <h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">UI Sandbox</h1>
                 <h2 class="font-medium text-neutral-800 dark:text-neutral-200 text-base">
                     <span>This is a sandbox for </span>
@@ -204,21 +167,8 @@
                     <span> projects with TailwindCSS.</span>
                 </h2>
             </section>
-            <section id="section-2" class="pt-16 h-dvh">
-                <h3 class="font-medium text-black dark:text-white text-lg sm:text-xl lg:2xl">Section 2</h3>
-            </section>
-            <section id="section-3" class="pt-16 h-dvh">
-                <h3 class="font-medium text-black dark:text-white text-lg sm:text-xl lg:2xl">Section 3</h3>
-            </section>
         </main>
-        <!-- END Content -->
-        <!-- Scroll Top Component -->
-            <button type="button" class="right-4 sm:right-8 bottom-4 sm:bottom-8 fixed inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Close modal."
-                x-data
-                @click="window.scrollTo({ top: 0 })"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14"/><path d="M18 11l-6 -6"/><path d="M6 11l6 -6"/></svg>
-            </button>   
+        <!-- END Content -->   
         <!-- Footer -->
         <footer class="bottom-0 left-1/2 absolute px-4 sm:px-8 pb-px w-full max-w-screen-xl text-center -translate-x-1/2 transform">
             <div class="flex justify-between">

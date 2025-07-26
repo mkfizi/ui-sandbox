@@ -27,11 +27,11 @@
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="mx-auto px-4 sm:px-8 w-full max-w-screen-xl"> 
+        <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl"> 
             <div class="pt-32 max-w-screen-sm">
                 <div class="h-dvh"></div>
                 <!-- Dropdown Component -->
-                <div class="inline-block relative"
+                <div class="relative"
                     x-data="{ isOpen: false }"
                     @click.away="isOpen = false"
                     @keydown.escape.window="isOpen = false"
