@@ -58,9 +58,9 @@
                         :inert="!isOpen && windowWidth < breakpoint"
                     >
                         <!-- Navbar Menu Drawer -->
-                        <div class="top-0 right-0 fixed lg:relative bg-white lg:bg-transparent dark:bg-neutral-950 px-4 sm:px-8 lg:px-0 py-4 lg:py-0 border-neutral-200 lg:border-0 dark:border-neutral-800 border-r w-full sm:w-1/2 lg:w-auto h-full lg:h-auto overflow-y-auto lg:overflow-y-visible">
+                        <div class="top-0 right-0 fixed lg:relative bg-white lg:bg-transparent dark:bg-neutral-950 px-4 sm:px-8 lg:px-0 py-4 lg:py-0 border-neutral-200 lg:border-0 dark:border-neutral-800 border-r w-full sm:w-64 lg:w-auto h-full lg:h-auto overflow-y-auto lg:overflow-y-visible">
                             <!-- Navbar Menu Close -->
-                            <button type="button" class="lg:hidden lg:invisible top-2 right-4 sm:right-8 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Close offcanvas."
+                            <button type="button" class="lg:hidden lg:invisible top-2 right-4 sm:right-8 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar menu" aria-label="Close navbar menu."
                                 @click="isOpen = false"
                                 :aria-expanded="isOpen"
                             >
@@ -132,7 +132,7 @@
                         @keydown.escape.window="isOpen = false"
                     >
                         <!-- Dropdown Toggle -->
-                        <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu"  aria-controls="dropdown" aria-label="Toggle dropdown."
+                        <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu" aria-label="Toggle dark mode menu."
                             x-ref="button"
                             @click="isOpen = !isOpen"
                             :aria-expanded="isOpen"
@@ -142,7 +142,7 @@
                         </button>
                         <!-- END Dropdown Toggle -->
                         <!-- Dropdown Menu -->
-                        <div id="dropdown" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48" aria-describedby="dropdown"
+                        <div id="dark-mode-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
                             x-show="isOpen"
                             x-cloak
                             x-anchor.no-style.offset.8="$refs.button"
@@ -213,7 +213,7 @@
         </main>
         <!-- END Content -->
         <!-- Scroll Top Component -->
-        <button type="button" class="right-4 sm:right-8 bottom-4 sm:bottom-8 fixed inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Close modal."
+        <button type="button" class="right-4 sm:right-8 bottom-4 sm:bottom-8 fixed inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none"
             x-data
             @click="window.scrollTo({ top: 0 })"
         >
