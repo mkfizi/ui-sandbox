@@ -427,7 +427,22 @@
                             </div>
                         </div>
                         <!-- Table -->
-                        <div class="border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
+                        <div class="border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                            x-data="{
+                                orders: [
+                                    { id: 'ORD10010', amount: '$420.00', status: 'Pending', date: '29 July 2025' },
+                                    { id: 'ORD10011', amount: '$320.00', status: 'Completed', date: '28 July 2025' },
+                                    { id: 'ORD10012', amount: '$150.00', status: 'Cancelled', date: '27 July 2025' },
+                                    { id: 'ORD10013', amount: '$600.00', status: 'Pending', date: '26 July 2025' },
+                                    { id: 'ORD10014', amount: '$200.00', status: 'Completed', date: '25 July 2025'},
+                                    { id: 'ORD10015', amount: '$450.00', status: 'Pending', date: '24 July 2025'},
+                                    { id: 'ORD10016', amount: '$300.00', status: 'Completed', date: '23 July 2025' },
+                                    { id: 'ORD10017', amount: '$500.00', status: 'Cancelled', date: '22 July 2025' },
+                                    { id: 'ORD10018', amount: '$700.00', status: 'Pending', date: '21 July 2025' },
+                                    { id: 'ORD10019', amount: '$800.00', status: 'Completed', date: '20 July 2025' }
+                                ],
+                            }"
+                        >
                             <div class="overflow-x-auto">
                                 <table class="divide-y divide-neutral-200 dark:divide-neutral-800 w-full whitespace-nowrap">
                                     <thead class="bg-neutral-50 dark:bg-neutral-900 text-left">
@@ -441,286 +456,42 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-neutral-200 dark:divide-neutral-800">
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">1</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10010</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$420.00</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-orange-500 rounded-full w-2 h-2"></div>
-                                                    <span>Pending</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">29 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">2</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10009</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$310.20</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-green-500 rounded-full w-2 h-2"></div>
-                                                    <span>Completed</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">28 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">3</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10008</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$199.00</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-orange-500 rounded-full w-2 h-2"></div>
-                                                    <span>Pending</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">27 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">4</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10007</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$120.50</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-green-500 rounded-full w-2 h-2"></div>
-                                                    <span>Completed</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">26 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">5</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10006</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$56.75</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-red-500 rounded-full w-2 h-2"></div>
-                                                    <span>Cancelled</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">25 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">6</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10005</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$245.00</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-orange-500 rounded-full w-2 h-2"></div>
-                                                    <span>Pending</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">24 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">7</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10004</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$99.99</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-green-500 rounded-full w-2 h-2"></div>
-                                                    <span>Completed</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">23 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">8</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10003</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$150.00</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-red-500 rounded-full w-2 h-2"></div>
-                                                    <span>Cancelled</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">22 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">9</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10002</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$89.99</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-orange-500 rounded-full w-2 h-2"></div>
-                                                    <span>Pending</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">21 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">10</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">ORD10001</a>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">$120.50</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex items-center gap-2 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                    <div class="bg-green-500 rounded-full w-2 h-2"></div>
-                                                    <span>Completed</span>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">20 July 2025</td>
-                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-
-                                                    </a>
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <template x-for="(order, index) in orders" :key="order.id">
+                                            <tr>
+                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm" x-text="index + 1"></td>
+                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" x-text="order.id"></a>
+                                                </td>
+                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                    <span x-text="order.amount"></span>
+                                                </td>
+                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                    <div class="flex items-center gap-1 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
+                                                        <div class="rounded-full w-2 h-2" 
+                                                            :class="{
+                                                                'bg-green-500': order.status === 'Completed',
+                                                                'bg-red-500': order.status === 'Cancelled',
+                                                                'bg-orange-500': order.status === 'Pending'
+                                                            }"></div>
+                                                        <span x-text="order.status"></span>
+                                                    </div>
+                                                </td>
+                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm" x-text="order.date"></td>
+                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                    <div class="flex justify-end gap-2">
+                                                        <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
+                                                        </a>
+                                                        <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
+                                                        </a>
+                                                        <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1 1v3"/><path d="M10 12l4 4m0 -4l-4 4"/></svg>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </template>
                                     </tbody>
                                 </table>
                             </div>
@@ -888,7 +659,7 @@
                 </div>
                 <!-- END Offcanvas Drawer -->
             </div>
-            <!-- END Fileter Menu -->
+            <!-- END Filter Menu -->
             <!-- Footer -->
             <footer class="bottom-1 absolute w-full">
                 <div class="flex justify-between mx-auto px-4 sm:px-8 max-w-screen-xl">
