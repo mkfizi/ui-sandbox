@@ -20,6 +20,7 @@ Put unreleased changes here.
 ### Added
 - Typescript support.
 - Added Components.
+- Added Templates.
 
 ### Changed
 - Revise to a modern directory structure.
