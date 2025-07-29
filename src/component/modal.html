@@ -30,7 +30,7 @@
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
             <div class="pt-32 max-w-screen-sm">
                 <!-- Modal Open -->
-                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Open modal."
+                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Open modal."
                     x-data="{ isOpen: false }"
                     @click="$dispatch('open-modal');"
                     @set-modal-expanded.window="isOpen = $event.detail"
@@ -69,13 +69,13 @@
                         <!-- END Modal Content -->
                         <!-- Modal Action -->
                         <div class="flex flex-wrap justify-end gap-2 mt-8">
-                            <button type="button" class="bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-4 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal"
+                            <button type="button" class="bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-3 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal"
                                 @click="isOpen = false"
                                 :aria-expanded="isOpen"
                             >
                                 <span>Close</span>
                             </button>
-                            <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none">
+                            <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none">
                                 <span>Okay</span>
                             </button>
                         </div>
