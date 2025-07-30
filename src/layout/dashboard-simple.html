@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" x-data="app">
     <head>
-        <!-- Metadata -->
+       	<!-- Metadata -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +9,13 @@
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
         <!-- Style-->
-        <link rel="preload" href="/css/app.css" as="style">
-        <link rel="stylesheet" href="/css/app.css">
-        <!-- END Style -->
-        <!-- Script -->
-        <link rel="preload" href="/js/app.ts" as="script">
-        <script src="/js/app.ts" type="module" defer></script>
-        <!-- END Script -->
+		<link rel="preload" href="/css/app.css" as="style">
+		<link rel="stylesheet" href="/css/app.css">
+		<!-- END Style -->
+		<!-- Script -->
+		<link rel="preload" href="/js/app.ts" as="script">
+		<script src="/js/app.ts" type="module" defer></script>
+		<!-- END Script -->
         <!-- Prevent FOUC -->
         <script>
             // Toggle theme.
@@ -23,228 +23,95 @@
             document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
         <!-- END Prevent FOUC -->
-        <title>UI Sandbox</title>
-    </head>
-    <body class="relative flex bg-white dark:bg-neutral-950 min-h-dvh antialiased">
-        <!-- Sidebar Component -->
-        <aside id="sidebar" class="top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh"
+		<title>UI Sandbox</title>
+	</head>
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <!-- Navbar Component -->
+        <nav class="top-0 z-1 sticky w-full"
             x-data="{
                 breakpoint: 1024,
-                isOpen: false,
+                isScrolled: window.scrollY > 0,
                 windowWidth: window.innerWidth,
+                isOpen: false,
             }"
-            x-init="$watch('isOpen', isOpen => $dispatch('set-sidebar-expanded', isOpen))"
-            x-show="isOpen || windowWidth >= breakpoint"
-            x-cloak
-            x-trap.noautofocus.noscroll="isOpen && windowWidth < breakpoint"
             @resize.window="
                 windowWidth = window.innerWidth;
                 windowWidth >= breakpoint && isOpen && (isOpen = false);
             "
-            @click.self="isOpen = false"
-            @keydown.escape.window="isOpen = false"
-            @open-sidebar.window="isOpen = true"
-            :inert="!isOpen && windowWidth < breakpoint"
+            @scroll.window="isScrolled = window.scrollY > 0;"
+            :class="{
+                'bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800': isScrolled,
+                'bg-transparent dark:bg-transparent border-transparent': !isScrolled
+            }"
         >
-            <!-- Sidebar Drawer -->
-            <div class="top-0 left-0 fixed flex flex-col bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
-                <!-- Sidebar Close -->
-                <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Close sidebar."
-                    @click="isOpen = false"
-                    :aria-expanded="isOpen"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
-                </button>
-                <!-- END Sidebar Close -->
-                <a href="#" class="px-4 sm:px-8 py-4 font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
-                <ul class="space-y-1 px-4 sm:px-8 pt-2 pb-4 overflow-y-auto">
-                    <li>
-                        <a href="#" class="inline-block bg-neutral-100 dark:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 3</a>
-                    </li>
-                    <ul class="space-y-1 mt-4">
-                        <li>
-                            <p class="py-2 pl-2.5 font-semibold text-neutral-800 dark:text-neutral-200 text-sm uppercase">Module</p> 
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 4</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 5</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 6</a>
-                        </li>
-                    </ul>
-                    <li>
-                        <div class="space-y-2 mt-4"
-                            x-data="{ isOpen: false }"
-                        >
-                        <!-- Collapse Toggle -->
-                        <button type="button" class="flex justify-between hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-controls="sublink-menu" aria-label="Toggle sublink menu."
-                            @click="isOpen = !isOpen" 
-                            :aria-expanded="isOpen"
-                        >
-                            <span>Sublink</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 9l4 -4l4 4"/><path d="M16 15l-4 4l-4 -4"/></svg>
-                        </button>
-                        <!-- END Collapse Toggle -->
-                        <!-- Collapse Content -->
-                        <div id="sublink-menu" class="overflow-hidden"
-                            x-show="isOpen"
-                            x-cloak
-                            :inert="!isOpen"
-                        >
-                            <ul class="space-y-1 leading-0">
+            <div class="flex justify-between items-center mx-auto px-4 sm:px-8 py-2 max-w-screen-xl">
+                <div class="flex items-center gap-4">
+                    <a href="#" class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
+                    <!-- Navbar Menu Open -->
+                    <button type="button" class="lg:hidden lg:invisible hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Open navbar menu."
+                        @click="isOpen = true"
+                        :aria-expanded="isOpen"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg>
+                    </button>
+                    <!-- END Navbar Menu Open -->
+                    <!-- Navbar Menu -->
+                    <div id="navbar-menu" class="top-0 lg:top-auto left-0 lg:left-auto !z-20 z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent lg:ml-8 w-dvw lg:w-auto h-dvh lg:h-auto"
+                        x-show="isOpen || windowWidth >= breakpoint"
+                        x-cloak
+                        x-trap.noautofocus.noscroll="isOpen && windowWidth < breakpoint"
+                        @click.self="isOpen = false"
+                        @keydown.escape.window="isOpen = false"
+                        :inert="!isOpen && windowWidth < breakpoint"
+                    >
+                        <!-- Navbar Menu Drawer -->
+                        <div class="top-0 right-0 fixed lg:relative bg-white lg:bg-transparent dark:bg-neutral-950 px-4 sm:px-8 lg:px-0 py-4 lg:py-0 border-neutral-200 lg:border-0 dark:border-neutral-800 border-r w-full sm:w-64 lg:w-auto h-full lg:h-auto overflow-y-auto lg:overflow-y-visible">
+                            <!-- Navbar Menu Close -->
+                            <button type="button" class="lg:hidden lg:invisible top-2 right-4 sm:right-8 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Close navbar menu."
+                                @click="isOpen = false"
+                                :aria-expanded="isOpen"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
+                            </button>
+                            <!-- END Navbar Menu Close -->
+                            <!-- Navbar Menu Links -->
+                            <ul class="lg:flex lg:items-center lg:gap-8 space-y-1 lg:space-y-0 mt-8 lg:mt-0 leading-0">
                                 <li>
-                                    <a href="#" class="inline-block bg-neutral-100 dark:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Sublink 1</a>
+                                    <a href="#" class="inline-block bg-neutral-100 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700 dark:text-white text-sm text-left cursor-pointer">Link 1</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Sublink 2</a>
+                                    <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:visited:text-neutral-700 lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer">Link 2</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Sublink 3</a>
+                                    <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:visited:text-neutral-700 lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer">Link 3</a>
                                 </li>
                             </ul>
+                            <!-- END Navbar Menu Links -->
                         </div>
-                        <!-- END Collapse Content -->
-                    </li>
-                </ul>
-            </div>
-            <!-- END Sidebar Drawer -->
-        </aside>
-        <!-- END Sidebar Component -->
-        <!-- Main Content -->
-        <div class="relative flex-1 w-full">
-            <!-- Navbar Component -->
-            <nav class="top-0 z-1 sticky w-full"
-                x-data="{
-                    breakpoint: 1024,
-                    isScrolled: window.scrollY > 0,
-                }"
-                @scroll.window="isScrolled = window.scrollY > 0;"
-                :class="{
-                    'bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800': isScrolled,
-                    'bg-transparent dark:bg-transparent border-transparent': !isScrolled
-                }"
-            >
-                <div class="flex justify-between lg:justify-end items-center mx-auto px-4 sm:px-8 py-2 max-w-screen-xl">
-                    <div class="lg:hidden lg:invisible flex items-center gap-4">
-                        <!-- Sidebar Open -->
-                        <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Open sidebar."
-                            x-data="{ isOpen: false }"
-                            @click="$dispatch('open-sidebar');"
-                            @set-sidebar-expanded.window="isOpen = $event.detail"
-                            :aria-expanded="isOpen"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg>
-                        </button>
-                        <!-- END Sidebar Open -->
-                        <a href="#" class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
-                    </div>
-                    <div class="flex gap-2">
-                        <!-- Notification Menu Component -->
-                        <div class="relative">
-                            <div class="top-1 right-1 z-10 absolute bg-red-500 rounded-full w-2 h-2"></div>
-                            <div class="relative"
-                                x-data="{ isOpen: false}"
-                                @click.away="isOpen = false"
-                                @keydown.escape.window="isOpen = false"
-                            >
-                                <!-- Dropdown Toggle -->
-                                <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="notification-menu" aria-label="Toggle notification menu."
-                                    x-ref="button"
-                                    @click="isOpen = !isOpen"
-                                    :aria-expanded="isOpen"
-                                >
-                                    <svg  xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler icon-tabler-bell icons-tabler-outline icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
-                                </button>
-                                <!-- END Dropdown Toggle -->
-                                <!-- Dropdown Menu -->
-                                <div id="notification-menu" class="!-right-22 right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-72"
-                                    x-show="isOpen"
-                                    x-cloak
-                                    x-anchor.no-style.offset.8="$refs.button"
-                                    :inert="!isOpen"
-                                    :style="{ top: $anchor.y+'px'}"
-                                >
-                                    <ul class="space-y-1 p-1 leading-0">
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
-                                                <span class="block font-normal">This is a example text paragraph for notification.</span>
-                                                <span class="block font-normal text-end">
-                                                    <small>1 hour ago</small>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <hr class="border-neutral-200 dark:border-neutral-800"/>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
-                                                <span class="block font-normal">This is a example text paragraph for notification.</span>
-                                                <span class="block font-normal text-end">
-                                                    <small>8 hours ago</small>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <hr class="border-neutral-200 dark:border-neutral-800"/>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
-                                                <span class="block font-normal">This is a example text paragraph for notification.</span>
-                                                <span class="block font-normal text-end">
-                                                    <small>1 day ago</small>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <hr class="border-neutral-200 dark:border-neutral-800"/>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-normal text-black dark:text-white text-sm text-left cursor-pointer">More</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- END Dropdown Menu -->
-                            </div>
-                        </div>
-                        <!-- END Notification Menu Component --> 
-                        <!-- Dark Mode Menu Component -->
+                        <!-- END Navbar Menu Drawer -->
+                    </div>  
+                    <!-- END Navbar Menu -->
+                </div>
+                <div class="flex gap-2">
+                    <!-- Notification Menu Component -->
+                    <div class="relative">
+                        <div class="top-1 right-1 z-10 absolute bg-red-500 rounded-full w-2 h-2"></div>
                         <div class="relative"
-                            x-data="{ 
-                                isOpen: false,
-                                theme: localStorage.theme || null,
-                                updateTheme(mode) {
-                                    this.theme = mode;
-                                    mode ? localStorage.theme = mode : localStorage.removeItem('theme');
-                                    document.documentElement.classList.toggle('dark', 
-                                        mode === 'dark' || (!mode && window.matchMedia('(prefers-color-scheme: dark)').matches)
-                                    );
-                                    this.isOpen = false;
-                                }
-                            }"
+                            x-data="{ isOpen: false}"
                             @click.away="isOpen = false"
                             @keydown.escape.window="isOpen = false"
                         >
                             <!-- Dropdown Toggle -->
-                            <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu" aria-label="Toggle dark mode menu."
+                            <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="notification-menu" aria-label="Toggle notification menu."
                                 x-ref="button"
                                 @click="isOpen = !isOpen"
                                 :aria-expanded="isOpen"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="dark:hidden stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="hidden dark:block stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
+                                <svg  xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler icon-tabler-bell icons-tabler-outline icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
                             </button>
                             <!-- END Dropdown Toggle -->
                             <!-- Dropdown Menu -->
-                            <div id="dark-mode-menu" class="!-right-11 right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
+                            <div id="notification-menu" class="!-right-22 right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-72"
                                 x-show="isOpen"
                                 x-cloak
                                 x-anchor.no-style.offset.8="$refs.button"
@@ -253,85 +120,163 @@
                             >
                                 <ul class="space-y-1 p-1 leading-0">
                                     <li>
-                                        <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
-                                            @click="updateTheme('light')"
-                                            :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'light'}"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
-                                            <span>Light</span>
-                                        </button>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                            <span class="block font-normal">This is a example text paragraph for notification.</span>
+                                            <span class="block font-normal text-end">
+                                                <small>1 hour ago</small>
+                                            </span>
+                                        </a>
                                     </li>
                                     <li>
-                                        <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
-                                            @click="updateTheme('dark')"
-                                            :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'dark'}"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
-                                            <span>Dark</span>
-                                        </button>
+                                        <hr class="border-neutral-200 dark:border-neutral-800"/>
                                     </li>
                                     <li>
-                                        <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
-                                            @click="updateTheme(null)"
-                                            :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'system'}"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg>
-                                            <span>System</span>
-                                        </button>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                            <span class="block font-normal">This is a example text paragraph for notification.</span>
+                                            <span class="block font-normal text-end">
+                                                <small>8 hours ago</small>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="border-neutral-200 dark:border-neutral-800"/>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                            <span class="block font-normal">This is a example text paragraph for notification.</span>
+                                            <span class="block font-normal text-end">
+                                                <small>1 day ago</small>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="border-neutral-200 dark:border-neutral-800"/>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-normal text-black dark:text-white text-sm text-left cursor-pointer">More</a>
                                     </li>
                                 </ul>
                             </div>
                             <!-- END Dropdown Menu -->
                         </div>
-                        <!-- END Dark Mode Menu Component -->
-                        <!-- Settings Menu Component -->
-                        <div class="relative">
-                            <div class="relative"
-                                x-data="{ isOpen: false}"
-                                @click.away="isOpen = false"
-                                @keydown.escape.window="isOpen = false"
-                            >
-                                <!-- Dropdown Toggle -->
-                                <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="settings-menu" aria-label="Toggle settings menu."
-                                    x-ref="button"
-                                    @click="isOpen = !isOpen"
-                                    :aria-expanded="isOpen"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg>
-                                </button>
-                                <!-- END Dropdown Toggle -->
-                                <!-- Dropdown Menu -->
-                                <div id="settings-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
-                                    x-show="isOpen"
-                                    x-cloak
-                                    x-anchor.no-style.offset.8="$refs.button"
-                                    :inert="!isOpen"
-                                    :style="{ top: $anchor.y+'px'}"
-                                >
-                                    <ul class="space-y-1 p-1 leading-0">
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Settings</a>
-                                        </li>
-                                        <li>
-                                            <hr class="border-neutral-200 dark:border-neutral-800"/>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Logout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- END Dropdown Menu -->
-                            </div>
-                        </div>
-                        <!-- END Settings Menu Component -->     
                     </div>
+                    <!-- END Notification Menu Component --> 
+                    <!-- Dark Mode Menu Component -->
+                    <div class="relative"
+                        x-data="{ 
+                            isOpen: false,
+                            theme: localStorage.theme || null,
+                            updateTheme(mode) {
+                                this.theme = mode;
+                                mode ? localStorage.theme = mode : localStorage.removeItem('theme');
+                                document.documentElement.classList.toggle('dark', 
+                                    mode === 'dark' || (!mode && window.matchMedia('(prefers-color-scheme: dark)').matches)
+                                );
+                                this.isOpen = false;
+                            }
+                        }"
+                        @click.away="isOpen = false"
+                        @keydown.escape.window="isOpen = false"
+                    >
+                        <!-- Dropdown Toggle -->
+                        <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu" aria-label="Toggle dark mode menu."
+                            x-ref="button"
+                            @click="isOpen = !isOpen"
+                            :aria-expanded="isOpen"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="dark:hidden stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="hidden dark:block stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
+                        </button>
+                        <!-- END Dropdown Toggle -->
+                        <!-- Dropdown Menu -->
+                        <div id="dark-mode-menu" class="!-right-11 right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
+                            x-show="isOpen"
+                            x-cloak
+                            x-anchor.no-style.offset.8="$refs.button"
+                            :inert="!isOpen"
+                            :style="{ top: $anchor.y+'px'}"
+                        >
+                            <ul class="space-y-1 p-1 leading-0">
+                                <li>
+                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
+                                        @click="updateTheme('light')"
+                                        :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'light'}"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
+                                        <span>Light</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
+                                        @click="updateTheme('dark')"
+                                        :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'dark'}"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
+                                        <span>Dark</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
+                                        @click="updateTheme(null)"
+                                        :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'system'}"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg>
+                                        <span>System</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END Dropdown Menu -->
+                    </div>
+                    <!-- END Dark Mode Menu Component -->
+                    <!-- Settings Menu Component -->
+                    <div class="relative">
+                        <div class="relative"
+                            x-data="{ isOpen: false}"
+                            @click.away="isOpen = false"
+                            @keydown.escape.window="isOpen = false"
+                        >
+                            <!-- Dropdown Toggle -->
+                            <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="settings-menu" aria-label="Toggle settings menu."
+                                x-ref="button"
+                                @click="isOpen = !isOpen"
+                                :aria-expanded="isOpen"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg>
+                            </button>
+                            <!-- END Dropdown Toggle -->
+                            <!-- Dropdown Menu -->
+                            <div id="settings-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
+                                x-show="isOpen"
+                                x-cloak
+                                x-anchor.no-style.offset.8="$refs.button"
+                                :inert="!isOpen"
+                                :style="{ top: $anchor.y+'px'}"
+                            >
+                                <ul class="space-y-1 p-1 leading-0">
+                                    <li>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Settings</a>
+                                    </li>
+                                    <li>
+                                        <hr class="border-neutral-200 dark:border-neutral-800"/>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- END Dropdown Menu -->
+                        </div>
+                    </div>
+                    <!-- END Settings Menu Component -->     
                 </div>
-            </nav>
-            <!-- END Navbar Component -->
-            <!-- Content -->
+            </div>
+        </nav>
+        <!-- END Navbar Component -->
+        <!-- Content -->
             <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl overflow-hidden">  
                 <p class="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-4xl">Dashboard</p>
                 <div class="space-y-8 mt-8">
@@ -668,8 +613,6 @@
                     </span>
                 </div>
             </footer>
-            <!-- END Footer -->
-        </div>
-        <!-- END Main Content -->
+            <!-- END Footer --> 
     </body>
 </html>
