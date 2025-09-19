@@ -47,7 +47,6 @@
                         <!-- Accordion 1 Content -->
                         <div id="accordion-1" class="mt-4"
                             x-show="active === 1"
-                            x-clock
                             :inert="active != 1"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 1 paragraph text.</p>
@@ -69,7 +68,7 @@
                         <!-- Accordion 2 Content -->
                         <div id="accordion-2" class="mt-4"
                             x-show="active === 2"
-                            x-clock
+                            x-cloak
                             :inert="active != 2"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 2 paragraph text.</p>
@@ -91,7 +90,7 @@
                         <!-- Accordion 3 Content -->
                         <div id="accordion-3" class="mt-4"
                             x-show="active === 3"
-                            x-clock
+                            x-cloak
                             :inert="active != 3"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 3 paragraph text.</p>
