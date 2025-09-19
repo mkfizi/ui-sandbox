@@ -34,19 +34,30 @@
                 windowWidth: window.innerWidth,
             }"
             x-init="
-                isOpen = windowWidth >= breakpoint;
-                $watch('isOpen', isOpen => $dispatch('set-sidebar-expanded', isOpen));
+                if (windowWidth >= breakpoint) {
+                    sidebarIsOpen = localStorage.getItem('sidebar-is-open');
+                    isOpen = sidebarIsOpen ? sidebarIsOpen === 'true' : true;
+                } else {
+                    isOpen = false;
+                }
+                $watch('isOpen', isOpen => {
+                    $dispatch('set-sidebar-expanded', isOpen);
+                    if (windowWidth >= breakpoint) {
+                        localStorage.setItem('sidebar-is-open', isOpen);
+                    }
+                });
             "
             x-show="isOpen"
             x-cloak
             x-trap.noautofocus.noscroll="isOpen && windowWidth < breakpoint"
             @resize.window="
-                currentWidth = windowWidth
+                previousWidth = windowWidth;
                 windowWidth = window.innerWidth;
-                if (currentWidth < breakpoint && windowWidth >= breakpoint) {
-                    isOpen = true;
-                } else if (currentWidth >= breakpoint && windowWidth < breakpoint) {
+                sidebarIsOpen = localStorage.getItem('sidebar-is-open');
+                if (previousWidth >= breakpoint && windowWidth < breakpoint) {
                     isOpen = false;
+                } else if (previousWidth < breakpoint && windowWidth >= breakpoint) {
+                    isOpen = sidebarIsOpen ? sidebarIsOpen === 'true' : true;
                 }
             "
             @click.self="windowWidth < breakpoint && (isOpen = false)"

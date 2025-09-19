@@ -16,7 +16,12 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.7.0]
+## [0.7.1] - 2025-09-19
+### Changed
+- Navbar close menu button position to maintain UI consistency.
+- Sidebar collapse state logic to persist when reload.
+
+## [0.7.0] - 2025-08-13
 ### Added
 - Typescript support.
 - Added Components.
