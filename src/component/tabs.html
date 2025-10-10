@@ -8,6 +8,13 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
         <!-- Style-->
 		<link rel="preload" href="/css/app.css" as="style">
 		<link rel="stylesheet" href="/css/app.css">
@@ -16,86 +23,76 @@
 		<link rel="preload" href="/js/app.ts" as="script">
 		<script src="/js/app.ts" type="module" defer></script>
 		<!-- END Script -->
-        <!-- Prevent FOUC -->
-        <script>
-            // Toggle theme.
-            // localStorage.theme = 'dark';
-            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-        </script>
-        <!-- END Prevent FOUC -->
 		<title>UI Sandbox</title>
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
-            <div class="pt-32 max-w-screen-sm">
+            <div class="space-y-4 pt-32 max-w-screen-sm">
                 <!-- Tabs Component -->
                 <div class="space-y-2"
-                    x-data="{ active: 1 }"
+                    x-data="{ activeTab: 1 }"
                 >
                     <!-- Tabs Buttons -->
                     <div class="flex items-center gap-2">
-                        <!-- Tab 1 Open -->
-                        <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-1" aria-label="Show Tab 1 Content."
-                            @click="active = 1"
-                            :class="{
-                                'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black': active === 1,
-                                'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white': active !== 1
-                            }"
-                            :aria-expanded="active === 1"
+                        <!-- Tab 1 Button -->
+                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-1" aria-label="Show Tab 1 Content."
+                            @click="activeTab = 1"
+                            :class="activeTab === 1 
+                                ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
+                                : 'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white'"
+                            :aria-expanded="activeTab === 1"
                         >
                             <span>Tab 1</span>
                         </button>
-                        <!-- END Tab 1 Open -->
-                        <!-- Tab 2 Open -->
-                        <button type="button" class="bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-3 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-2" aria-label="Show Tab 2 Content."
-                            @click="active = 2;"
-                            :class="{
-                                'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black': active === 2,
-                                'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white': active !== 2
-                            }"
-                            :aria-expanded="active === 2"
+                        <!-- END Tab 1 Button -->
+                        <!-- Tab 2 Button -->
+                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-2" aria-label="Show Tab 2 Content."
+                            @click="activeTab = 2"
+                            :class="activeTab === 2 
+                                ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
+                                : 'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white'"
+                            :aria-expanded="activeTab === 2"
                         >
                             <span>Tab 2</span>
                         </button>
-                        <!-- END Tab 2 Open -->
-                        <!-- Tab 2 Open -->
-                        <button type="button" class="bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-3 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-3" aria-label="Show Tab 2 Content."
-                            @click="active = 3"
-                            :class="{
-                                'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black': active === 3,
-                                'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white': active !== 3
-                            }"
-                            :aria-expanded="active === 3"
+                        <!-- END Tab 2 Button -->
+                        <!-- Tab 3 Button -->
+                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-3" aria-label="Show Tab 3 Content."
+                            @click="activeTab = 3"
+                            :class="activeTab === 3 
+                                ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
+                                : 'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white'"
+                            :aria-expanded="activeTab === 3"
                         >
                             <span>Tab 3</span>
                         </button>
-                        <!-- END Tab 2 Open -->
+                        <!-- END Tab 3 Button -->
                     </div>
-                    <!-- END Tabs Open -->
+                    <!-- END Tabs Buttons -->
                     <!-- Tab 1 Content -->
-                    <div id="tab-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" inert
-                        x-show="active === 1"
+                    <div id="tab-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                        x-show="activeTab === 1"
                         x-cloak
-                        :inert="active !== 1"
+                        :inert="activeTab !== 1"
                     >
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a Tab 1 paragraph text.</p>
                     </div>
                     <!-- END Tab 1 Content -->
                     <!-- Tab 2 Content -->
-                    <div id="tab-2" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" inert
-                        x-show="active === 2"
+                    <div id="tab-2" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                        x-show="activeTab === 2"
                         x-cloak
-                        :inert="active !== 2"
+                        :inert="activeTab !== 2"
                     >
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a Tab 2 paragraph text.</p>
                     </div>
                     <!-- END Tab 2 Content -->
                     <!-- Tab 3 Content -->
-                    <div id="tab-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" inert
-                        x-show="active === 3"
+                    <div id="tab-3" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                        x-show="activeTab === 3"
                         x-cloak
-                        :inert="active !== 3"
+                        :inert="activeTab !== 3"
                     >
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a Tab 3 paragraph text.</p>
                     </div>

@@ -8,6 +8,13 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
         <!-- Style-->
 		<link rel="preload" href="/css/app.css" as="style">
 		<link rel="stylesheet" href="/css/app.css">
@@ -16,24 +23,17 @@
 		<link rel="preload" href="/js/app.ts" as="script">
 		<script src="/js/app.ts" type="module" defer></script>
 		<!-- END Script -->
-        <!-- Prevent FOUC -->
-        <script>
-            // Toggle theme.
-            // localStorage.theme = 'dark';
-            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-        </script>
-        <!-- END Prevent FOUC -->
 		<title>UI Sandbox</title>
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">
-            <div class="pt-32 max-w-screen-sm">
+            <div class="space-y-4 pt-32 max-w-screen-sm">
                 <!-- Toast Open -->
                 <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="toast" aria-label="Open toast."
                     x-data="{ isOpen: false }"
                     @click="$dispatch('open-toast');"
-                    @set-expanded.window="isOpen = $event.detail"
+                    @set-toast-expanded.window="isOpen = $event.detail"
                     :aria-expanded="isOpen"
                 >
                     <span>Toast</span>
@@ -44,11 +44,10 @@
                     x-data="{ isOpen: false }"
                     x-init="$watch('isOpen', isOpen => {
                         if (isOpen) {
-                            setTimeout(() => {
-                                $data.isOpen && ($data.isOpen = false);
-                            }, 5000);
+                            clearTimeout(timer);
+                            timer = setTimeout(() => isOpen && (this.isOpen = false), 5000);
                         }
-                        $dispatch('set-expanded', isOpen);
+                        $dispatch('set-toast-expanded', isOpen);
                     })"
                     x-show="isOpen"
                     x-cloak

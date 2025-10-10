@@ -8,6 +8,13 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
         <!-- Style-->
 		<link rel="preload" href="/css/app.css" as="style">
 		<link rel="stylesheet" href="/css/app.css">
@@ -16,39 +23,37 @@
 		<link rel="preload" href="/js/app.ts" as="script">
 		<script src="/js/app.ts" type="module" defer></script>
 		<!-- END Script -->
-        <!-- Prevent FOUC -->
-        <script>
-            // Toggle theme.
-            // localStorage.theme = 'dark';
-            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-        </script>
-        <!-- END Prevent FOUC -->
 		<title>UI Sandbox</title>
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">
-            <div class="pt-32 max-w-screen-sm">
+            <div class="space-y-4 pt-32 max-w-screen-sm">
                 <!-- Accordion Component -->
                 <div class="space-y-4"
-                    x-data="{ active: 1 }"
+                    x-data="{ 
+                        activeAccordion: 1,
+                        toggleAccordion(index) { 
+                            this.activeAccordion = this.activeAccordion === index ? null : index;
+                        }    
+                    }"
                 >
                     <!-- Accordion 1 -->
                     <div class="pb-4 border-neutral-200 dark:border-neutral-800 border-b">
                         <!-- Accordion 1 Toggle -->
                         <button type="button" class="group flex justify-between w-full font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black dark:text-neutral-400 text-sm cursor-pointer" aria-controls="accordion-1" aria-label="Toggle accordion 1."
-                            @click="active !== 1 ? active = 1 : active = null"
-                            :aria-expanded="active === 1"
+                            @click="toggleAccordion(1)"
+                            :aria-expanded="activeAccordion === 1"
                         >
                             <span>Accordion 1</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white group-focus:dark:stroke-neutral-200 group-focus:stroke-neutral-700 group-hover:dark:stroke-neutral-200 group-hover:stroke-neutral-700 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 9l4 -4l4 4"/><path d="M16 15l-4 4l-4 -4"/></svg>
                         </button>
                         <!-- END Accordion 1 Toggle -->
                         <!-- Accordion 1 Content -->
-                        <div id="accordion-1" class="mt-4"
-                            x-show="active === 1"
+                        <div class="mt-4"
+                            x-show="activeAccordion === 1"
                             x-cloak
-                            :inert="active != 1"
+                            :inert="activeAccordion != 1"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 1 paragraph text.</p>
                         </div>
@@ -59,18 +64,18 @@
                     <div class="pb-4 border-neutral-200 dark:border-neutral-800 border-b">
                         <!-- Accordion 2 Toggle -->
                         <button type="button" class="group flex justify-between w-full font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black dark:text-neutral-400 text-sm cursor-pointer" aria-controls="accordion-2" aria-label="Toggle accordion 2."
-                            @click="active !== 2 ? active = 2 : active = null;"
-                            :aria-expanded="active === 2"
+                            @click="toggleAccordion(2)"
+                            :aria-expanded="activeAccordion === 2"
                         >
                             <span>Accordion 2</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white group-focus:dark:stroke-neutral-200 group-focus:stroke-neutral-700 group-hover:dark:stroke-neutral-200 group-hover:stroke-neutral-700 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 9l4 -4l4 4"/><path d="M16 15l-4 4l-4 -4"/></svg>
                         </button>
                         <!-- END Accordion 2 Toggle -->
                         <!-- Accordion 2 Content -->
-                        <div id="accordion-2" class="mt-4"
-                            x-show="active === 2"
+                        <div class="mt-4"
+                            x-show="activeAccordion === 2"
                             x-cloak
-                            :inert="active != 2"
+                            :inert="activeAccordion != 2"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 2 paragraph text.</p>
                         </div>
@@ -81,18 +86,18 @@
                     <div class="pb-4 border-neutral-200 dark:border-neutral-800 border-b">
                         <!-- Accordion 3 Toggle -->
                         <button type="button" class="group flex justify-between w-full font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black dark:text-neutral-400 text-sm cursor-pointer" aria-controls="accordion-3" aria-label="Toggle accordion 3."
-                            @click="active !== 3 ? active = 3 : active = null"
-                            :aria-expanded="active === 3"
+                            @click="toggleAccordion(3)"
+                            :aria-expanded="activeAccordion === 3"
                         >
                             <span>Accordion 3</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white group-focus:dark:stroke-neutral-200 group-focus:stroke-neutral-700 group-hover:dark:stroke-neutral-200 group-hover:stroke-neutral-700 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 9l4 -4l4 4"/><path d="M16 15l-4 4l-4 -4"/></svg>
                         </button>
                         <!-- END Accordion 3 Toggle -->
                         <!-- Accordion 3 Content -->
-                        <div id="accordion-3" class="mt-4"
-                            x-show="active === 3"
+                        <div class="mt-4"
+                            x-show="activeAccordion === 3"
                             x-cloak
-                            :inert="active != 3"
+                            :inert="activeAccordion != 3"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 3 paragraph text.</p>
                         </div>
@@ -106,6 +111,6 @@
                 </div>
             </div>
         </main>
-        <!-- END Content -->   
+        <!-- END Content -->
     </body>
 </html>

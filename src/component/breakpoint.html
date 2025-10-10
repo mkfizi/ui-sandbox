@@ -8,6 +8,13 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
         <!-- Style-->
 		<link rel="preload" href="/css/app.css" as="style">
 		<link rel="stylesheet" href="/css/app.css">
@@ -16,19 +23,12 @@
 		<link rel="preload" href="/js/app.ts" as="script">
 		<script src="/js/app.ts" type="module" defer></script>
 		<!-- END Script -->
-        <!-- Prevent FOUC -->
-        <script>
-            // Toggle theme.
-            // localStorage.theme = 'dark';
-            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-        </script>
-        <!-- END Prevent FOUC -->
 		<title>UI Sandbox</title>
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
-            <div class="pt-32 max-w-screen-sm">
+            <div class="space-y-4 pt-32 max-w-screen-sm">
                 <div
                     x-data="{ breakpoint: 1024 }"
                     @resize.window="window.innerWidth >= breakpoint && console.log(`Breakpoint exceeded ${breakpoint}px`);"

@@ -8,6 +8,13 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
         <!-- Style-->
 		<link rel="preload" href="/css/app.css" as="style">
 		<link rel="stylesheet" href="/css/app.css">
@@ -16,19 +23,12 @@
 		<link rel="preload" href="/js/app.ts" as="script">
 		<script src="/js/app.ts" type="module" defer></script>
 		<!-- END Script -->
-        <!-- Prevent FOUC -->
-        <script>
-            // Toggle theme.
-            // localStorage.theme = 'dark';
-            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-        </script>
-        <!-- END Prevent FOUC -->
 		<title>UI Sandbox</title>
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 h-[200dvh] min-h-dvh antialiased">
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
-            <div class="pt-32 max-w-screen-sm">
+            <div class="space-y-4 pt-32 max-w-screen-sm">
                 <p class="text-neutral-800 dark:text-neutral-200 text-sm">Scroll down and click on scroll top button.</p>
                 <!-- Scroll Top Component -->
                 <button type="button" class="right-4 sm:right-8 bottom-4 sm:bottom-8 fixed inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none"

@@ -8,6 +8,13 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
         <!-- Style-->
 		<link rel="preload" href="/css/app.css" as="style">
 		<link rel="stylesheet" href="/css/app.css">
@@ -16,59 +23,43 @@
 		<link rel="preload" href="/js/app.ts" as="script">
 		<script src="/js/app.ts" type="module" defer></script>
 		<!-- END Script -->
-        <!-- Prevent FOUC -->
-        <script>
-            // Toggle theme.
-            // localStorage.theme = 'dark';
-            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-        </script>
-        <!-- END Prevent FOUC -->
 		<title>UI Sandbox</title>
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
-            <div class="pt-32 max-w-screen-sm">
+            <div class="space-y-4 pt-32 max-w-screen-sm">
                 <div class="relative flex gap-2">
                     <!-- Scroll Spy Component -->
                     <ul class="top-0 sticky space-y-1 w-32 h-fit leading-0 shrink-0"
                         x-data="{ 
-                            active: null,
-                            toggleActive() {
+                            activeSection: null,
+                            toggleActiveSection() {
                                 const sections = document.querySelectorAll(`section[id]`);
                                 sections.forEach(section => {
                                     const rect = section.getBoundingClientRect();
                                     if(rect.top <= 0 && rect.top + rect.height >= 0) {
-                                        this.active = section.id;
+                                        this.activeSection = section.id;
                                     }
                                 });
                             }
                         }"
-                        x-init="toggleActive()"
-                        @scroll.window="toggleActive()"
+                        x-init="toggleActiveSection()"
+                        @scroll.window.passive.throttle.100ms="toggleActiveSection()"
                     >
                         <li>
-                            <a href="#section-1" class="inline-block bg-neutral-100 dark:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
-                                :class="{ 
-                                    'bg-neutral-100 dark:bg-neutral-800': active === 'section-1',
-                                    'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-1' 
-                                }"
+                            <a href="#section-1" class="inline-block p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
+                                :class="activeSection === 'section-1' ? 'bg-neutral-100 dark:bg-neutral-800' : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'"
                             >Section 1</a>
                         </li>
                         <li>
-                            <a href="#section-2" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
-                                :class="{ 
-                                    'bg-neutral-100 dark:bg-neutral-800': active === 'section-2',
-                                    'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-2' 
-                                }"
+                            <a href="#section-2" class="inline-block p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
+                                :class="activeSection === 'section-2' ? 'bg-neutral-100 dark:bg-neutral-800' : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'"
                             >Section 2</a>
                         </li>
                         <li>
-                            <a href="#section-3" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
-                                :class="{ 
-                                    'bg-neutral-100 dark:bg-neutral-800': active === 'section-3',
-                                    'hover:bg-neutral-100 dark:hover:bg-neutral-800': active !== 'section-3' 
-                                }"
+                            <a href="#section-3" class="inline-block p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left"
+                                :class="activeSection === 'section-3' ? 'bg-neutral-100 dark:bg-neutral-800' : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'"
                             >Section 3</a>
                         </li>
                     </ul>
