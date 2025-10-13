@@ -37,7 +37,7 @@
                     @keydown.escape.window="isDropdownOpen = false"
                 >
                     <!-- Dropdown Toggle -->
-                    <button type="button" class="flex items-center gap-2 bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dropdown-menu" aria-label="Toggle dropdown."
+                    <button type="button" class="flex items-center gap-2 bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dropdown" aria-label="Toggle dropdown."
                         x-ref="button"
                         @click="isDropdownOpen = !isDropdownOpen"
                         :aria-expanded="isDropdownOpen"
@@ -47,7 +47,7 @@
                     </button>
                     <!-- END Dropdown Toggle -->
                     <!-- Dropdown Menu -->
-                    <div id="dropdown-menu" class="left-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
+                    <div id="dropdown" class="left-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
                         x-show="isDropdownOpen"
                         x-cloak
                         x-anchor.no-style.offset.8="$refs.button"

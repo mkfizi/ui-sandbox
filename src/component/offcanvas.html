@@ -33,7 +33,7 @@
                 <!-- Offcanvas Component -->
                 <div x-data="{ isOffcanvasOpen: false }">
                     <!-- Offcanvas Open -->
-                    <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas-menu" aria-label="Open offcanvas."
+                    <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Open offcanvas."
                         @click="isOffcanvasOpen = true"
                         :aria-expanded="isOffcanvasOpen"
                     >
@@ -41,7 +41,7 @@
                     </button>
                     <!-- END Offcanvas Open -->
                     <!-- Offcanvas Overlay -->
-                    <div id="offcanvas-menu" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
+                    <div id="offcanvas" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
                         x-show="isOffcanvasOpen"
                         x-cloak
                         x-trap.noautofocus.noscroll="isOffcanvasOpen"
@@ -52,7 +52,7 @@
                         <!-- Offcanvas Drawer -->
                         <div class="top-0 left-0 fixed bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
                             <!-- Offcanvas Close -->
-                            <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas-menu" aria-label="Close offcanvas."
+                            <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Close offcanvas."
                                 @click="isOffcanvasOpen = false"
                                 :aria-expanded="isOffcanvasOpen"
                             >
@@ -71,7 +71,7 @@
                 <!-- END METHOD 1 -->
                 <!-- METHOD 2 -->
                 <!-- Offcanvas Open -->
-                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas-menu" aria-label="Open offcanvas."
+                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Open offcanvas."
                     x-data="{ isOffcanvasOpen: false }"
                     @click="$dispatch('open-offcanvas');"
                     @set-offcanvas-expanded.window="isOffcanvasOpen = $event.detail"
@@ -81,7 +81,7 @@
                 </button>
                 <!-- END Offcanvas Open -->
                 <!-- Offcanvas Component -->
-                <div id="offcanvas-menu" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
+                <div id="offcanvas" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
                     x-data="{ isOffcanvasOpen: false }"
                     x-init="$watch('isOffcanvasOpen', isOffcanvasOpen => $dispatch('set-offcanvas-expanded', isOffcanvasOpen))"
                     x-show="isOffcanvasOpen"
@@ -95,7 +95,7 @@
                     <!-- Offcanvas Drawer -->
                     <div class="top-0 left-0 fixed bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
                         <!-- Offcanvas Close -->
-                        <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas-menu" aria-label="Close offcanvas."
+                        <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Close offcanvas."
                             @click="isOffcanvasOpen = false"
                             :aria-expanded="isOffcanvasOpen"
                         >

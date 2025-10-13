@@ -36,7 +36,7 @@
                     <!-- Tabs Buttons -->
                     <div class="flex items-center gap-2">
                         <!-- Tab 1 Button -->
-                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-1-content" aria-label="Show tab 1 content."
+                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-1" aria-label="Show tab 1."
                             @click="activeTab = 1"
                             :class="activeTab === 1 
                                 ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
@@ -47,7 +47,7 @@
                         </button>
                         <!-- END Tab 1 Button -->
                         <!-- Tab 2 Button -->
-                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-2-content" aria-label="Show tab 2 content."
+                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-2" aria-label="Show tab 2."
                             @click="activeTab = 2"
                             :class="activeTab === 2 
                                 ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
@@ -58,7 +58,7 @@
                         </button>
                         <!-- END Tab 2 Button -->
                         <!-- Tab 3 Button -->
-                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-3-content" aria-label="Show tab 3 content."
+                        <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-3" aria-label="Show tab 3."
                             @click="activeTab = 3"
                             :class="activeTab === 3 
                                 ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
@@ -71,7 +71,7 @@
                     </div>
                     <!-- END Tabs Buttons -->
                     <!-- Tab 1 Content -->
-                    <div id="tab-1-content" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                    <div id="tab-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
                         x-show="activeTab === 1"
                         x-cloak
                         :inert="activeTab !== 1"
@@ -80,7 +80,7 @@
                     </div>
                     <!-- END Tab 1 Content -->
                     <!-- Tab 2 Content -->
-                    <div id="tab-2-content" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                    <div id="tab-2" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
                         x-show="activeTab === 2"
                         x-cloak
                         :inert="activeTab !== 2"
@@ -89,7 +89,7 @@
                     </div>
                     <!-- END Tab 2 Content -->
                     <!-- Tab 3 Content -->
-                    <div id="tab-3-content" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                    <div id="tab-3" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
                         x-show="activeTab === 3"
                         x-cloak
                         :inert="activeTab !== 3"

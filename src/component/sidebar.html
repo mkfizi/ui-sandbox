@@ -32,7 +32,7 @@
                 breakpoint: 1024,
                 isSidebarMenuOpen: false,
             }"
-            x-init="$watch('isSidebarMenuOpen', isSidebarMenuOpen => $dispatch('set-sidebar-expanded', isSidebarMenuOpen))"
+            x-init="$watch('isSidebarMenuOpen', isSidebarMenuOpen => $dispatch('set-sidebar-menu-expanded', isSidebarMenuOpen))"
             x-show="isSidebarMenuOpen || window.innerWidth >= breakpoint"
             x-trap.noautofocus.noscroll="isSidebarMenuOpen && window.innerWidth < breakpoint"
             @resize.window="
@@ -42,7 +42,7 @@
             "
             @click.self="window.innerWidth < breakpoint && (isSidebarMenuOpen = false)"
             @keydown.escape.window="window.innerWidth < breakpoint && (isSidebarMenuOpen = false)"
-            @open-sidebar.window="isSidebarMenuOpen = true"
+            @open-sidebar-menu.window="isSidebarMenuOpen = true"
             :class="{ 'hidden invisible' : !isSidebarMenuOpen }"
             :inert="!isSidebarMenuOpen && window.innerWidth < breakpoint"
         >
@@ -79,8 +79,8 @@
                     <!-- Sidebar Open -->
                     <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar-menu" aria-label="Open sidebar menu."
                         x-data="{ isSidebarMenuOpen: false }"
-                        @click="$dispatch('open-sidebar');"
-                        @set-sidebar-expanded.window="isSidebarMenuOpen = $event.detail"
+                        @click="$dispatch('open-sidebar-menu');"
+                        @set-sidebar-menu-expanded.window="isSidebarMenuOpen = $event.detail"
                         :aria-expanded="isSidebarMenuOpen"
                     >
                         <span>Sidebar</span>
