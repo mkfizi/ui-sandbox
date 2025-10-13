@@ -8,6 +8,13 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="noindex">
         <!-- END Metadata -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
         <!-- Style-->
 		<link rel="preload" href="/css/app.css" as="style">
 		<link rel="stylesheet" href="/css/app.css">
@@ -16,13 +23,6 @@
 		<link rel="preload" href="/js/app.ts" as="script">
 		<script src="/js/app.ts" type="module" defer></script>
 		<!-- END Script -->
-        <!-- Prevent FOUC -->
-        <script>
-            // Toggle theme.
-            // localStorage.theme = 'dark';
-            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-        </script>
-        <!-- END Prevent FOUC -->
 		<title>UI Sandbox</title>
 	</head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
@@ -30,13 +30,13 @@
         <nav class="top-0 z-10 sticky w-full"
             x-data="{
                 breakpoint: 1024,
-                isOpen: false,
-                isScrolled: window.scrollY > 0,
-                windowWidth: window.innerWidth,
+                isNavbarMenuOpen: false,
+                isScrolled: window.scrollY > 0
             }"
             @resize.window="
-                windowWidth = window.innerWidth;
-                windowWidth >= breakpoint && isOpen && (isOpen = false);
+                if (window.innerWidth >= breakpoint) {
+                    isNavbarMenuOpen = false;
+                }
             "
             @scroll.window="isScrolled = window.scrollY > 0;"
             :class="{
@@ -49,20 +49,20 @@
 
                 <div class="flex items-center gap-2 lg:gap-6">
                     <!-- Navbar Menu -->
-                    <div id="navbar-menu" class="top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
-                        x-show="isOpen || windowWidth >= breakpoint"
-                        x-cloak
-                        x-trap.noautofocus.noscroll="isOpen && windowWidth < breakpoint"
-                        @click.self="isOpen = false"
-                        @keydown.escape.window="isOpen = false"
-                        :inert="!isOpen && windowWidth < breakpoint"
+                    <div class="hidden invisible lg:visible lg:block top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
+                        x-show="isNavbarMenuOpen || window.innerWidth >= breakpoint"
+                        x-trap.noautofocus.noscroll="isNavbarMenuOpen && window.innerWidth < breakpoint"
+                        @click.self="isNavbarMenuOpen = false"
+                        @keydown.escape.window="isNavbarMenuOpen = false"
+                        :class="{ 'hidden invisible' : !isNavbarMenuOpen }"
+                        :inert="!isNavbarMenuOpen && window.innerWidth < breakpoint"
                     >
                         <!-- Navbar Menu Drawer -->
                         <div class="top-0 right-0 fixed lg:relative bg-white lg:bg-transparent dark:bg-neutral-950 px-4 sm:px-8 lg:px-0 py-4 lg:py-0 border-neutral-200 lg:border-0 dark:border-neutral-800 border-r w-full sm:w-64 lg:w-auto h-full lg:h-auto overflow-y-auto lg:overflow-y-visible">
                             <!-- Navbar Menu Close -->
                             <button type="button" class="lg:hidden lg:invisible top-2 right-4 sm:right-8 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar menu" aria-label="Close navbar menu."
-                                @click="isOpen = false"
-                                :aria-expanded="isOpen"
+                                @click="isNavbarMenuOpen = false"
+                                :aria-expanded="isNavbarMenuOpen"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
                             </button>
@@ -70,42 +70,43 @@
                             <!-- Navbar Menu Links -->
                             <ul class="lg:flex lg:items-center lg:gap-8 space-y-1 lg:space-y-0 mt-8 lg:mt-0 leading-0"
                                 x-data="{ 
-                                    active: 'home',
-                                    toggleActive() {
+                                    activeSection: 'home',
+                                    toggleActiveSection() {
                                         const sections = document.querySelectorAll(`section[id]`);
                                         sections.forEach(section => {
                                             const rect = section.getBoundingClientRect();
                                             if(rect.top <= 0 && rect.top + rect.height >= 0) {
-                                                this.active = section.id;
+                                                this.activeSection = section.id;
+                                                console.log({
+                                                    section: section.id,
+                                                    rect: window.scrollY
+                                                });
                                             }
                                         });
                                     }
                                 }"
-                                x-init="toggleActive()"
-                                @scroll.window="toggleActive()"
+                                x-init="toggleActiveSection()"
+                                @scroll.window="toggleActiveSection()"
                             >
                                 <li>
-                                    <a href="#home" class="inline-block bg-neutral-100 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700 dark:text-white text-sm text-left cursor-pointer"
-                                        :class="{ 
-                                            'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700': active === 'home',
-                                            'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500': active !== 'home' 
-                                        }"
+                                    <a href="#home" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 lg:p-0 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium dark:text-white text-sm text-left cursor-pointer"
+                                        :class="activeSection === 'home'
+                                            ? 'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700 '
+                                            : 'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500'"
                                     >Home</a>
                                 </li>
                                 <li>
-                                    <a href="#section-2" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 lg:p-0 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer"
-                                        :class="{ 
-                                            'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700': active === 'section-2',
-                                            'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500': active !== 'section-2' 
-                                        }"
+                                    <a href="#section-2" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 lg:p-0 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium dark:text-white text-sm text-left cursor-pointer"
+                                        :class="activeSection === 'section-2'
+                                            ? 'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700 '
+                                            : 'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500'"
                                     >Section 2</a>
                                 </li>
                                 <li>
-                                    <a href="#section-3" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 lg:py-0lg:p-0 px-3 lg:px-0 py-2 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer"
-                                        :class="{ 
-                                            'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700': active === 'section-3',
-                                            'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500': active !== 'section-3'  
-                                        }"
+                                    <a href="#section-3" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 lg:p-0 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium dark:text-white text-sm text-left cursor-pointer"
+                                        :class="activeSection === 'section-3'
+                                            ? 'bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:dark:bg-transparent lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700 '
+                                            : 'text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:dark:text-neutral-400 lg:text-neutral-500'"
                                     >Section 3</a>
                                 </li>
                             </ul>
@@ -117,25 +118,27 @@
                     <!-- Dark Mode Menu Component -->
                     <div class="relative"
                         x-data="{ 
-                            isOpen: false,
-                            theme: localStorage.theme || null,
-                            updateTheme(mode) {
-                                this.theme = mode;
-                                mode ? localStorage.theme = mode : localStorage.removeItem('theme');
+                            isDropdownOpen: false,
+                            theme: localStorage.theme || 'system',
+                            toggleTheme(newTheme) {
+                                this.theme = newTheme;
+                                newTheme === 'system' 
+                                    ? localStorage.removeItem('theme') 
+                                    : localStorage.theme = newTheme;
                                 document.documentElement.classList.toggle('dark', 
-                                    mode === 'dark' || (!mode && window.matchMedia('(prefers-color-scheme: dark)').matches)
+                                    newTheme === 'dark' || (newTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
                                 );
-                                this.isOpen = false;
-                            }
+                                this.isDropdownOpen = false;
+                            },
                         }"
-                        @click.away="isOpen = false"
-                        @keydown.escape.window="isOpen = false"
+                        @click.outside="isDropdownOpen = false"
+                        @keydown.escape.window="isDropdownOpen = false"
                     >
                         <!-- Dropdown Toggle -->
                         <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu" aria-label="Toggle dark mode menu."
                             x-ref="button"
-                            @click="isOpen = !isOpen"
-                            :aria-expanded="isOpen"
+                            @click="isDropdownOpen = !isDropdownOpen"
+                            :aria-expanded="isDropdownOpen"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" class="dark:hidden stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
                             <svg xmlns="http://www.w3.org/2000/svg" class="hidden dark:block stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
@@ -143,16 +146,16 @@
                         <!-- END Dropdown Toggle -->
                         <!-- Dropdown Menu -->
                         <div id="dark-mode-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
-                            x-show="isOpen"
+                            x-show="isDropdownOpen"
                             x-cloak
                             x-anchor.no-style.offset.8="$refs.button"
-                            :inert="!isOpen"
-                            :style="{ top: $anchor.y+'px'}"
+                            :inert="!isDropdownOpen"
+                            :style="{ top: $anchor.y+'px' }"
                         >
                             <ul class="space-y-1 p-1 leading-0">
                                 <li>
                                     <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
-                                        @click="updateTheme('light')"
+                                        @click="toggleTheme('light')"
                                         :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'light'}"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
@@ -161,7 +164,7 @@
                                 </li>
                                 <li>
                                     <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
-                                        @click="updateTheme('dark')"
+                                        @click="toggleTheme('dark')"
                                         :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'dark'}"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
@@ -170,7 +173,7 @@
                                 </li>
                                 <li>
                                     <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer"
-                                        @click="updateTheme(null)"
+                                        @click="toggleTheme('system')"
                                         :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'system'}"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg>
@@ -184,8 +187,8 @@
                     <!-- END Dark Mode Menu Component --> 
                     <!-- Navbar Menu Open -->
                     <button type="button" class="lg:hidden lg:invisible hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Open navbar menu."
-                        @click="isOpen = true"
-                        :aria-expanded="isOpen"
+                        @click="isNavbarMenuOpen = true"
+                        :aria-expanded="isNavbarMenuOpen"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg>
                     </button>
