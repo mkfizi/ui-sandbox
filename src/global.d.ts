@@ -1,5 +1,5 @@
 import Alpine from 'alpinejs';
 
 declare global {
-    var Alpine: Alpine;
+    let Alpine: Alpine;
 }

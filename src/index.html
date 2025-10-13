@@ -37,14 +37,7 @@
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="manifest" href="/manifest.json">
 		<!-- END Favicon -->
-		<!-- Style-->
-		<link rel="preload" href="/css/app.css" as="style">
-		<link rel="stylesheet" href="/css/app.css">
-		<!-- END Style -->
-		<!-- Script -->
-		<link rel="preload" href="/js/app.ts" as="script">
-		<script src="/js/app.ts" type="module" defer></script>
-		<!-- END Script -->
+		
         <!-- Prevent FOUC -->
         <script>
             // Toggle theme.
@@ -52,6 +45,14 @@
             document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
         <!-- END Prevent FOUC -->
+        <!-- Style-->
+		<link rel="preload" href="/css/app.css" as="style">
+		<link rel="stylesheet" href="/css/app.css">
+		<!-- END Style -->
+		<!-- Script -->
+		<link rel="preload" href="/js/app.ts" as="script">
+		<script src="/js/app.ts" type="module" defer></script>
+		<!-- END Script -->
         <title>UI Sandbox</title>
     </head>
 	<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
