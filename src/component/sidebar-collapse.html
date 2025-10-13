@@ -27,7 +27,7 @@
 	</head>
     <body class="relative flex bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Sidebar Component -->
-        <aside class="hidden visible lg:visible lg:block top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh"
+        <aside id="sidebar-menu" class="hidden visible lg:visible lg:block top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh"
             x-data="{
                 breakpoint: 1024,
                 isSidebarMenuOpen: false,
@@ -61,7 +61,7 @@
             <!-- Sidebar Drawer -->
             <div class="top-0 left-0 fixed flex flex-col bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
                 <!-- Sidebar Close -->
-                <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Close offcanvas."
+                <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar-menu" aria-label="Close sidebar menu."
                     @click="isSidebarMenuOpen = false"
                     :aria-expanded="isSidebarMenuOpen"
                 >

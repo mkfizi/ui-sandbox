@@ -31,33 +31,29 @@
             <div class="space-y-4 pt-32 max-w-screen-sm">
                 <!-- Toast Open -->
                 <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="toast" aria-label="Open toast."
-                    x-data="{ isOpen: false }"
                     @click="$dispatch('open-toast');"
-                    @set-toast-expanded.window="isOpen = $event.detail"
-                    :aria-expanded="isOpen"
                 >
                     <span>Toast</span>
                 </button>
                 <!-- END Toast Open -->
                 <!-- Toast Dialog -->
-                <div id="toast" class="right-4 bottom-4 fixed bg-white dark:bg-neutral-950 p-4 border border-neutral-200 dark:border-neutral-800 rounded w-80 sm:w-96" aria-labelledby="modal"
-                    x-data="{ isOpen: false }"
-                    x-init="$watch('isOpen', isOpen => {
-                        if (isOpen) {
+                <div id="toast" class="right-4 bottom-4 fixed bg-white dark:bg-neutral-950 p-4 border border-neutral-200 dark:border-neutral-800 rounded w-80 sm:w-96"
+                    x-data="{ isToastOpen: false }"
+                    x-init="$watch('isToastOpen', isToastOpen => {
+                        if (isToastOpen) {
                             clearTimeout(timer);
-                            timer = setTimeout(() => isOpen && (this.isOpen = false), 5000);
+                            timer = setTimeout(() => isToastOpen && (this.isToastOpen = false), 5000);
                         }
-                        $dispatch('set-toast-expanded', isOpen);
                     })"
-                    x-show="isOpen"
+                    x-show="isToastOpen"
                     x-cloak
-                    @open-toast.window="isOpen = true"
-                    :inert="!isOpen" 
+                    @open-toast.window="isToastOpen = true"
+                    :inert="!isToastOpen" 
                 >
                     <!-- Toast Close -->
                     <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="toast" aria-label="Close toast."
-                        @click="isOpen = false"
-                        :aria-expanded="isOpen"
+                        @click="isToastOpen = false"
+                        :aria-expanded="isToastOpen"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
                     </button>

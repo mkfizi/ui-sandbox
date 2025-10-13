@@ -41,7 +41,7 @@
             <div class="flex justify-between items-center mx-auto px-4 sm:px-8 py-2 lg:py-4 max-w-screen-xl">
                 <a href="#" class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
                 <!-- Navbar Menu -->
-                <div class="hidden invisible lg:visible lg:block top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
+                <div id="navbar-menu" class="hidden invisible lg:visible lg:block top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
                     x-show="isNavbarMenuOpen || window.innerWidth >= breakpoint"
                     x-trap.noautofocus.noscroll="isNavbarMenuOpen && window.innerWidth < breakpoint"
                     @click.self="isNavbarMenuOpen = false"
@@ -52,7 +52,7 @@
                     <!-- Navbar Menu Drawer -->
                     <div class="top-0 right-0 fixed lg:relative bg-white lg:bg-transparent dark:bg-neutral-950 px-4 sm:px-8 lg:px-0 py-4 lg:py-0 border-neutral-200 lg:border-0 dark:border-neutral-800 border-r w-full sm:w-64 lg:w-auto h-full lg:h-auto overflow-y-auto lg:overflow-y-visible">
                         <!-- Navbar Menu Close -->
-                        <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Close offcanvas."
+                        <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Close navbar menu."
                             @click="isNavbarMenuOpen = false"
                             :aria-expanded="isNavbarMenuOpen"
                         >
