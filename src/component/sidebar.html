@@ -27,31 +27,31 @@
 	</head>
     <body class="relative flex bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Sidebar Component -->
-        <aside id="sidebar-menu" class="hidden invisible lg:visible lg:block top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh"
+        <aside id="sidebar" class="hidden invisible lg:visible lg:block top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh"
             x-data="{
                 breakpoint: 1024,
-                isSidebarMenuOpen: false,
+                isSidebarOpen: false,
             }"
-            x-init="$watch('isSidebarMenuOpen', isSidebarMenuOpen => $dispatch('set-sidebar-menu-expanded', isSidebarMenuOpen))"
-            x-show="isSidebarMenuOpen || window.innerWidth >= breakpoint"
-            x-trap.noautofocus.noscroll="isSidebarMenuOpen && window.innerWidth < breakpoint"
+            x-init="$watch('isSidebarOpen', isSidebarOpen => $dispatch('set-sidebar-expanded', isSidebarOpen))"
+            x-show="isSidebarOpen || window.innerWidth >= breakpoint"
+            x-trap.noautofocus.noscroll="isSidebarOpen && window.innerWidth < breakpoint"
             @resize.window="
-                if (window.innerWidth >= breakpoint && isSidebarMenuOpen) {
-                    isSidebarMenuOpen = false;
+                if (window.innerWidth >= breakpoint && isSidebarOpen) {
+                    isSidebarOpen = false;
                 }
             "
-            @click.self="window.innerWidth < breakpoint && (isSidebarMenuOpen = false)"
-            @keydown.escape.window="window.innerWidth < breakpoint && (isSidebarMenuOpen = false)"
-            @open-sidebar-menu.window="isSidebarMenuOpen = true"
-            :class="{ 'hidden invisible' : !isSidebarMenuOpen }"
-            :inert="!isSidebarMenuOpen && window.innerWidth < breakpoint"
+            @click.self="window.innerWidth < breakpoint && (isSidebarOpen = false)"
+            @keydown.escape.window="window.innerWidth < breakpoint && (isSidebarOpen = false)"
+            @open-sidebar.window="isSidebarOpen = true"
+            :class="{ 'hidden invisible' : !isSidebarOpen }"
+            :inert="!isSidebarOpen && window.innerWidth < breakpoint"
         >
             <!-- Sidebar Drawer -->
             <div class="top-0 left-0 fixed flex flex-col bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
                 <!-- Sidebar Close -->
-                <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar-menu" aria-label="Close sidebar menu."
-                    @click="isSidebarMenuOpen = false"
-                    :aria-expanded="isSidebarMenuOpen"
+                <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Close sidebar."
+                    @click="isSidebarOpen = false"
+                    :aria-expanded="isSidebarOpen"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
                 </button>
@@ -77,11 +77,11 @@
             <main class="mx-auto px-4 sm:px-8 max-w-screen-xl overflow-hidden">  
                 <div class="space-y-4 pt-32 max-w-screen-sm">
                     <!-- Sidebar Open -->
-                    <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar-menu" aria-label="Open sidebar menu."
-                        x-data="{ isSidebarMenuOpen: false }"
-                        @click="$dispatch('open-sidebar-menu');"
-                        @set-sidebar-menu-expanded.window="isSidebarMenuOpen = $event.detail"
-                        :aria-expanded="isSidebarMenuOpen"
+                    <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Open sidebar."
+                        x-data="{ isSidebarOpen: false }"
+                        @click="$dispatch('open-sidebar');"
+                        @set-sidebar-expanded.window="isSidebarOpen = $event.detail"
+                        :aria-expanded="isSidebarOpen"
                     >
                         <span>Sidebar</span>
                     </button>
@@ -99,9 +99,9 @@
         <script>
             document.addEventListener('alpine:init', () => {
                 Alpine.data('collapse', () => ({
-                    isSidebarMenuOpen: false,
+                    isSidebarOpen: false,
                     toggle() {
-                        this.isSidebarMenuOpen = !this.isSidebarMenuOpen;
+                        this.isSidebarOpen = !this.isSidebarOpen;
                     }
                 }));
             })

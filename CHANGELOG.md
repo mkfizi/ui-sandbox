@@ -16,6 +16,16 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.7.2] - 2025-10-10
+### Added
+- FOUC handler on Navbar & Offcanvas related components.
+
+### Changed
+- Update all dependancies.
+- Move dark mdoe FOUC handler script at the top after metadata.
+- Optimize all components with concise naming and code structure.
+- Revise aria related attributes for a11y compliance.
+
 ## [0.7.1] - 2025-09-19
 ### Changed
 - Navbar close menu button position to maintain UI consistency.

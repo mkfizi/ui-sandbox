@@ -1,6 +1,8 @@
 import Alpine from 'alpinejs';
 import anchor from '@alpinejs/anchor'
 import focus from '@alpinejs/focus'
+import persist from '@alpinejs/persist'
+ 
 
 Alpine.data('app', () => ({
     init() {
@@ -10,7 +12,6 @@ Alpine.data('app', () => ({
 
 Alpine.plugin(anchor)
 Alpine.plugin(focus)
+Alpine.plugin(persist)
 
-window.Alpine = Alpine;
 Alpine.start()
-

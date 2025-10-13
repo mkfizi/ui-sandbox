@@ -27,43 +27,43 @@
 	</head>
     <body class="relative flex bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Sidebar Component -->
-        <aside id="sidebar-menu" class="hidden visible lg:visible lg:block top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh"
+        <aside id="sidebar" class="hidden visible lg:visible lg:block top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh"
             x-data="{
                 breakpoint: 1024,
-                isSidebarMenuOpen: false,
-                isDesktopSidebarOpen: $persist(true).as('is-sidebar-menu-open'),
+                isSidebarOpen: false,
+                isDesktopSidebarOpen: $persist(true).as('is-sidebar-open'),
             }"
             x-init="
-                isSidebarMenuOpen = window.innerWidth >= breakpoint ? isDesktopSidebarOpen : false;
-                $watch('isSidebarMenuOpen', value => {
+                isSidebarOpen = window.innerWidth >= breakpoint ? isDesktopSidebarOpen : false;
+                $watch('isSidebarOpen', value => {
                     if (window.innerWidth >= breakpoint) {
                         isDesktopSidebarOpen = value;
                     }
-                    $dispatch('set-sidebar-menu-expanded', value);
+                    $dispatch('set-sidebar-expanded', value);
                 });
             "
-            x-show="isSidebarMenuOpen"
-            x-trap.noautofocus.noscroll="isSidebarMenuOpen && window.innerWidth < breakpoint"
+            x-show="isSidebarOpen"
+            x-trap.noautofocus.noscroll="isSidebarOpen && window.innerWidth < breakpoint"
             @resize.window="
                 const isDesktop = window.innerWidth >= breakpoint;
                 if (isDesktop) {
-                    isSidebarMenuOpen = isDesktopSidebarOpen;
-                } else if (isSidebarMenuOpen) {
-                    isSidebarMenuOpen = false;
+                    isSidebarOpen = isDesktopSidebarOpen;
+                } else if (isSidebarOpen) {
+                    isSidebarOpen = false;
                 }
             "
-            @click.self="window.innerWidth < breakpoint && (isSidebarMenuOpen = false)"
-            @keydown.escape.window="window.innerWidth < breakpoint && (isSidebarMenuOpen = false)"
-            @toggle-sidebar-menu.window="isSidebarMenuOpen = !isSidebarMenuOpen"
-            :class="{ 'hidden invisible lg:block lg:visible' : !isSidebarMenuOpen }"
-            :inert="!isSidebarMenuOpen && window.innerWidth < breakpoint"
+            @click.self="window.innerWidth < breakpoint && (isSidebarOpen = false)"
+            @keydown.escape.window="window.innerWidth < breakpoint && (isSidebarOpen = false)"
+            @toggle-sidebar.window="isSidebarOpen = !isSidebarOpen"
+            :class="{ 'hidden invisible lg:block lg:visible' : !isSidebarOpen }"
+            :inert="!isSidebarOpen && window.innerWidth < breakpoint"
         >
             <!-- Sidebar Drawer -->
             <div class="top-0 left-0 fixed flex flex-col bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
                 <!-- Sidebar Close -->
-                <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar-menu" aria-label="Close sidebar menu."
-                    @click="isSidebarMenuOpen = false"
-                    :aria-expanded="isSidebarMenuOpen"
+                <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Close sidebar."
+                    @click="isSidebarOpen = false"
+                    :aria-expanded="isSidebarOpen"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
                 </button>
@@ -85,7 +85,7 @@
         </aside>
         <!-- Prevent FOUC when sidebar is closed on desktop -->
         <script>
-            const isClosed = localStorage.getItem('is-sidebar-menu-open') === 'false';
+            const isClosed = localStorage.getItem('is-sidebar-open') === 'false';
             if (window.innerWidth >= 1024 && isClosed) {
                 document.querySelector('aside[x-data]')?.classList.remove('lg:block', 'lg:visible');
             }
@@ -98,10 +98,10 @@
                 <div class="space-y-4 pt-32 max-w-screen-sm">
                     <!-- Sidebar Open -->
                     <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Open sidebar."
-                        x-data="{ isSidebarMenuOpen: false }"
-                        @click="$dispatch('toggle-sidebar-menu');"
-                        @set-sidebar-menu-expanded.window="isSidebarMenuOpen = $event.detail"
-                        :aria-expanded="isSidebarMenuOpen"
+                        x-data="{ isSidebarOpen: false }"
+                        @click="$dispatch('toggle-sidebar');"
+                        @set-sidebar-expanded.window="isSidebarOpen = $event.detail"
+                        :aria-expanded="isSidebarOpen"
                     >
                         <span>Sidebar</span>
                     </button>
