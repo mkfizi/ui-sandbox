@@ -16,8 +16,9 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.7.2] - 2025-10-10
+## [0.7.2] - 2025-10-15
 ### Added
+- Badge link element.
 - FOUC handler on Navbar & Offcanvas related components.
 
 ### Changed
@@ -35,7 +36,7 @@ Put unreleased changes here.
 ### Added
 - Typescript support.
 - Added Components.
-- Added Templates.
+- Added Layouts.
 
 ### Changed
 - Revise to a modern directory structure.
