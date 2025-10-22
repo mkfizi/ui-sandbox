@@ -51,8 +51,7 @@
                         <!-- END Accordion 1 Toggle -->
                         <!-- Accordion 1 Content -->
                         <div id="accordion-1" class="mt-4"
-                            x-show="activeAccordion === 1"
-                            x-cloak
+                            :class="{'hidden invisible': activeAccordion != 1 }"
                             :inert="activeAccordion != 1"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 1 paragraph text.</p>
@@ -72,9 +71,8 @@
                         </button>
                         <!-- END Accordion 2 Toggle -->
                         <!-- Accordion 2 Content -->
-                        <div id="accordion-2" class="mt-4"
-                            x-show="activeAccordion === 2"
-                            x-cloak
+                        <div id="accordion-2" class="hidden invisible mt-4"
+                            :class="{'hidden invisible': activeAccordion != 2 }"
                             :inert="activeAccordion != 2"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 2 paragraph text.</p>
@@ -94,9 +92,8 @@
                         </button>
                         <!-- END Accordion 3 Toggle -->
                         <!-- Accordion 3 Content -->
-                        <div id="accordion-3" class="mt-4"
-                            x-show="activeAccordion === 3"
-                            x-cloak
+                        <div id="accordion-3" class="hidden invisible mt-4"
+                            :class="{'hidden invisible': activeAccordion != 3 }"
                             :inert="activeAccordion != 3"
                         >
                             <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 3 paragraph text.</p>

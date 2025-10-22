@@ -72,26 +72,23 @@
                     <!-- END Tabs Buttons -->
                     <!-- Tab 1 Content -->
                     <div id="tab-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
-                        x-show="activeTab === 1"
-                        x-cloak
+                        :class="{'hidden invisible': activeTab !== 1 }"
                         :inert="activeTab !== 1"
                     >
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a Tab 1 paragraph text.</p>
                     </div>
                     <!-- END Tab 1 Content -->
                     <!-- Tab 2 Content -->
-                    <div id="tab-2" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
-                        x-show="activeTab === 2"
-                        x-cloak
+                    <div id="tab-2" class="hidden invisible p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                        :class="{'hidden invisible': activeTab !== 2 }"
                         :inert="activeTab !== 2"
                     >
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a Tab 2 paragraph text.</p>
                     </div>
                     <!-- END Tab 2 Content -->
                     <!-- Tab 3 Content -->
-                    <div id="tab-3" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
-                        x-show="activeTab === 3"
-                        x-cloak
+                    <div id="tab-3" class="hidden invisible p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                        :class="{'hidden invisible': activeTab !== 3 }"
                         :inert="activeTab !== 3"
                     >
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a Tab 3 paragraph text.</p>
