@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app">
+    <head>
+       	<!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="robots" content="noindex">
+        <!-- END Metadata -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
+        <!-- Style-->
+        <link rel="preload" href="/assets/css/app.css" as="style">
+        <link rel="stylesheet" href="/assets/css/app.css">
+        <!-- END Style -->
+        <!-- Script -->
+        <link rel="preload" href="/assets/js/app.ts" as="script">
+        <script src="/assets/js/app.ts" type="module" defer></script>
+        <!-- END Script -->
+		<title>UI Sandbox</title>
+	</head>
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <!-- Content -->
+        <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
+            <div class="space-y-4 pt-32 max-w-screen-sm">
+                <!-- Code component -->
+                <div class="relative p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-x-auto text-sm wrap-break-word"
+                    x-data="{ 
+                        isCopied: false,
+                        code: `function greet(name: string): string {
+    return \`Hello, \${name}!\`;
+}`,
+                        copy() {
+                            navigator.clipboard.writeText(this.code);
+                            this.isCopied = true;
+                            setTimeout(() => { this.isCopied = false }, 2000);
+                        }
+                    }"
+                >
+                    <!-- Copy Button -->
+                    <button type="button" class="top-2 right-2 absolute inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Copy code"
+                        @click="copy()"
+                    >
+                        <svg x-show="!isCopied" xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/></svg>
+                        <svg x-show="isCopied" x-cloak xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/><path d="M9 14l2 2l4 -4"/></svg>
+                    </button> 
+                    <!-- END Copy Button -->
+                    <code>
+                        <span class="block">function greet(name: string): string {</span>
+                        <span class="block ml-8">console.log("Hello, world!");</span>
+                        <span class="block">}</span>
+                    </code>
+                </div>
+                <!-- END Code Component -->
+                <!-- Code Title Component -->
+                <div class="space-y-4">
+                    <div class="inline-block bg-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer pointer-events-none">
+                        <span>Code.js</span>
+                    </div>
+                    <div class="relative p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-x-auto text-sm wrap-break-word"
+                        x-data="{ 
+                            isCopied: false,
+                            code: `function greet(name: string): string {
+        return \`Hello, \${name}!\`;
+    }`,
+                            copy() {
+                                navigator.clipboard.writeText(this.code);
+                                this.isCopied = true;
+                                setTimeout(() => { this.isCopied = false }, 2000);
+                            }
+                        }"
+                    >
+                        <!-- Copy Button -->
+                        <button type="button" class="top-2 right-2 absolute inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Copy code"
+                            @click="copy()"
+                        >
+                            <svg x-show="!isCopied" xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/></svg>
+                            <svg x-show="isCopied" x-cloak xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/><path d="M9 14l2 2l4 -4"/></svg>
+                        </button> 
+                        <!-- END Copy Button -->
+                        <code>
+                            <span class="block">function greet(name: string): string {</span>
+                            <span class="block ml-8">console.log("Hello, world!");</span>
+                            <span class="block">}</span>
+                        </code>
+                    </div>
+                </div>
+                <!-- END Code Title Component -->
+                <div class="mt-16">
+                    <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                </div>
+            </div>
+        </main>
+        <!-- END Content -->   
+    </body>
+</html>
