@@ -16,7 +16,7 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.7.2] - 2025-10-15
+## [0.7.2] - 2025-11-01
 ### Added
 - Badge link element.
 - FOUC handler on Navbar & Offcanvas related components.
@@ -24,6 +24,7 @@ Put unreleased changes here.
 - Blockquote element.
 - Ordered list.
 - Shiki integration example.
+- Code component example.
 
 ### Changed
 - Update all dependancies.
