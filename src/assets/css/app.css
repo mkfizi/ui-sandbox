@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './shiki.css';
 
 /**
 * Use manual selector insted of media query for dark theme .
@@ -10,9 +11,3 @@
 * This is useful for Alpine.js components that should not be visible before Alpine.js is initialized.
 */
 [x-cloak] { display: none !important; }
-
-
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark) !important;
-}

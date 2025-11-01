@@ -20,12 +20,17 @@ Put unreleased changes here.
 ### Added
 - Badge link element.
 - FOUC handler on Navbar & Offcanvas related components.
+- Card title element
+- Blockquote element.
+- Ordered list.
+- Shiki integration example.
 
 ### Changed
 - Update all dependancies.
 - Move dark mdoe FOUC handler script at the top after metadata.
 - Optimize all components with concise naming and code structure.
 - Revise aria related attributes for a11y compliance.
+- Move asset files into `/src/assets`.
 
 ## [0.7.1] - 2025-09-19
 ### Changed

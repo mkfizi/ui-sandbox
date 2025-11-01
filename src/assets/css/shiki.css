@@ -1,0 +1,88 @@
+/**
+ * Shiki Syntax Highlighting Styles
+ */
+
+/* Dark theme colors */
+html.dark .shiki,
+html.dark .shiki span {
+    color: var(--shiki-dark) !important;
+}
+
+/* Code wrapper styles */
+.code-wrapper {
+    @apply relative border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden;
+}
+
+/* Code title styles */
+.code-title-wrapper {
+    @apply flex px-4 pt-4;
+}
+.code-title-wrapper > p {
+    @apply font-mono font-medium text-black dark:text-white text-sm uppercase;
+}
+
+/* Copy button styles */
+.code-title-wrapper > button {
+    @apply ml-auto cursor-pointer;
+}
+
+.code-title-wrapper > button > svg {
+    @apply stroke-black dark:stroke-white w-5 h-5;
+}
+
+/* Shiki pre styles */
+.shiki {
+    @apply overflow-x-auto;
+}
+
+.shiki code {
+    @apply block py-4 text-sm;
+}
+
+/* Line styles */
+.shiki .line {
+    @apply inline-block w-full;
+}
+.shiki .line:not(.diff):not(.remove):not(.add):not(.error):not(.warning):not(.highlighted) {
+    @apply px-4;
+}
+
+/* transformerNotationDiff remove styles */
+.shiki .line.diff.remove {
+    @apply opacity-50 bg-red-500/15 pr-4 pl-3.5 border-l-2 border-red-500;
+}
+
+/* transformerNotationDiff add styles */
+.shiki .line.diff.add {
+    @apply bg-green-500/15 pr-4 pl-3.5 border-l-2 border-green-500;
+}
+
+/* transformerNotationHighlight highlight styles */
+.shiki .line.highlighted {
+    @apply bg-neutral-950/5 dark:bg-white/5 pr-4 pl-3.5 border-l-2 border-neutral-950 dark:border-white;
+}
+
+/* transformerNotationWordHighlight highlighted word styles */
+.shiki .line .highlighted-word {
+    @apply bg-neutral-950/5 dark:bg-white/5 border border-neutral-200 dark:border-neutral-800 p-0.5 rounded;
+}
+
+/* transformerNotationFocus focus styles */
+.shiki.has-focused .line:not(.focused) {
+    @apply opacity-50 blur-xs;
+}
+
+/* On hover, show all lines clearly */
+:hover.shiki.has-focused .line:not(.focused) {
+    @apply opacity-100 blur-none;
+}
+
+/* transformerNotationErrorLevel error styles */
+.shiki .line.error {
+    @apply bg-red-500/20 pr-4 pl-3.5 border-l-2 border-red-500;
+}
+
+/* transformerNotationErrorLevel warning styles */
+.shiki .line.warning {
+    @apply bg-orange-500/25 pr-4 pl-3.5 border-l-2 border-orange-500;
+}
