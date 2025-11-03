@@ -43,11 +43,10 @@
                 <div class="flex items-center gap-2 lg:gap-6">
                     <!-- Navbar Menu -->
                     <div id="navbar-menu" class="hidden invisible lg:visible lg:block top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
-                        x-show="isNavbarMenuOpen || window.innerWidth >= breakpoint"
                         x-trap.noautofocus.noscroll="isNavbarMenuOpen && window.innerWidth < breakpoint"
                         @click.self="isNavbarMenuOpen = false"
                         @keydown.escape.window="isNavbarMenuOpen = false"
-                        :class="{ 'hidden invisible' : !isNavbarMenuOpen }"
+                        :class="{ 'hidden invisible' : !isNavbarMenuOpen || window.innerWidth >= breakpoint }"
                         :inert="!isNavbarMenuOpen && window.innerWidth < breakpoint"
                     >
                         <!-- Navbar Menu Drawer -->

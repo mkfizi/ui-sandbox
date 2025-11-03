@@ -92,7 +92,7 @@ async function getHighlighter() {
     return highlighter;
 }
 
-export default function vitePluginShiki() {
+export default function shiki() {
     return {
         name: 'vite-plugin-shiki',
         async transformIndexHtml(html) {

@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
-import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 import { glob } from 'glob';
-import vitePluginShiki from './vite.plugins/shiki.ts';
+import tailwindcss from '@tailwindcss/vite';
+import shiki from './vite.plugins/shiki.ts';
 
 export default defineConfig({
     base: '/ui-sandbox/',
@@ -17,6 +17,6 @@ export default defineConfig({
     },
     plugins: [
         tailwindcss(),
-        vitePluginShiki(),
+        shiki(),
     ],
 })

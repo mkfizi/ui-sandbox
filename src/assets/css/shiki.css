@@ -3,9 +3,15 @@
  */
 
 /* Dark theme colors */
-html.dark .shiki,
+/* html.dark .shiki,
 html.dark .shiki span {
     color: var(--shiki-dark) !important;
+} */
+@media (prefers-color-scheme: dark) {
+    .shiki,
+    .shiki span {
+        color: var(--shiki-dark) !important;
+    }
 }
 
 /* Code wrapper styles */
@@ -18,7 +24,7 @@ html.dark .shiki span {
     @apply flex px-4 pt-4;
 }
 .code-title-wrapper > p {
-    @apply font-mono font-medium text-black dark:text-white text-sm uppercase;
+    @apply font-mono font-medium text-neutral-500 text-sm;
 }
 
 /* Copy button styles */
