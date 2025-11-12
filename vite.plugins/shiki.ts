@@ -11,6 +11,7 @@ import {
 const config: object = {
     theme: { light: 'github-light', dark: 'github-dark' },
     langs: ['js', 'ts', 'json', 'html', 'css', 'bash', 'markdown'],
+    wrap: false
 };
 
 // Utility functions
