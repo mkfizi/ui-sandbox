@@ -2,7 +2,7 @@
 @import './shiki.css';
 
 /**
-* Use manual selector insted of media query for dark theme .
+* Use manual selector instead of media query for dark theme .
 */
 @custom-variant dark (&:where(.dark, .dark *));
 

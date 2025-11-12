@@ -60,7 +60,7 @@ const utility: object = {
         `;
         
         return `<div class="code-wrapper">
-            <div class="code-title-wrapper">
+            <div class="code-header">
                 <p>${title}</p>
                 ${copy ? copyButtonHtml : ''}
             </div>

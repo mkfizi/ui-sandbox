@@ -3,36 +3,39 @@
  */
 
 /* Dark theme colors */
-/* html.dark .shiki,
+html.dark .shiki,
 html.dark .shiki span {
     color: var(--shiki-dark) !important;
-} */
-@media (prefers-color-scheme: dark) {
+}
+/* @media (prefers-color-scheme: dark) {
     .shiki,
     .shiki span {
         color: var(--shiki-dark) !important;
     }
-}
+} */
 
 /* Code wrapper styles */
 .code-wrapper {
     @apply relative border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden;
 }
 
+
 /* Code title styles */
-.code-title-wrapper {
+.code-header {
     @apply flex px-4 pt-4;
 }
-.code-title-wrapper > p {
-    @apply font-mono font-medium text-neutral-500 text-sm;
+
+.code-header > p {
+    @apply bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max font-mono text-black dark:text-white text-xs;
 }
 
+
 /* Copy button styles */
-.code-title-wrapper > button {
+.code-header > button {
     @apply ml-auto cursor-pointer;
 }
 
-.code-title-wrapper > button > svg {
+.code-header > button > svg {
     @apply stroke-black dark:stroke-white w-5 h-5;
 }
 
