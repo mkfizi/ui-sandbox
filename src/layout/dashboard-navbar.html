@@ -93,7 +93,6 @@
                 <div class="flex gap-2">
                     <!-- Notification Menu Component -->
                     <div class="inline-block relative">
-                        <div class="top-1 right-1 z-10 absolute bg-red-500 rounded-full w-2 h-2"></div>
                         <div class="inline-block relative"
                             x-data="{ isNotificationMenuOpen: false}"
                             @click.away="isNotificationMenuOpen = false"
@@ -105,6 +104,7 @@
                                 @click="isNotificationMenuOpen = !isNotificationMenuOpen"
                                 :aria-expanded="isNotificationMenuOpen"
                             >
+                                <div class="top-1 right-1 z-10 absolute bg-red-500 rounded-full w-2 h-2"></div>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
                             </button>
                             <!-- END Notification Menu Toggle -->
@@ -118,7 +118,7 @@
                             >
                                 <ul class="space-y-1 p-1 leading-0">
                                     <li>
-                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">
                                             <span class="block font-normal">This is a example text paragraph for notification.</span>
                                             <span class="block font-normal text-end">
                                                 <small>1 hour ago</small>
@@ -129,7 +129,7 @@
                                         <hr class="border-neutral-200 dark:border-neutral-800"/>
                                     </li>
                                     <li>
-                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">
                                             <span class="block font-normal">This is a example text paragraph for notification.</span>
                                             <span class="block font-normal text-end">
                                                 <small>8 hours ago</small>
@@ -140,7 +140,7 @@
                                         <hr class="border-neutral-200 dark:border-neutral-800"/>
                                     </li>
                                     <li>
-                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">
                                             <span class="block font-normal">This is a example text paragraph for notification.</span>
                                             <span class="block font-normal text-end">
                                                 <small>1 day ago</small>
@@ -151,7 +151,7 @@
                                         <hr class="border-neutral-200 dark:border-neutral-800"/>
                                     </li>
                                     <li>
-                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-normal text-black dark:text-white text-sm text-left cursor-pointer">More</a>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-normal text-black dark:text-white text-sm text-center cursor-pointer">View All Notifications</a>
                                     </li>
                                 </ul>
                             </div>
@@ -254,16 +254,16 @@
                         >
                             <ul class="space-y-1 p-1 leading-0">
                                 <li>
-                                    <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Profile</a>
+                                    <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">Profile</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Settings</a>
+                                    <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">Settings</a>
                                 </li>
                                 <li>
                                     <hr class="border-neutral-200 dark:border-neutral-800"/>
                                 </li>
                                 <li>
-                                    <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Logout</a>
+                                    <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -275,342 +275,342 @@
         </nav>
         <!-- END Navbar Component -->
         <!-- Content -->
-            <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl overflow-hidden">  
-                <p class="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-4xl">Dashboard</p>
-                <div class="space-y-8 mt-8">
-                    <!-- Analytic -->
-                    <div class="gap-4 grid sm:grid-cols-2 xl:grid-cols-4">
-                        <div class="flex justify-between gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
-                            <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icons-tabler-outline icon-tabler icon-tabler-users icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">12830</p>
-                                <p class="text-neutral-500 dark:text-neutral-400 text-sm">Total Users</p>
-                            </div>
+        <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl overflow-hidden">  
+            <p class="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-4xl">Dashboard</p>
+            <div class="space-y-8 mt-8">
+                <!-- Analytic -->
+                <div class="gap-4 grid sm:grid-cols-2 xl:grid-cols-4">
+                    <div class="flex justify-between gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
+                        <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icons-tabler-outline icon-tabler icon-tabler-users icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg>
                         </div>
-                        <div class="flex justify-between gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
-                            <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9.785 6l8.215 8.215l-2.054 2.054a5.81 5.81 0 1 1 -8.215 -8.215l2.054 -2.054z"/><path d="M4 20l3.5 -3.5"/><path d="M15 4l-3.5 3.5"/><path d="M20 9l-3.5 3.5"/></svg>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">1183</p>
-                                <p class="text-neutral-500 dark:text-neutral-400 text-sm">Total Sessions</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
-                            <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-white dark:stroke-black w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 4h12a2 2 0 0 1 2 2v7h-5a2 2 0 0 0 -2 2v5h-7a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2z"/><path d="M20 13v.172a2 2 0 0 1 -.586 1.414l-4.828 4.828a2 2 0 0 1 -1.414 .586h-.172"/></svg>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">481</p>
-                                <p class="text-neutral-500 dark:text-neutral-400 text-sm">Open Tickets</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
-                            <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 13v-4a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v5a2 2 0 0 0 2 2h6"/><path d="M15 19l2 2l4 -4"/></svg>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">12</p>
-                                <p class="text-neutral-500 dark:text-neutral-400 text-sm">Pending Approvals</p>
-                            </div>
+                        <div class="text-right">
+                            <p class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">12830</p>
+                            <p class="text-neutral-500 dark:text-neutral-400 text-sm">Total Users</p>
                         </div>
                     </div>
-                    <!-- END Analytic -->
-                     <div class="space-y-4">
-                        <div class="flex justify-between items-start">
-                            <h4 class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">Overview</h4>
-                            <a class="inline-block bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-label="Create new.">
-                                <span>Create New</span>
+                    <div class="flex justify-between gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
+                        <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9.785 6l8.215 8.215l-2.054 2.054a5.81 5.81 0 1 1 -8.215 -8.215l2.054 -2.054z"/><path d="M4 20l3.5 -3.5"/><path d="M15 4l-3.5 3.5"/><path d="M20 9l-3.5 3.5"/></svg>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">1183</p>
+                            <p class="text-neutral-500 dark:text-neutral-400 text-sm">Total Sessions</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
+                        <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-white dark:stroke-black w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 4h12a2 2 0 0 1 2 2v7h-5a2 2 0 0 0 -2 2v5h-7a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2z"/><path d="M20 13v.172a2 2 0 0 1 -.586 1.414l-4.828 4.828a2 2 0 0 1 -1.414 .586h-.172"/></svg>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">481</p>
+                            <p class="text-neutral-500 dark:text-neutral-400 text-sm">Open Tickets</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
+                        <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 13v-4a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v5a2 2 0 0 0 2 2h6"/><path d="M15 19l2 2l4 -4"/></svg>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">12</p>
+                            <p class="text-neutral-500 dark:text-neutral-400 text-sm">Pending Approvals</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Analytic -->
+                    <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-black dark:text-white text-lg sm:text-xl lg:2xl">Overview</h4>
+                        <a class="inline-block bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-label="Create new.">
+                            <span>Create New</span>
+                        </a>
+                    </div>
+                    <div class="flex sm:flex-row flex-col justify-between gap-2">
+                        <!-- View Selector -->
+                        <form action="#" class="flex items-center gap-2">
+                            <!-- Select -->
+                            <div class="relative">
+                                <select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-8 pl-3 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
+                                    <option value="Option 1" class="dark:bg-transparent selected">10</option>
+                                    <option value="Option 2" class="dark:bg-transparent">50</option>
+                                    <option value="Option 3" class="dark:bg-transparent">100</option>
+                                </select>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M6 9l6 6l6 -6" />
+                                </svg>
+                            </div>
+                            <!--END Select -->
+                            <p class="text-neutral-800 dark:text-neutral-200 text-sm">per page</p>
+                        </form>
+                        <!-- END View Selector -->
+                        <div class="flex gap-2">
+                            <!-- Search Input -->
+                            <form action="#" class="flex items-center gap-2 grow sm:grow-0">
+                                <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 px-3 py-2 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Search Input"/>
+                                <button type="submit" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 p-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-label="Search.">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-white dark:stroke-black w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg>
+                                </button>
+                            </form>
+                            <!-- END Search Input -->
+                            <!-- Filter Menu Open -->
+                            <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 p-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="filter-menu" aria-label="Open filter menu."
+                                x-data="{ isFilterMenuOpen: false }"
+                                @click="$dispatch('open-filter-menu');"
+                                @set-filter-menu-expanded.window="isFilterMenuOpen = $event.detail"
+                                :aria-expanded="isFilterMenuOpen"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-white dark:stroke-black w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z"/></svg>
+                            </button>
+                            <!-- END Filter Menu Open -->
+                        </div>
+                    </div>
+                    <!-- Table -->
+                    <div class="border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
+                        x-data="{
+                            orders: [
+                                { id: 'ORD10010', amount: '$420.00', status: 'Pending', date: '29 July 2025' },
+                                { id: 'ORD10011', amount: '$320.00', status: 'Completed', date: '28 July 2025' },
+                                { id: 'ORD10012', amount: '$150.00', status: 'Cancelled', date: '27 July 2025' },
+                                { id: 'ORD10013', amount: '$600.00', status: 'Pending', date: '26 July 2025' },
+                                { id: 'ORD10014', amount: '$200.00', status: 'Completed', date: '25 July 2025'},
+                                { id: 'ORD10015', amount: '$450.00', status: 'Pending', date: '24 July 2025'},
+                                { id: 'ORD10016', amount: '$300.00', status: 'Completed', date: '23 July 2025' },
+                                { id: 'ORD10017', amount: '$500.00', status: 'Cancelled', date: '22 July 2025' },
+                                { id: 'ORD10018', amount: '$700.00', status: 'Pending', date: '21 July 2025' },
+                                { id: 'ORD10019', amount: '$800.00', status: 'Completed', date: '20 July 2025' }
+                            ],
+                        }"
+                    >
+                        <div class="overflow-x-auto">
+                            <table class="divide-y divide-neutral-200 dark:divide-neutral-800 w-full whitespace-nowrap">
+                                <thead class="bg-neutral-50 dark:bg-neutral-900 text-left">
+                                    <tr>
+                                        <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">No</th>
+                                        <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Order ID</th>
+                                        <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Amount</th>
+                                        <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Status</th>
+                                        <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Date</th>
+                                        <th class="px-4 py-3 !pr-8 text-neutral-800 dark:text-neutral-200 text-sm text-end">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-neutral-200 dark:divide-neutral-800">
+                                    <template x-for="(order, index) in orders" :key="order.id">
+                                        <tr>
+                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm" x-text="index + 1"></td>
+                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" x-text="order.id"></a>
+                                            </td>
+                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                <span x-text="order.amount"></span>
+                                            </td>
+                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                <div class="flex items-center gap-1 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
+                                                    <div class="rounded-full w-2 h-2" 
+                                                        :class="{
+                                                            'bg-green-500': order.status === 'Completed',
+                                                            'bg-red-500': order.status === 'Cancelled',
+                                                            'bg-orange-500': order.status === 'Pending'
+                                                        }"></div>
+                                                    <span x-text="order.status"></span>
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm" x-text="order.date"></td>
+                                            <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                <div class="flex justify-end gap-2">
+                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
+                                                    </a>
+                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
+                                                    </a>
+                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z"/><path d="M9 9l6 6m0 -6l-6 6"/></svg>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END Table -->
+                    <div class="flex sm:flex-row flex-col justify-between items-center gap-4">
+                        <p class="text-neutral-800 dark:text-neutral-200 text-sm">Showing 1-10 of 999</p>
+                        <!-- Pagination -->
+                        <div class="flex gap-2">
+                            <a href="#" class="inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:inset-ring-neutral-700 flex justify-center items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 rounded w-9 h-9 font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Go to first page.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M7 6v12" />
+                                    <path d="M18 6l-6 6l6 6" />
+                                </svg>
+                            </a>
+                            <a href="#" class="inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:inset-ring-neutral-700 flex justify-center items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 rounded w-9 h-9 font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Go to previous page.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M15 6l-6 6l6 6" />
+                                </svg>
+                            </a>
+                            <form action="" class="relative">
+                                <select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-8 pl-3 rounded !w-auto w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
+                                    <option value="Option 1" class="dark:bg-transparent">1</option>
+                                    <option value="Option 2" class="dark:bg-transparent" selected>2</option>
+                                    <option value="Option 3" class="dark:bg-transparent">3</option>
+                                </select>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M6 9l6 6l6 -6" />
+                                </svg>
+                            </form>
+                            <a href="#" class="inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:inset-ring-neutral-700 flex justify-center items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 rounded w-9 h-9 font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Go to next page.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M9 6l6 6l-6 6" />
+                                </svg>
+                            </a>
+                            <a href="#" class="inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:inset-ring-neutral-700 flex justify-center items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 rounded w-9 h-9 font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M6 6l6 6l-6 6" />
+                                    <path d="M17 5v13" />
+                                </svg>
                             </a>
                         </div>
-                        <div class="flex sm:flex-row flex-col justify-between gap-2">
-                            <!-- View Selector -->
-                            <form action="#" class="flex items-center gap-2">
-                                <!-- Select -->
-                                <div class="relative">
-                                    <select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-8 pl-3 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
-                                        <option value="Option 1" class="dark:bg-transparent selected">10</option>
-                                        <option value="Option 2" class="dark:bg-transparent">50</option>
-                                        <option value="Option 3" class="dark:bg-transparent">100</option>
-                                    </select>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </div>
-                                <!--END Select -->
-                                <p class="text-neutral-800 dark:text-neutral-200 text-sm">per page</p>
-                            </form>
-                            <!-- END View Selector -->
-                            <div class="flex gap-2">
-                                <!-- Search Input -->
-                                <form action="#" class="flex items-center gap-2 grow sm:grow-0">
-                                    <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 px-3 py-2 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="Search Input"/>
-                                    <button type="submit" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 p-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-label="Search.">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-white dark:stroke-black w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg>
-                                    </button>
-                                </form>
-                                <!-- END Search Input -->
-                                <!-- Filter Menu Open -->
-                                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 p-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="filter-menu" aria-label="Open filter menu."
-                                    x-data="{ isFilterMenuOpen: false }"
-                                    @click="$dispatch('open-filter-menu');"
-                                    @set-filter-menu-expanded.window="isFilterMenuOpen = $event.detail"
-                                    :aria-expanded="isFilterMenuOpen"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-white dark:stroke-black w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z"/></svg>
-                                </button>
-                                <!-- END Filter Menu Open -->
-                            </div>
-                        </div>
-                        <!-- Table -->
-                        <div class="border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden"
-                            x-data="{
-                                orders: [
-                                    { id: 'ORD10010', amount: '$420.00', status: 'Pending', date: '29 July 2025' },
-                                    { id: 'ORD10011', amount: '$320.00', status: 'Completed', date: '28 July 2025' },
-                                    { id: 'ORD10012', amount: '$150.00', status: 'Cancelled', date: '27 July 2025' },
-                                    { id: 'ORD10013', amount: '$600.00', status: 'Pending', date: '26 July 2025' },
-                                    { id: 'ORD10014', amount: '$200.00', status: 'Completed', date: '25 July 2025'},
-                                    { id: 'ORD10015', amount: '$450.00', status: 'Pending', date: '24 July 2025'},
-                                    { id: 'ORD10016', amount: '$300.00', status: 'Completed', date: '23 July 2025' },
-                                    { id: 'ORD10017', amount: '$500.00', status: 'Cancelled', date: '22 July 2025' },
-                                    { id: 'ORD10018', amount: '$700.00', status: 'Pending', date: '21 July 2025' },
-                                    { id: 'ORD10019', amount: '$800.00', status: 'Completed', date: '20 July 2025' }
-                                ],
-                            }"
-                        >
-                            <div class="overflow-x-auto">
-                                <table class="divide-y divide-neutral-200 dark:divide-neutral-800 w-full whitespace-nowrap">
-                                    <thead class="bg-neutral-50 dark:bg-neutral-900 text-left">
-                                        <tr>
-                                            <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">No</th>
-                                            <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Order ID</th>
-                                            <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Amount</th>
-                                            <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Status</th>
-                                            <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Date</th>
-                                            <th class="px-4 py-3 !pr-8 text-neutral-800 dark:text-neutral-200 text-sm text-end">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-neutral-200 dark:divide-neutral-800">
-                                        <template x-for="(order, index) in orders" :key="order.id">
-                                            <tr>
-                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm" x-text="index + 1"></td>
-                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                    <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" x-text="order.id"></a>
-                                                </td>
-                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                    <span x-text="order.amount"></span>
-                                                </td>
-                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                    <div class="flex items-center gap-1 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                        <div class="rounded-full w-2 h-2" 
-                                                            :class="{
-                                                                'bg-green-500': order.status === 'Completed',
-                                                                'bg-red-500': order.status === 'Cancelled',
-                                                                'bg-orange-500': order.status === 'Pending'
-                                                            }"></div>
-                                                        <span x-text="order.status"></span>
-                                                    </div>
-                                                </td>
-                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm" x-text="order.date"></td>
-                                                <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                    <div class="flex justify-end gap-2">
-                                                        <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
-                                                        </a>
-                                                        <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-                                                        </a>
-                                                        <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black dark:stroke-white w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z"/><path d="M9 9l6 6m0 -6l-6 6"/></svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </template>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- END Table -->
-                        <div class="flex sm:flex-row flex-col justify-between items-center gap-4">
-                            <p class="text-neutral-800 dark:text-neutral-200 text-sm">Showing 1-10 of 999</p>
-                            <!-- Pagination -->
-                            <div class="flex gap-2">
-                                <a href="#" class="inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:inset-ring-neutral-700 flex justify-center items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 rounded w-9 h-9 font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Go to first page.">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M7 6v12" />
-                                        <path d="M18 6l-6 6l6 6" />
-                                    </svg>
-                                </a>
-                                <a href="#" class="inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:inset-ring-neutral-700 flex justify-center items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 rounded w-9 h-9 font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Go to previous page.">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M15 6l-6 6l6 6" />
-                                    </svg>
-                                </a>
-                                <form action="" class="relative">
-                                    <select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-8 pl-3 rounded !w-auto w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
-                                        <option value="Option 1" class="dark:bg-transparent">1</option>
-                                        <option value="Option 2" class="dark:bg-transparent" selected>2</option>
-                                        <option value="Option 3" class="dark:bg-transparent">3</option>
-                                    </select>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </form>
-                                <a href="#" class="inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:inset-ring-neutral-700 flex justify-center items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 rounded w-9 h-9 font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Go to next page.">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M9 6l6 6l-6 6" />
-                                    </svg>
-                                </a>
-                                <a href="#" class="inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:inset-ring-neutral-700 flex justify-center items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 rounded w-9 h-9 font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M6 6l6 6l-6 6" />
-                                        <path d="M17 5v13" />
-                                    </svg>
-                                </a>
-                            </div>
-                            <!-- END Pagination -->
-                        </div>
+                        <!-- END Pagination -->
                     </div>
                 </div>
-            </main>
-            <!-- END Content --> 
-            <!--Filter Menu -->
-            <div id="filter-menu" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
-                x-data="{ isFilterMenuOpen: false }"
-                x-init="$watch('isFilterMenuOpen', isFilterMenuOpen => $dispatch('set-filter-menu-expanded', isFilterMenuOpen))"
-                x-show="isFilterMenuOpen"
-                x-cloak
-                x-trap.noautofocus.noscroll="isFilterMenuOpen"
-                @click.self="isFilterMenuOpen = false"
-                @keydown.escape.window="isFilterMenuOpen = false"
-                @open-filter-menu.window="isFilterMenuOpen = true"
-                :inert="!isFilterMenuOpen" 
-            >
-                <!-- Filter Menu Drawer -->
-                <div class="top-0 right-0 fixed bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-l w-full sm:w-64 h-full">
-                    <!-- Filter Menu Close -->
-                    <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="filter-menu" aria-label="Close filter menu."
-                        @click="isFilterMenuOpen = false"
-                        :aria-expanded="isFilterMenuOpen"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
-                    </button>
-                    <!-- END Filter Menu Close -->
-                    <div class="mt-8 px-4 sm:px-8 py-4 overflow-y-auto">
-                        <form action="#" class="space-y-8">
-                            <!-- Filter: Sort By -->
-                            <div class="space-y-2">
-                                <p class="font-semibold text-neutral-800 dark:text-neutral-200 text-sm">Sort By</p>
-                                <!-- Select -->
-                                <div class="relative">
-                                    <select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-8 pl-3 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
-                                        <option value="" class="dark:bg-transparent" selected disabled>Select Option</option>
-                                        <option value="Option 1" class="dark:bg-transparent">Option 1</option>
-                                        <option value="Option 2" class="dark:bg-transparent">Option 2</option>
-                                        <option value="Option 3" class="dark:bg-transparent">Option 3</option>
-                                    </select>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </div>
-                                <!--END Select -->
-                            </div>
-                            <!-- END Filter: Sort By -->
-                            <hr class="border-neutral-200 dark:border-neutral-800"/>
-                            <!-- Filter: Category -->
-                            <div class="space-y-2">
-                                <p class="font-semibold text-neutral-800 dark:text-neutral-200 text-sm">Category</p> 
-                                <ul class="space-y-2">
-                                    <li>
-                                        <!-- Checkbox -->
-                                        <div class="flex items-center gap-2">
-                                            <label for="input-checkbox-1" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
-                                                <input id="input-checkbox-1" type="checkbox" name="checkbox[]" value="1" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
-                                                <span>Category 1</span>
-                                            </label>
-                                        </div>
-                                        <!-- END Checkbox -->
-                                    </li>
-                                    <li>
-                                        <!-- Checkbox -->
-                                        <div class="flex items-center gap-2">
-                                            <label for="input-checkbox-2" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
-                                                <input id="input-checkbox-2" type="checkbox" name="checkbox[]" value="2" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
-                                                <span>Category 2</span>
-                                            </label>
-                                        </div>
-                                        <!-- END Checkbox -->
-                                    </li>
-                                    <li>
-                                        <!-- Checkbox -->
-                                        <div class="flex items-center gap-2">
-                                            <label for="input-checkbox-3" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
-                                                <input id="input-checkbox-3" type="checkbox" name="checkbox[]" value="3" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
-                                                <span>Category 3</span>
-                                            </label>
-                                        </div>
-                                        <!-- END Checkbox -->
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- END Filter: Category -->
-                            <hr class="border-neutral-200 dark:border-neutral-800"/>
-                            <!-- END Filter: Amount Between -->
-                            <div class="space-y-2">
-                                <p class="font-semibold text-neutral-800 dark:text-neutral-200 text-sm">Amount Between</p>
-                                <div class="flex items-center gap-2">
-                                    <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 px-3 py-2 rounded !w-32 w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="0"/>
-                                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">Min</p>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 px-3 py-2 rounded !w-32 w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="999999"/>
-                                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">Max</p>
-                                </div>
-                            </div>
-
-                            <hr class="border-neutral-200 dark:border-neutral-800"/>
-                            <!-- Filter Menu Actions -->
-                            <div class="flex flex-col gap-2">
-                                <button type="button" class="flex-auto bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-3 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal"
-                                    @click="isFilterMenuOpen = false"
-                                    :aria-expanded="isFilterMenuOpen"
-                                >
-                                    <span>Clear</span>
-                                </button>
-                                <button type="button" class="flex-auto bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none">
-                                    <span>Apply</span>
-                                </button>
-                            </div>
-                            <!-- END Filter Menu Actions -->
-                        </form>
-                    </div>
-                </div>
-                <!-- END Filter Menu Drawer -->
             </div>
-            <!-- END Filter Menu -->
-            <!-- Footer -->
-            <footer class="bottom-1 absolute w-full">
-                <div class="flex justify-between mx-auto px-4 sm:px-8 max-w-screen-xl">
-                    <span class="text-neutral-800 dark:text-neutral-200 text-sm">
-                        <span>Copyright © </span><span x-text="new Date().getFullYear()"></span>
-                    </span>
-                    <span class="text-neutral-800 dark:text-neutral-200 text-sm">
-                        <span>Developed by </span>
-                        <a href="https://mkfizi.dev" target="_blank" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">mkfizi</a>
-                    </span>
+        </main>
+        <!-- END Content --> 
+        <!--Filter Menu -->
+        <div id="filter-menu" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
+            x-data="{ isFilterMenuOpen: false }"
+            x-init="$watch('isFilterMenuOpen', isFilterMenuOpen => $dispatch('set-filter-menu-expanded', isFilterMenuOpen))"
+            x-show="isFilterMenuOpen"
+            x-cloak
+            x-trap.noautofocus.noscroll="isFilterMenuOpen"
+            @click.self="isFilterMenuOpen = false"
+            @keydown.escape.window="isFilterMenuOpen = false"
+            @open-filter-menu.window="isFilterMenuOpen = true"
+            :inert="!isFilterMenuOpen" 
+        >
+            <!-- Filter Menu Drawer -->
+            <div class="top-0 right-0 fixed bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-l w-full sm:w-64 h-full">
+                <!-- Filter Menu Close -->
+                <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="filter-menu" aria-label="Close filter menu."
+                    @click="isFilterMenuOpen = false"
+                    :aria-expanded="isFilterMenuOpen"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
+                </button>
+                <!-- END Filter Menu Close -->
+                <div class="mt-8 px-4 sm:px-8 py-4 overflow-y-auto">
+                    <form action="#" class="space-y-8">
+                        <!-- Filter: Sort By -->
+                        <div class="space-y-2">
+                            <p class="font-semibold text-neutral-800 dark:text-neutral-200 text-sm">Sort By</p>
+                            <!-- Select -->
+                            <div class="relative">
+                                <select id="select" name="select" class="peer relative inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 py-2 pr-8 pl-3 rounded w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-pointer disabled:pointer-events-none">
+                                    <option value="" class="dark:bg-transparent" selected disabled>Select Option</option>
+                                    <option value="Option 1" class="dark:bg-transparent">Option 1</option>
+                                    <option value="Option 2" class="dark:bg-transparent">Option 2</option>
+                                    <option value="Option 3" class="dark:bg-transparent">Option 3</option>
+                                </select>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="top-2 right-2 -z-10 absolute peer-disabled:opacity-60 stroke-neutral-700 dark:stroke-neutral-300 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M6 9l6 6l6 -6" />
+                                </svg>
+                            </div>
+                            <!--END Select -->
+                        </div>
+                        <!-- END Filter: Sort By -->
+                        <hr class="border-neutral-200 dark:border-neutral-800"/>
+                        <!-- Filter: Category -->
+                        <div class="space-y-2">
+                            <p class="font-semibold text-neutral-800 dark:text-neutral-200 text-sm">Category</p> 
+                            <ul class="space-y-2">
+                                <li>
+                                    <!-- Checkbox -->
+                                    <div class="flex items-center gap-2">
+                                        <label for="input-checkbox-1" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
+                                            <input id="input-checkbox-1" type="checkbox" name="checkbox[]" value="1" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
+                                            <span>Category 1</span>
+                                        </label>
+                                    </div>
+                                    <!-- END Checkbox -->
+                                </li>
+                                <li>
+                                    <!-- Checkbox -->
+                                    <div class="flex items-center gap-2">
+                                        <label for="input-checkbox-2" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
+                                            <input id="input-checkbox-2" type="checkbox" name="checkbox[]" value="2" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
+                                            <span>Category 2</span>
+                                        </label>
+                                    </div>
+                                    <!-- END Checkbox -->
+                                </li>
+                                <li>
+                                    <!-- Checkbox -->
+                                    <div class="flex items-center gap-2">
+                                        <label for="input-checkbox-3" class="flex items-center gap-2 text-neutral-800 dark:text-neutral-200 text-sm cursor-pointer">
+                                            <input id="input-checkbox-3" type="checkbox" name="checkbox[]" value="3" class="disabled:opacity-60 accent-neutral-800 dark:accent-neutral-200 cursor-pointer disabled:pointer-events-none"/>
+                                            <span>Category 3</span>
+                                        </label>
+                                    </div>
+                                    <!-- END Checkbox -->
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END Filter: Category -->
+                        <hr class="border-neutral-200 dark:border-neutral-800"/>
+                        <!-- END Filter: Amount Between -->
+                        <div class="space-y-2">
+                            <p class="font-semibold text-neutral-800 dark:text-neutral-200 text-sm">Amount Between</p>
+                            <div class="flex items-center gap-2">
+                                <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 px-3 py-2 rounded !w-32 w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="0"/>
+                                <p class="text-neutral-800 dark:text-neutral-200 text-sm">Min</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <input type="text" id="input" name="input" value="" class="inset-ring inset-ring-neutral-400 dark:inset-ring-neutral-600 bg-transparent disabled:opacity-60 px-3 py-2 rounded !w-32 w-full text-neutral-800 dark:text-neutral-200 text-sm appearance-none cursor-text disabled:pointer-events-none" placeholder="999999"/>
+                                <p class="text-neutral-800 dark:text-neutral-200 text-sm">Max</p>
+                            </div>
+                        </div>
+
+                        <hr class="border-neutral-200 dark:border-neutral-800"/>
+                        <!-- Filter Menu Actions -->
+                        <div class="flex flex-col gap-2">
+                            <button type="button" class="flex-auto bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-3 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal"
+                                @click="isFilterMenuOpen = false"
+                                :aria-expanded="isFilterMenuOpen"
+                            >
+                                <span>Clear</span>
+                            </button>
+                            <button type="button" class="flex-auto bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none">
+                                <span>Apply</span>
+                            </button>
+                        </div>
+                        <!-- END Filter Menu Actions -->
+                    </form>
                 </div>
-            </footer>
-            <!-- END Footer --> 
+            </div>
+            <!-- END Filter Menu Drawer -->
+        </div>
+        <!-- END Filter Menu -->
+        <!-- Footer -->
+        <footer class="bottom-1 absolute w-full">
+            <div class="flex justify-between mx-auto px-4 sm:px-8 max-w-screen-xl">
+                <span class="text-neutral-800 dark:text-neutral-200 text-sm">
+                    <span>Copyright © </span><span x-text="new Date().getFullYear()"></span>
+                </span>
+                <span class="text-neutral-800 dark:text-neutral-200 text-sm">
+                    <span>Developed by </span>
+                    <a href="https://mkfizi.dev" target="_blank" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">mkfizi</a>
+                </span>
+            </div>
+        </footer>
+        <!-- END Footer --> 
     </body>
 </html>

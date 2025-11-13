@@ -68,8 +68,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
                 </button>
                 <!-- END Sidebar Close -->
-                <a href="#" class="px-4 sm:px-8 py-4 font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
-                <ul class="space-y-1 px-4 sm:px-8 pt-2 pb-4 overflow-y-auto">
+                <a href="#" class="py-4 pr-4 sm:pr-8 pl-6.5 sm:pl-10.5 font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
+                <ul class="space-y-1 px-4 sm:px-8 pb-4 overflow-y-auto">
                     <li>
                         <a href="#" class="inline-block bg-neutral-100 dark:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 1</a>
                     </li>
@@ -79,26 +79,24 @@
                     <li>
                         <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 3</a>
                     </li>
-                    <ul class="space-y-1 mt-4">
-                        <li>
-                            <p class="py-2 pl-2.5 font-semibold text-neutral-800 dark:text-neutral-200 text-sm uppercase">Module</p> 
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 4</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 5</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 6</a>
-                        </li>
-                    </ul>
                     <li>
-                        <div class="space-y-2 mt-4"
+                        <p class="mt-2 py-2 pl-2.5 font-semibold text-neutral-800 dark:text-neutral-200 text-sm uppercase">Module</p> 
+                    </li>
+                    <li>
+                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 4</a>
+                    </li>
+                    <li>
+                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 5</a>
+                    </li>
+                    <li>
+                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 6</a>
+                    </li>
+                    <li>
+                        <div class="space-y-1 mt-2"
                             x-data="{ isModuleMenuOpen: false }"
                         >
                             <!-- Module Menu Toggle -->
-                            <button type="button" class="flex justify-between hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-semibold text-black dark:text-white text-sm text-left uppercase cursor-pointer" aria-controls="module-menu" aria-label="Toggle module menu."
+                            <button type="button" class="flex justify-between items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-semibold text-black dark:text-white text-sm text-left uppercase cursor-pointer" aria-controls="module-menu" aria-label="Toggle module menu."
                                 @click="isModuleMenuOpen = !isModuleMenuOpen" 
                                 :aria-expanded="isModuleMenuOpen"
                             >
@@ -127,7 +125,6 @@
                         </div>
                         <!-- END Module Menu Content -->
                     </li>
-                </ul>
                 </ul>
             </div>
             <!-- END Sidebar Drawer -->
@@ -174,7 +171,6 @@
                     <div class="flex gap-2">
                         <!-- Notification Menu Component -->
                         <div class="inline-block relative">
-                            <div class="top-1 right-1 z-10 absolute bg-red-500 rounded-full w-2 h-2"></div>
                             <div class="inline-block relative"
                                 x-data="{ isNotificationMenuOpen: false}"
                                 @click.away="isNotificationMenuOpen = false"
@@ -186,6 +182,7 @@
                                     @click="isNotificationMenuOpen = !isNotificationMenuOpen"
                                     :aria-expanded="isNotificationMenuOpen"
                                 >
+                                    <div class="top-1 right-1 z-10 absolute bg-red-500 rounded-full w-2 h-2"></div>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
                                 </button>
                                 <!-- END Notification Menu Toggle -->
@@ -199,7 +196,7 @@
                                 >
                                     <ul class="space-y-1 p-1 leading-0">
                                         <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">
                                                 <span class="block font-normal">This is a example text paragraph for notification.</span>
                                                 <span class="block font-normal text-end">
                                                     <small>1 hour ago</small>
@@ -210,7 +207,7 @@
                                             <hr class="border-neutral-200 dark:border-neutral-800"/>
                                         </li>
                                         <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">
                                                 <span class="block font-normal">This is a example text paragraph for notification.</span>
                                                 <span class="block font-normal text-end">
                                                     <small>8 hours ago</small>
@@ -221,7 +218,7 @@
                                             <hr class="border-neutral-200 dark:border-neutral-800"/>
                                         </li>
                                         <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">
+                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">
                                                 <span class="block font-normal">This is a example text paragraph for notification.</span>
                                                 <span class="block font-normal text-end">
                                                     <small>1 day ago</small>
@@ -232,7 +229,7 @@
                                             <hr class="border-neutral-200 dark:border-neutral-800"/>
                                         </li>
                                         <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-normal text-black dark:text-white text-sm text-left cursor-pointer">More</a>
+                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-normal text-black dark:text-white text-sm text-center cursor-pointer">View All Notifications</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -335,16 +332,16 @@
                             >
                                 <ul class="space-y-1 p-1 leading-0">
                                     <li>
-                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Profile</a>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">Profile</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Settings</a>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">Settings</a>
                                     </li>
                                     <li>
                                         <hr class="border-neutral-200 dark:border-neutral-800"/>
                                     </li>
                                     <li>
-                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Logout</a>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer">Logout</a>
                                     </li>
                                 </ul>
                             </div>
