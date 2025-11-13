@@ -150,7 +150,7 @@
                     </div>
                     <div class="flex gap-2">
                         <!-- Notification Menu Component -->
-                        <div class="relative">
+                        <div class="inline-block relative">
                             <div class="top-1 right-1 z-10 absolute bg-red-500 rounded-full w-2 h-2"></div>
                             <div class="relative"
                                 x-data="{ isNotificationMenuOpen: false}"
@@ -288,46 +288,44 @@
                         </div>
                         <!-- END Dark Mode Menu Component -->
                         <!-- Settings Menu Component -->
-                        <div class="relative">
-                            <div class="relative"
-                                x-data="{ isSettingsMenuOpen: false}"
-                                @click.away="isSettingsMenuOpen = false"
-                                @keydown.escape.window="isSettingsMenuOpen = false"
+                        <div class="inlin-block relative"
+                            x-data="{ isSettingsMenuOpen: false}"
+                            @click.away="isSettingsMenuOpen = false"
+                            @keydown.escape.window="isSettingsMenuOpen = false"
+                        >
+                            <!-- Settings Menu Toggle -->
+                            <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="settings-menu" aria-label="Toggle settings menu."
+                                x-ref="button"
+                                @click="isSettingsMenuOpen = !isSettingsMenuOpen"
+                                :aria-expanded="isSettingsMenuOpen"
                             >
-                                <!-- Settings Menu Toggle -->
-                                <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="settings-menu" aria-label="Toggle settings menu."
-                                    x-ref="button"
-                                    @click="isSettingsMenuOpen = !isSettingsMenuOpen"
-                                    :aria-expanded="isSettingsMenuOpen"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg>
-                                </button>
-                                <!-- END Settings Menu Toggle -->
-                                <!-- Settings Menu -->
-                                <div id="settings-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
-                                    x-show="isSettingsMenuOpen"
-                                    x-cloak
-                                    x-anchor.no-style.offset.8="$refs.button"
-                                    :inert="!isSettingsMenuOpen"
-                                    :style="{ top: $anchor.y+'px'}"
-                                >
-                                    <ul class="space-y-1 p-1 leading-0">
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Settings</a>
-                                        </li>
-                                        <li>
-                                            <hr class="border-neutral-200 dark:border-neutral-800"/>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Logout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- END Settings Menu -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg>
+                            </button>
+                            <!-- END Settings Menu Toggle -->
+                            <!-- Settings Menu -->
+                            <div id="settings-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
+                                x-show="isSettingsMenuOpen"
+                                x-cloak
+                                x-anchor.no-style.offset.8="$refs.button"
+                                :inert="!isSettingsMenuOpen"
+                                :style="{ top: $anchor.y+'px'}"
+                            >
+                                <ul class="space-y-1 p-1 leading-0">
+                                    <li>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Settings</a>
+                                    </li>
+                                    <li>
+                                        <hr class="border-neutral-200 dark:border-neutral-800"/>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Logout</a>
+                                    </li>
+                                </ul>
                             </div>
+                            <!-- END Settings Menu -->
                         </div>
                         <!-- END Settings Menu Component -->     
                     </div>
