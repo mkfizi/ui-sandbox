@@ -16,7 +16,7 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.7.2] - 2025-11-01
+## [0.7.2] - 2025-11-16
 ### Added
 - Badge link element.
 - FOUC handler on Navbar & Offcanvas related components.
@@ -33,6 +33,7 @@ Put unreleased changes here.
 - Optimize all components with concise naming and code structure.
 - Revise aria related attributes for a11y compliance.
 - Move asset files into `/src/assets`.
+- Text title size to `text-lg`.
 
 ## [0.7.1] - 2025-09-19
 ### Changed
