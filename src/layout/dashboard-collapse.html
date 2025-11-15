@@ -28,7 +28,7 @@
     <body class="relative flex bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Sidebar Component -->
         <aside id="sidebar" class="hidden visible lg:visible lg:block top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh"
-            x-data="{
+           x-data="{
                 breakpoint: 1024,
                 isSidebarOpen: false,
                 isDesktopSidebarOpen: $persist(true).as('is-sidebar-open'),
@@ -42,7 +42,6 @@
                     $dispatch('set-sidebar-expanded', value);
                 });
             "
-            x-show="isSidebarOpen"
             x-trap.noautofocus.noscroll="isSidebarOpen && window.innerWidth < breakpoint"
             @resize.window="
                 const isDesktop = window.innerWidth >= breakpoint;
@@ -55,7 +54,10 @@
             @click.self="window.innerWidth < breakpoint && (isSidebarOpen = false)"
             @keydown.escape.window="window.innerWidth < breakpoint && (isSidebarOpen = false)"
             @toggle-sidebar.window="isSidebarOpen = !isSidebarOpen"
-            :class="{ 'hidden invisible lg:block lg:visible' : !isSidebarOpen }"
+            :class="{ 
+                'hidden invisible' : !isSidebarOpen,
+                'lg:block lg:visible' : isDesktopSidebarOpen
+            }"
             :inert="!isSidebarOpen && window.innerWidth < breakpoint"
         >
             <!-- Sidebar Drawer -->
@@ -69,7 +71,10 @@
                 </button>
                 <!-- END Sidebar Close -->
                 <a href="#" class="px-4 sm:px-8 py-4 font-medium text-neutral-800 dark:text-neutral-200 text-lg">Title</a>
-                <ul class="space-y-1 px-2 sm:px-6 pb-4 overflow-y-auto">
+                <ul class="space-y-1 px-4 sm:px-8 pb-4 overflow-y-auto">
+                    <li>
+                        <p class="mt-4 py-2 font-semibold text-black dark:text-white text-sm uppercase tracking-wide">Dashboard</p> 
+                    </li>
                     <li>
                         <a href="#" class="inline-block bg-neutral-100 dark:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 1</a>
                     </li>
@@ -80,7 +85,7 @@
                         <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 3</a>
                     </li>
                     <li>
-                        <p class="mt-2 py-2 pl-2.5 font-semibold text-black dark:text-white text-sm uppercase tracking-wide">Module</p> 
+                        <p class="mt-4 py-2 font-semibold text-black dark:text-white text-sm uppercase tracking-wide">Module</p> 
                     </li>
                     <li>
                         <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 4</a>
@@ -92,11 +97,11 @@
                         <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer">Link 6</a>
                     </li>
                     <li>
-                        <div class="space-y-1 mt-2"
+                        <div class="space-y-1"
                             x-data="{ isModuleMenuOpen: false }"
                         >
                             <!-- Module Menu Toggle -->
-                            <button type="button" class="flex justify-between items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full !font-semibold font-semibold text-black dark:text-white text-sm text-left uppercase tracking-wide cursor-pointer" aria-controls="module-menu" aria-label="Toggle module menu."
+                            <button type="button" class="flex justify-between items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left tracking-wide cursor-pointer" aria-controls="module-menu" aria-label="Toggle module menu."
                                 @click="isModuleMenuOpen = !isModuleMenuOpen" 
                                 :aria-expanded="isModuleMenuOpen"
                             >
