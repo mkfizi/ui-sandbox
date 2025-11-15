@@ -25,6 +25,7 @@ Put unreleased changes here.
 - Ordered list.
 - Shiki integration example.
 - Code component example.
+- Button danger.
 
 ### Changed
 - Update all dependancies.
