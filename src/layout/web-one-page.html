@@ -114,7 +114,7 @@
                     </div>  
                     <!-- END Navbar Menu -->
                     <!-- Dark Mode Menu Component -->
-                    <div class="inline-block relative"
+                    <div class="relative w-fit"
                         x-data="{ 
                             isDarkModeMenuOpen: false,
                             theme: localStorage.theme || 'system',
@@ -145,7 +145,7 @@
                         </div>
                         <!-- END Dark Mode Menu Toggle -->
                         <!-- Dark Mode Menu -->
-                        <div id="dark-mode-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded w-48"
+                        <div id="dark-mode-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 mt-2 border border-neutral-200 dark:border-neutral-800 rounded w-48"
                             x-show="isDarkModeMenuOpen"
                             x-cloak
                             x-anchor.no-style.offset.8="$refs.button"

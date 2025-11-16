@@ -37,6 +37,7 @@ Put unreleased changes here.
 - Move asset files into `/src/assets`.
 - Text title size to `text-lg`.
 - Rename `Dashboard Navbar` to `Dashboard Stacked`.
+- Dropdown container `inline-block` to `w-fit`.
 
 ## [0.7.1] - 2025-09-19
 ### Changed
