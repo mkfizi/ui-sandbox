@@ -16,7 +16,7 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.7.2] - 2025-11-16
+## [0.7.2] - 2025-11-17
 ### Added
 - Badge link element.
 - FOUC handler on Navbar & Offcanvas related components.
@@ -25,7 +25,9 @@ Put unreleased changes here.
 - Ordered list.
 - Shiki integration example.
 - Code component example.
-- Button danger.
+- Button Success.
+- Button Danger.
+- Copy component example.
 
 ### Changed
 - Update all dependancies.
@@ -34,6 +36,7 @@ Put unreleased changes here.
 - Revise aria related attributes for a11y compliance.
 - Move asset files into `/src/assets`.
 - Text title size to `text-lg`.
+- Rename `Dashboard Navbar` to `Dashboard Stacked`.
 
 ## [0.7.1] - 2025-09-19
 ### Changed
