@@ -43,7 +43,7 @@
                 });
             "
             x-trap.noautofocus.noscroll="isSidebarOpen && window.innerWidth < breakpoint"
-            @resize.window="
+            x-on:resize.window="
                 const isDesktop = window.innerWidth >= breakpoint;
                 if (isDesktop) {
                     isSidebarOpen = isDesktopSidebarOpen;
@@ -51,11 +51,11 @@
                     isSidebarOpen = false;
                 }
             "
-            @click.self="window.innerWidth < breakpoint && (isSidebarOpen = false)"
-            @keydown.escape.window="window.innerWidth < breakpoint && (isSidebarOpen = false)"
-            @toggle-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = !isSidebarOpen : null"
-            @open-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = true : null"
-            @close-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = false : null"
+            x-on:click.self="window.innerWidth < breakpoint && (isSidebarOpen = false)"
+            x-on:keydown.escape.window="window.innerWidth < breakpoint && (isSidebarOpen = false)"
+            x-on:toggle-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = !isSidebarOpen : null"
+            x-on:open-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = true : null"
+            x-on:close-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = false : null"
             :class="{ 
                 'hidden invisible' : !isSidebarOpen,
                 'lg:block lg:visible' : isDesktopSidebarOpen
@@ -66,7 +66,7 @@
             <div class="top-0 left-0 fixed flex flex-col bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
                 <!-- Sidebar Close -->
                 <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Close sidebar."
-                    @click="$dispatch('close-sidebar', { id: 'sidebar' })"
+                    x-on:click="$dispatch('close-sidebar', { id: 'sidebar' })"
                     :aria-expanded="isSidebarOpen"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
@@ -103,8 +103,8 @@
                     <!-- Sidebar Open -->
                     <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Open sidebar."
                         x-data="{ isSidebarOpen: false }"
-                        @click="$dispatch('toggle-sidebar', { id: 'sidebar' });"
-                        @sidebar-expanded.window="$event.detail.id === 'sidebar' ? isSidebarOpen = $event.detail.isSidebarOpen : null"
+                        x-on:click="$dispatch('toggle-sidebar', { id: 'sidebar' });"
+                        x-on:sidebar-expanded.window="$event.detail.id === 'sidebar' ? isSidebarOpen = $event.detail.isSidebarOpen : null"
                         :aria-expanded="isSidebarOpen"
                     >
                         <span>Sidebar</span>

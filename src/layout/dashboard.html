@@ -35,15 +35,15 @@
                 }"
                 x-init="$watch('isSidebarOpen', isSidebarOpen => $dispatch('sidebar-expanded', { id: 'sidebar', isSidebarOpen }))"
                 x-trap.noautofocus.noscroll="isSidebarOpen && window.innerWidth < breakpoint"
-                @resize.window="
+                x-on:resize.window="
                     if (window.innerWidth >= breakpoint && isSidebarOpen) {
                         isSidebarOpen = false;
                     }
                 "
-                @click.self="window.innerWidth < breakpoint && (isSidebarOpen = false)"
-                @keydown.escape.window="window.innerWidth < breakpoint && (isSidebarOpen = false)"
-                @open-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = true : null"
-                @close-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = false : null"
+                x-on:click.self="window.innerWidth < breakpoint && (isSidebarOpen = false)"
+                x-on:keydown.escape.window="window.innerWidth < breakpoint && (isSidebarOpen = false)"
+                x-on:open-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = true : null"
+                x-on:close-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = false : null"
                 :class="{ 'hidden invisible' : !isSidebarOpen }"
                 :inert="!isSidebarOpen && window.innerWidth < breakpoint"
             >
@@ -51,7 +51,7 @@
                 <div class="top-0 left-0 fixed flex flex-col bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
                     <!-- Sidebar Close -->
                     <button type="button" class="lg:hidden lg:invisible top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Close sidebar."
-                        @click="$dispatch('close-sidebar', { id: 'sidebar' })"
+                        x-on:click="$dispatch('close-sidebar', { id: 'sidebar' })"
                         :aria-expanded="isSidebarOpen"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
@@ -94,7 +94,7 @@
                             >
                                 <!-- Module Menu Toggle -->
                                 <button type="button" class="flex justify-between items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left tracking-wide cursor-pointer" aria-controls="module-menu" aria-label="Toggle module menu."
-                                    @click="isCollapseOpen = !isCollapseOpen" 
+                                    x-on:click="isCollapseOpen = !isCollapseOpen" 
                                     :aria-expanded="isCollapseOpen"
                                 >
                                     <span>Module Menu</span>
@@ -135,7 +135,7 @@
                         breakpoint: 1024,
                         isScrolled: window.scrollY > 0,
                     }"
-                    @scroll.window="isScrolled = window.scrollY > 0;"
+                    x-on:scroll.window="isScrolled = window.scrollY > 0;"
                     :class="{
                         'bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800': isScrolled,
                         'bg-transparent dark:bg-transparent border-transparent': !isScrolled
@@ -146,8 +146,8 @@
                             <!-- Sidebar Open -->
                             <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="sidebar" aria-label="Open sidebar."
                                 x-data="{ isSidebarOpen: false }"
-                                @click="$dispatch('open-sidebar', { id: 'sidebar' });"
-                                @sidebar-expanded.window="$event.detail.id === 'sidebar' ? isSidebarOpen = $event.detail.isSidebarOpen : null"
+                                x-on:click="$dispatch('open-sidebar', { id: 'sidebar' });"
+                                x-on:sidebar-expanded.window="$event.detail.id === 'sidebar' ? isSidebarOpen = $event.detail.isSidebarOpen : null"
                                 :aria-expanded="isSidebarOpen"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg>
@@ -162,13 +162,13 @@
                             <!-- Notification Menu Component -->
                             <div class="relative w-fit"
                                 x-data="{ isDropdownOpen: false }"
-                                @click.away="isDropdownOpen = false"
-                                @keydown.escape.window="isDropdownOpen = false"
+                                x-on:click.away="isDropdownOpen = false"
+                                x-on:keydown.escape.window="isDropdownOpen = false"
                             >
                                 <!-- Notification Menu Toggle -->
                                 <div
                                     x-ref="button"
-                                    @click="isDropdownOpen = !isDropdownOpen"
+                                    x-on:click="isDropdownOpen = !isDropdownOpen"
                                     :aria-expanded="isDropdownOpen"
                                 >
                                     <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="notification-menu" aria-label="Toggle notification menu.">
@@ -243,13 +243,13 @@
                                         this.isDropdownOpen = false;
                                     },
                                 }"
-                                @click.outside="isDropdownOpen = false"
-                                @keydown.escape.window="isDropdownOpen = false"
+                                x-on:click.outside="isDropdownOpen = false"
+                                x-on:keydown.escape.window="isDropdownOpen = false"
                             >
                                 <!-- Dark Mode Menu Toggle -->
                                 <div
                                     x-ref="button"
-                                    @click="isDropdownOpen = !isDropdownOpen"
+                                    x-on:click="isDropdownOpen = !isDropdownOpen"
                                     :aria-expanded="isDropdownOpen"
                                 >
                                     <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu" aria-label="Toggle dark mode menu.">
@@ -269,7 +269,7 @@
                                     <ul class="space-y-1 p-1 leading-0">
                                         <li>
                                             <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set light theme."
-                                                @click="toggleTheme('light')"
+                                                x-on:click="toggleTheme('light')"
                                                 :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'light'}"
                                             >
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
@@ -278,7 +278,7 @@
                                         </li>
                                         <li>
                                             <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set dark theme."
-                                                @click="toggleTheme('dark')"
+                                                x-on:click="toggleTheme('dark')"
                                                 :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'dark'}"
                                             >
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
@@ -287,7 +287,7 @@
                                         </li>
                                         <li>
                                             <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set system theme."
-                                                @click="toggleTheme('system')"
+                                                x-on:click="toggleTheme('system')"
                                                 :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'system'}"
                                             >
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg>
@@ -302,13 +302,13 @@
                             <!-- Settings Menu Component -->
                             <div class="relative w-fit"
                                 x-data="{ isDropdownOpen: false }"
-                                @click.away="isDropdownOpen = false"
-                                @keydown.escape.window="isDropdownOpen = false"
+                                x-on:click.away="isDropdownOpen = false"
+                                x-on:keydown.escape.window="isDropdownOpen = false"
                             >
                                 <!-- Settings Menu Toggle -->
                                 <div
                                     x-ref="button"
-                                    @click="isDropdownOpen = !isDropdownOpen"
+                                    x-on:click="isDropdownOpen = !isDropdownOpen"
                                     :aria-expanded="isDropdownOpen"
                                 >
                                     <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="settings-menu" aria-label="Toggle settings menu.">
@@ -428,8 +428,8 @@
                                     <!-- Filter Menu Open -->
                                     <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 p-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="filter-menu" aria-label="Open filter menu."
                                         x-data="{ isOffcanvasOpen: false }"
-                                        @click="$dispatch('open-offcanvas', { id: 'filter-menu' })"
-                                        @offcanvas-expanded.window="$event.detail.id === 'filter-menu' ? isOffcanvasOpen = $event.detail.isOffcanvasOpen : null"
+                                        x-on:click="$dispatch('open-offcanvas', { id: 'filter-menu' })"
+                                        x-on:offcanvas-expanded.window="$event.detail.id === 'filter-menu' ? isOffcanvasOpen = $event.detail.isOffcanvasOpen : null"
                                         :aria-expanded="isOffcanvasOpen"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-white dark:stroke-black w-5 h-5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z"/></svg>
@@ -563,17 +563,17 @@
                     x-show="isOffcanvasOpen"
                     x-cloak
                     x-trap.noautofocus.noscroll="isOffcanvasOpen"
-                    @click.self="isOffcanvasOpen = false"
-                    @keydown.escape.window="isOffcanvasOpen = false"
-                    @open-offcanvas.window="$event.detail.id === 'filter-menu' ? isOffcanvasOpen = true : null"
-                    @close-offcanvas.window="$event.detail.id === 'filter-menu' ? isOffcanvasOpen = false : null"
+                    x-on:click.self="isOffcanvasOpen = false"
+                    x-on:keydown.escape.window="isOffcanvasOpen = false"
+                    x-on:open-offcanvas.window="$event.detail.id === 'filter-menu' ? isOffcanvasOpen = true : null"
+                    x-on:close-offcanvas.window="$event.detail.id === 'filter-menu' ? isOffcanvasOpen = false : null"
                     :inert="!isOffcanvasOpen"
                 >
                     <!-- Filter Menu Drawer -->
                     <div class="top-0 right-0 fixed bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-l w-full sm:w-64 h-full">
                         <!-- Filter Menu Close -->
                         <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="filter-menu" aria-label="Close filter menu."
-                            @click="$dispatch('close-offcanvas', { id: 'filter-menu' });"
+                            x-on:click="$dispatch('close-offcanvas', { id: 'filter-menu' });"
                             :aria-expanded="isOffcanvasOpen"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
@@ -656,7 +656,7 @@
                                 <!-- Filter Menu Actions -->
                                 <div class="flex flex-col gap-2">
                                     <button type="button" class="flex-auto bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-3 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal"
-                                        @click="$dispatch('close-offcanvas', { id: 'filter-menu' });"
+                                        x-on:click="$dispatch('close-offcanvas', { id: 'filter-menu' });"
                                         :aria-expanded="isOffcanvasOpen"
                                     >
                                         <span>Clear</span>

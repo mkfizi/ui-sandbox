@@ -31,7 +31,7 @@
             <div class="space-y-4 pt-32 max-w-screen-sm">
                 <div
                     x-data="{ breakpoint: 1024 }"
-                    @resize.window="window.innerWidth >= breakpoint && console.log(`Breakpoint exceeded ${breakpoint}px`);"
+                    x-on:resize.window="window.innerWidth >= breakpoint && console.log(`Breakpoint exceeded ${breakpoint}px`);"
                 ></div>
                 <p class="text-neutral-800 dark:text-neutral-200 text-sm">Resize the window more than 1024px and see console.</p>
                 <div class="mt-16">

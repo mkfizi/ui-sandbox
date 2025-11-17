@@ -37,7 +37,7 @@
                     <div class="flex items-center gap-2">
                         <!-- Tab 1 Button -->
                         <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-1" aria-label="Show tab 1."
-                            @click="activeTab = 1"
+                            x-on:click="activeTab = 1"
                             :class="activeTab === 1 
                                 ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
                                 : 'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white'"
@@ -48,7 +48,7 @@
                         <!-- END Tab 1 Button -->
                         <!-- Tab 2 Button -->
                         <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-2" aria-label="Show tab 2."
-                            @click="activeTab = 2"
+                            x-on:click="activeTab = 2"
                             :class="activeTab === 2 
                                 ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
                                 : 'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white'"
@@ -59,7 +59,7 @@
                         <!-- END Tab 2 Button -->
                         <!-- Tab 3 Button -->
                         <button type="button" class="disabled:opacity-60 px-3 py-2 rounded font-medium text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-3" aria-label="Show tab 3."
-                            @click="activeTab = 3"
+                            x-on:click="activeTab = 3"
                             :class="activeTab === 3 
                                 ? 'bg-black dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white text-white dark:text-black' 
                                 : 'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 text-black dark:text-white'"

@@ -32,8 +32,8 @@
                 <!-- Overlay Open -->
                 <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="overlay" aria-label="Open overlay."
                     x-data="{ isOverlayOpen: false }"
-                    @click="$dispatch('open-overlay', { id: 'overlay' })"
-                    @overlay-expanded.window="$event.detail.id === 'overlay' ? isOverlayOpen = $event.detail.isOverlayOpen : null"
+                    x-on:click="$dispatch('open-overlay', { id: 'overlay' })"
+                    x-on:overlay-expanded.window="$event.detail.id === 'overlay' ? isOverlayOpen = $event.detail.isOverlayOpen : null"
                     :aria-expanded="isOverlayOpen"
                 >
                     <span>Overlay</span>
@@ -46,10 +46,10 @@
                     x-show="isOverlayOpen"
                     x-cloak
                     x-trap.noautofocus.noscroll="isOverlayOpen"
-                    @click.self="isOverlayOpen = false"
-                    @keydown.escape.window="isOverlayOpen = false"
-                    @open-overlay.window="$event.detail.id == 'overlay' ? isOverlayOpen = true : null"
-                    @close-overlay.window="$event.detail.id == 'overlay' ? isOverlayOpen = false : null"
+                    x-on:click.self="isOverlayOpen = false"
+                    x-on:keydown.escape.window="isOverlayOpen = false"
+                    x-on:open-overlay.window="$event.detail.id == 'overlay' ? isOverlayOpen = true : null"
+                    x-on:close-overlay.window="$event.detail.id == 'overlay' ? isOverlayOpen = false : null"
                     :inert="!isOverlayOpen" 
                 >
                     <!-- Insert Content Here  -->

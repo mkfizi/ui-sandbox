@@ -31,7 +31,7 @@
             <div class="space-y-4 pt-32 max-w-screen-sm">
                 <!-- Toast Open -->
                 <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="toast" aria-label="Open toast."
-                    @click="$dispatch('open-toast')"
+                    x-on:click="$dispatch('open-toast')"
                 >
                     <span>Toast</span>
                 </button>
@@ -47,12 +47,12 @@
                     })"
                     x-show="isToastOpen"
                     x-cloak
-                    @open-toast.window="isToastOpen = true"
+                    x-on:open-toast.window="isToastOpen = true"
                     :inert="!isToastOpen" 
                 >
                     <!-- Toast Close -->
                     <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="toast" aria-label="Close toast."
-                        @click="isToastOpen = false"
+                        x-on:click="isToastOpen = false"
                         :aria-expanded="isToastOpen"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
