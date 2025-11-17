@@ -29,59 +29,34 @@
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl"> 
             <div class="space-y-4 pt-32 max-w-screen-sm">
-                <!-- METHOD 1 -->
-                <!-- Overlay Component -->
-                <div x-data="{ isOverlayOpen: false }">
-                    <!-- Overlay Open -->
-                    <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="overlay" aria-label="Open overlay."
-                        @click="isOverlayOpen = true"
-                        :aria-expanded="isOverlayOpen"
-                    >
-                        <span>Overlay 1</span>
-                    </button>
-                    <!-- END Offcanvas Open -->
-                    <!-- Offcanvas Overlay -->
-                    <div id="overlay" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
-                        x-show="isOverlayOpen"
-                        x-cloak
-                        x-trap.noautofocus.noscroll="isOverlayOpen"
-                        @click.self="isOverlayOpen = false"
-                        @keydown.escape.window="isOverlayOpen = false"
-                        :inert="!isOverlayOpen" 
-                    >
-                        <!-- Insert Content Here  -->
-                    </div>
-                    <!-- END Offcanvas Overlay -->
-                </div>
-                <!-- END Offcanvas Component -->
-                <!-- END METHOD 1 -->
-                <!-- METHOD 2 -->
                 <!-- Overlay Open -->
                 <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="overlay" aria-label="Open overlay."
                     x-data="{ isOverlayOpen: false }"
-                    @click="$dispatch('open-overlay')"
-                    @set-overlay-expanded.window="isOverlayOpen = $event.detail"
+                    @click="$dispatch('open-overlay', { id: 'overlay' })"
+                    @overlay-expanded.window="$event.detail.id === 'overlay' ? isOverlayOpen = $event.detail.isOverlayOpen : null"
                     :aria-expanded="isOverlayOpen"
                 >
-                    <span>Overlay 2</span>
+                    <span>Overlay</span>
                 </button>
                 <!-- END Overlay Open -->
                 <!-- Overlay Component -->
                 <div id="overlay" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
                     x-data="{ isOverlayOpen: false }"
-                    x-init="$watch('isOverlayOpen', isOverlayOpen => $dispatch('set-overlay-expanded', isOverlayOpen))"
+                    x-init="$watch('isOverlayOpen', isOverlayOpen => $dispatch('overlay-expanded', { id: 'overlay', isOverlayOpen: isOverlayOpen }))"
                     x-show="isOverlayOpen"
                     x-cloak
                     x-trap.noautofocus.noscroll="isOverlayOpen"
                     @click.self="isOverlayOpen = false"
                     @keydown.escape.window="isOverlayOpen = false"
-                    @open-overlay.window="isOverlayOpen = true"
+                    @open-overlay.window="$event.detail.id == 'overlay' ? isOverlayOpen = true : null"
+                    @close-overlay.window="$event.detail.id == 'overlay' ? isOverlayOpen = false : null"
                     :inert="!isOverlayOpen" 
                 >
                     <!-- Insert Content Here  -->
+                    <span></span>
+                    <!-- END Insert Content Here -->
                 </div>
                 <!-- END Overlay Component -->
-                <!-- END METHOD 2 -->
                 <div class="mt-16">
                     <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
                 </div>

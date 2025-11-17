@@ -79,7 +79,7 @@
                     <!-- Dark Mode Menu Component -->
                     <div class="relative w-fit"
                         x-data="{ 
-                            isDarkModeMenuOpen: false,
+                            isDropdownOpen: false,
                             theme: localStorage.theme || 'system',
                             toggleTheme(newTheme) {
                                 this.theme = newTheme;
@@ -89,17 +89,17 @@
                                 document.documentElement.classList.toggle('dark', 
                                     newTheme === 'dark' || (newTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
                                 );
-                                this.isDarkModeMenuOpen = false;
+                                this.isDropdownOpen = false;
                             },
                         }"
-                        @click.outside="isDarkModeMenuOpen = false"
-                        @keydown.escape.window="isDarkModeMenuOpen = false"
+                        @click.outside="isDropdownOpen = false"
+                        @keydown.escape.window="isDropdownOpen = false"
                     >
                         <!-- Dark Mode Menu Toggle -->
                         <div
                             x-ref="button"
-                            @click="isDarkModeMenuOpen = !isDarkModeMenuOpen"
-                            :aria-expanded="isDarkModeMenuOpen"
+                            @click="isDropdownOpen = !isDropdownOpen"
+                            :aria-expanded="isDropdownOpen"
                         >
                             <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu" aria-label="Toggle dark mode menu.">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="dark:hidden stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
@@ -109,10 +109,10 @@
                         <!-- END Dark Mode Menu Toggle -->
                         <!-- Dark Mode Menu -->
                         <div id="dark-mode-menu" class="right-0 z-10 absolute bg-white dark:bg-neutral-950 mt-2 border border-neutral-200 dark:border-neutral-800 rounded w-48"
-                            x-show="isDarkModeMenuOpen"
+                            x-show="isDropdownOpen"
                             x-cloak
                             x-anchor.no-style.offset.8="$refs.button"
-                            :inert="!isDarkModeMenuOpen"
+                            :inert="!isDropdownOpen"
                             :style="{ top: $anchor.y+'px'}"
                         >
                             <ul class="space-y-1 p-1 leading-0">

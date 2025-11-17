@@ -29,82 +29,27 @@
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
             <div class="space-y-4 pt-32 max-w-screen-sm">
-                <!-- METHOD 1 -->
-                <!-- Modal Component -->
-                <div x-data="{ isModalOpen: false }">
-                    <!-- Modal Open -->
-                    <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Open modal."
-                        @click="isModalOpen = true"
-                        :aria-expanded="isModalOpen"
-                    >
-                        <span>Modal 1</span>
-                    </button>
-                    <!-- END Modal Overlay -->
-                    <div id="modal" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
-                        x-show="isModalOpen"
-                        x-cloak
-                        x-trap.noautofocus.noscroll="isModalOpen"
-                        @click.self="isModalOpen = false"
-                        @keydown.escape.window="isModalOpen = false"
-                        :inert="!isModalOpen" 
-                    >
-                        <!-- Modal Dialog -->
-                        <div class="top-1/2 left-1/2 fixed bg-white dark:bg-neutral-950 p-8 border border-neutral-200 dark:border-neutral-800 rounded w-80 sm:w-96 -translate-x-1/2 -translate-y-1/2 transform">
-                            <!-- Modal Close -->
-                            <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Close modal."
-                                @click="isModalOpen = false"
-                                :aria-expanded="isModalOpen"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
-                            </button>
-                            <!-- END Modal Close -->
-                            <!-- Modal Content -->
-                            <div class="space-y-2">
-                                <p class="font-medium text-neutral-800 dark:text-neutral-200 text-lg">This is a modal 1 title.</p>
-                                <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a modal 1 paragraph text.</p>
-                            </div>
-                            <!-- END Modal Content -->
-                            <!-- Modal Action -->
-                            <div class="flex flex-wrap justify-end gap-2 mt-8">
-                                <button type="button" class="bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-3 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal"
-                                    @click="isModalOpen = false"
-                                    :aria-expanded="isModalOpen"
-                                >
-                                    <span>Close</span>
-                                </button>
-                                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none">
-                                    <span>Okay</span>
-                                </button>
-                            </div>
-                            <!-- END Modal Action -->
-                        </div>
-                        <!-- END Modal Dialog -->  
-                    </div>
-                    <!-- END Modal Overlay -->
-                </div>
-                <!-- END Modal Component -->
-                <!-- END METHOD 1 -->
-                <!-- METHOD 2 -->
                 <!-- Modal Open -->
                 <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-label="Open modal."
                     x-data="{ isModalOpen: false }"
-                    @click="$dispatch('open-modal')"
-                    @set-modal-expanded.window="isModalOpen = $event.detail"
+                    @click="$dispatch('open-modal', { id: 'modal' })"
+                    @modal-expanded.window="event.detail.id === 'modal' ? isModalOpen = event.detail.isModalOpen : null"
                     :aria-expanded="isModalOpen"
                 >
-                    <span>Modal 2</span>
+                    <span>Modal</span>
                 </button>
                 <!-- END Modal Open -->
                 <!-- Modal Component -->
                 <div id="modal" class="top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh"
                     x-data="{ isModalOpen: false }"
-                    x-init="$watch('isModalOpen', isModalOpen => $dispatch('set-modal-expanded', isModalOpen))"
+                    x-init="$watch('isModalOpen', isModalOpen => $dispatch('modal-expanded', { id: 'modal', isModalOpen: isModalOpen }))"
                     x-show="isModalOpen"
                     x-cloak
                     x-trap.noautofocus.noscroll="isModalOpen"
                     @click.self="isModalOpen = false"
                     @keydown.escape.window="isModalOpen = false"
-                    @open-modal.window="isModalOpen = true"
+                    @open-modal.window="$event.detail.id == 'modal' ? isModalOpen = true : null"
+                    @close-modal.window="$event.detail.id == 'modal' ? isModalOpen = false : null"
                     :inert="!isModalOpen" 
                 >
                     <!-- Modal Dialog -->
@@ -118,15 +63,15 @@
                         </button>
                         <!-- END Modal Close -->
                         <!-- Modal Content -->
-                        <div class="space-y-2">
-                            <p class="font-medium text-neutral-800 dark:text-neutral-200 text-lg">This is a modal 2 title.</p>
-                            <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a modal 2 paragraph text.</p>
+                        <div class="space-y-4">
+                            <p class="font-medium text-neutral-800 dark:text-neutral-200 text-lg">This is a modal title.</p>
+                            <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a modal paragraph text.</p>
                         </div>
                         <!-- END Modal Content -->
                         <!-- Modal Action -->
                         <div class="flex flex-wrap justify-end gap-2 mt-8">
                             <button type="button" class="bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-3 py-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal"
-                                @click="isModalOpen = false"
+                                @click="$dispatch('close-modal', { id: 'modal' })"
                                 :aria-expanded="isModalOpen"
                             >
                                 <span>Close</span>
@@ -140,7 +85,6 @@
                     <!-- END Modal Dialog -->  
                 </div>
                 <!-- END Modal Component -->
-                <!-- END METHOD 2 -->
                 <div class="mt-16">
                     <a href="/index.html" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
                 </div>
