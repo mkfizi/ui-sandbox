@@ -501,37 +501,55 @@
                                     <table class="divide-y divide-neutral-200 dark:divide-neutral-800 w-full whitespace-nowrap">
                                         <thead class="bg-neutral-50 dark:bg-neutral-900 text-left">
                                             <tr>
-                                                <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">No</th>
-                                                <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Order ID</th>
-                                                <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Amount</th>
-                                                <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Status</th>
-                                                <th class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">Date</th>
-                                                <th class="px-4 py-3 !pr-8 text-neutral-800 dark:text-neutral-200 text-sm text-end">Action</th>
+                                                <th class="px-4 py-3">
+                                                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">No</p>
+                                                </th>
+                                                <th class="px-4 py-3">
+                                                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">Order ID</p>
+                                                </th>
+                                                <th class="px-4 py-3">
+                                                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">Amount</p>
+                                                </th>
+                                                <th class="px-4 py-3">
+                                                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">Status</p>
+                                                </th>
+                                                <th class="px-4 py-3">
+                                                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">Date</p>
+                                                </th>
+                                                <th class="px-4 py-3">
+                                                    <p class="pr-4 text-neutral-800 dark:text-neutral-200 text-sm text-end">Action</p>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody class="divide-y divide-neutral-200 dark:divide-neutral-800">
                                             <template x-for="(order, index) in orders" :key="order.id">
                                                 <tr>
-                                                    <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm" x-text="index + 1"></td>
-                                                    <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                    <td class="px-4 py-3">
+                                                        <p class="text-neutral-800 dark:text-neutral-200 text-sm" x-text="index + 1"></p>
+                                                    </td>
+                                                    <td class="px-4 py-3">
                                                         <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" x-text="order.id"></a>
                                                     </td>
-                                                    <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                        <span x-text="order.amount"></span>
+                                                    <td class="px-4 py-3">
+                                                        <p class="text-neutral-800 dark:text-neutral-200 text-sm" x-text="order.amount"></p>
                                                     </td>
-                                                    <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
-                                                        <div class="flex items-center gap-1 bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
-                                                            <div class="rounded-full w-2 h-2" 
-                                                                :class="{
-                                                                    'bg-green-500': order.status === 'Completed',
-                                                                    'bg-red-500': order.status === 'Cancelled',
-                                                                    'bg-orange-500': order.status === 'Pending'
-                                                                }"></div>
-                                                            <span x-text="order.status"></span>
+                                                    <td class="px-4 py-3">
+                                                        <div class="bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max text-black dark:text-white text-xs">
+                                                            <div class="flex items-center gap-1">
+                                                                <div class="rounded-full w-2 h-2" 
+                                                                    :class="{
+                                                                        'bg-green-500': order.status === 'Completed',
+                                                                        'bg-red-500': order.status === 'Cancelled',
+                                                                        'bg-orange-500': order.status === 'Pending'
+                                                                    }"></div>
+                                                                <span x-text="order.status"></span>
+                                                            </div>
                                                         </div>
                                                     </td>
-                                                    <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm" x-text="order.date"></td>
-                                                    <td class="px-4 py-3 text-neutral-800 dark:text-neutral-200 text-sm">
+                                                    <td class="px-4 py-3">
+                                                        <p class="text-neutral-800 dark:text-neutral-200 text-sm" x-text="order.date"></p>
+                                                    </td>
+                                                    <td class="px-4 py-3">
                                                         <div class="flex justify-end gap-2">
                                                             <a href="#" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
                                                                 <span class="stroke-black dark:stroke-white [&>svg]:w-5 [&>svg]:h-5 shrink-0">
