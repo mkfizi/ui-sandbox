@@ -31,11 +31,11 @@
             <div class="space-y-4 pt-32 max-w-screen-sm">
                 <p class="text-neutral-800 dark:text-neutral-200 text-sm">Scroll down and click on scroll top button.</p>
                 <!-- Scroll Top Component -->
-                <button type="button" class="right-4 sm:right-8 bottom-4 sm:bottom-8 fixed inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Scroll to top."
+                <button type="button" class="right-4 sm:right-8 bottom-4 sm:bottom-8 fixed inset-ring inset-ring-neutral-300 hover:inset-ring-neutral-400 focus:inset-ring-neutral-400 dark:hover:inset-ring-neutral-600 dark:focus:inset-ring-neutral-600 dark:inset-ring-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 [&>svg]:stroke-black dark:[&>svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-label="Scroll to top."
                     x-data
                     x-on:click="window.scrollTo({ top: 0 })"
                 >
-                    <span class="stroke-black dark:stroke-white [&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                    <span class="[&>svg]:w-5 [&>svg]:h-5 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14"/><path d="M18 11l-6 -6"/><path d="M6 11l6 -6"/></svg>
                     </span>
                 </button>

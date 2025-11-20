@@ -34,12 +34,12 @@
                     x-data="{ isCollapseOpen: false }"
                 >
                     <!-- Collapse Toggle -->
-                    <button type="button" class="flex items-center gap-2 bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="collapse" aria-label="Toggle collapse."
+                    <button type="button" class="flex items-center gap-2 bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 [&>svg]:stroke-white dark:[&>svg]:stroke-black px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="collapse" aria-label="Toggle collapse."
                         x-on:click="isCollapseOpen = !isCollapseOpen" 
                         :aria-expanded="isCollapseOpen"
                     >
                         <span>Collapse</span>
-                        <span class="stroke-black dark:stroke-white [&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                        <span class="[&>svg]:w-5 [&>svg]:h-5 shrink-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 9l4 -4l4 4"/><path d="M16 15l-4 4l-4 -4"/></svg>
                         </span>
                     </button>
