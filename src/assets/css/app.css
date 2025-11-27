@@ -11,3 +11,11 @@
 * This is useful for Alpine.js components that should not be visible before Alpine.js is initialized.
 */
 [x-cloak] { display: none !important; }
+
+/**
+ * Custom breakpoint for `sm:` to accommodate budget tablets with typical CSS widths of ~600px.
+ * Tailwind CSS default `sm:` breakpoint is 640px.
+ */
+@theme {
+    --breakpoint-sm: 480px
+}
