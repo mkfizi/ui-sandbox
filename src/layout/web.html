@@ -41,7 +41,7 @@
             <div class="flex justify-between items-center mx-auto px-4 sm:px-8 py-3 max-w-screen-xl">
                 <a href="#" class="flex items-center gap-2 font-bold text-neutral-800 dark:text-neutral-200 text-sm">
                     <div class="bg-black dark:bg-white p-2 rounded">
-                        <span class="[&>svg]:w-5 [&>svg]:h-5 text-white dark:text-black shrink-0">
+                        <span class="[&_svg]:w-5 [&_svg]:h-5 text-white dark:text-black shrink-0">
                             <svg height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M 0.92 0.92 L 23 0.92 M 23 0.92 L 23 6.44 M 23 6.44 L 14.72 6.44 M 14.72 6.44 L 14.72 9.2 M 14.72 9.2 L 23 9.2 M 23 9.2 L 23 14.72 M 23 14.72 L 14.72 14.72 M 14.72 14.72 L 14.72 23 M 14.72 23 L 9.2 23 M 9.2 23 L 9.2 6.44 M 9.2 6.44 L 6.44 6.44 M 6.44 6.44 L 6.44 23 M 6.44 23 L 0.92 23 M 0.92 23 L 0.92 0.92">
                             </svg>
@@ -55,17 +55,17 @@
                         x-trap.noautofocus.noscroll="isNavbarMenuOpen && window.innerWidth < breakpoint"
                         x-on:click.self="isNavbarMenuOpen = false"
                         x-on:keydown.escape.window="isNavbarMenuOpen = false"
-                        :class="{ 'hidden invisible' : !isNavbarMenuOpen || window.innerWidth >= breakpoint }"
+                        :class="{ 'hidden invisible pointer-events-none' : !isNavbarMenuOpen || window.innerWidth >= breakpoint }"
                         :inert="!isNavbarMenuOpen && window.innerWidth < breakpoint"
                     >
                         <!-- Navbar Menu Drawer -->
                         <div class="top-0 right-0 fixed lg:relative bg-white lg:bg-transparent dark:bg-neutral-950 px-4 sm:px-8 lg:px-0 py-4 lg:py-0 border-neutral-200 lg:border-0 dark:border-neutral-800 border-r w-full sm:w-64 lg:w-auto h-full lg:h-auto overflow-y-auto lg:overflow-y-visible">
                             <!-- Navbar Menu Close -->
-                            <button type="button" class="lg:hidden lg:invisible top-2 right-4 sm:right-8 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 [&>svg]:stroke-black dark:[&>svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Close navbar menu."
+                            <button type="button" class="lg:hidden lg:invisible top-2 right-4 sm:right-8 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 [&_svg]:stroke-black dark:[&_svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Close navbar menu."
                                 x-on:click="isNavbarMenuOpen = false"
                                 :aria-expanded="isNavbarMenuOpen"
                             >
-                                <span class="[&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                                <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
                                 </span>
                             </button>
@@ -73,13 +73,13 @@
                             <!-- Navbar Menu Links -->
                             <ul class="lg:flex lg:items-center lg:gap-8 space-y-1 lg:space-y-0 mt-8 lg:mt-0 leading-0">
                                 <li>
-                                    <a href="#" class="inline-block bg-neutral-100 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:dark:hover:text-neutral-200 lg:hover:text-neutral-700 lg:dark:focus:text-neutral-200 lg:focus:text-neutral-700 dark:text-white text-sm text-left cursor-pointer">Link 1</a>
+                                    <a href="#" class="inline-block bg-neutral-100 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:text-neutral-700 lg:focus:text-neutral-700 lg:dark:hover:text-neutral-200 lg:dark:focus:text-neutral-200 dark:text-white text-sm text-left cursor-pointer">Link 1</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:dark:hover:text-white lg:hover:text-black lg:dark:focus:text-white lg:focus:text-black lg:visited:text-neutral-700 lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer">Link 2</a>
+                                    <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:text-black lg:focus:text-black lg:text-neutral-500 lg:visited:text-neutral-700 lg:dark:hover:text-white lg:dark:focus:text-white lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 dark:text-white text-sm text-left cursor-pointer">Link 2</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:dark:hover:text-white lg:hover:text-black lg:dark:focus:text-white lg:focus:text-black lg:visited:text-neutral-700 lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer">Link 3</a>
+                                    <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:text-black lg:focus:text-black lg:text-neutral-500 lg:visited:text-neutral-700 lg:dark:hover:text-white lg:dark:focus:text-white lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 dark:text-white text-sm text-left cursor-pointer">Link 3</a>
                                 </li>
                             </ul>
                             <!-- END Navbar Menu Links -->
@@ -112,11 +112,11 @@
                             x-on:click="isDropdownOpen = !isDropdownOpen"
                             :aria-expanded="isDropdownOpen"
                         >
-                            <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 [&>svg]:stroke-black dark:[&>svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu" aria-label="Toggle dark mode menu.">
-                                <span class="dark:hidden [&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                            <button type="button" class="hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 [&_svg]:stroke-black dark:[&_svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-menu" aria-label="Toggle dark mode menu.">
+                                <span class="dark:hidden [&_svg]:w-5 [&_svg]:h-5 shrink-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
                                 </span>
-                                <span class="hidden dark:block [&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                                <span class="hidden dark:block [&_svg]:w-5 [&_svg]:h-5 shrink-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
                                 </span>
                             </button>
@@ -132,33 +132,33 @@
                         >
                             <ul class="space-y-1 p-1 leading-0">
                                 <li>
-                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 [&>svg]:stroke-black dark:[&>svg]:stroke-white px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set light theme."
+                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 [&_svg]:stroke-black dark:[&_svg]:stroke-white px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set light theme."
                                         x-on:click="toggleTheme('light')"
                                         :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'light'}"
                                     >
-                                        <span class="[&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                                        <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
                                         </span>
                                         <span>Light</span>
                                     </button>
                                 </li>
                                 <li>
-                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 [&>svg]:stroke-black dark:[&>svg]:stroke-white px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set dark theme."
+                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 [&_svg]:stroke-black dark:[&_svg]:stroke-white px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set dark theme."
                                         x-on:click="toggleTheme('dark')"
                                         :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'dark'}"
                                     >
-                                        <span class="[&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                                        <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
                                         </span>
                                         <span>Dark</span>
                                     </button>
                                 </li>
                                 <li>
-                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 [&>svg]:stroke-black dark:[&>svg]:stroke-white px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set system theme."
+                                    <button type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 [&_svg]:stroke-black dark:[&_svg]:stroke-white px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left cursor-pointer" aria-label="Set system theme."
                                         x-on:click="toggleTheme('system')"
                                         :class="{'bg-neutral-100 dark:bg-neutral-800': theme === 'system'}"
                                     >
-                                        <span class="[&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                                        <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg>
                                         </span>
                                         <span>System</span>
@@ -170,11 +170,11 @@
                     </div>
                     <!-- END Dark Mode Menu Component -->  
                     <!-- Navbar Menu Open -->
-                    <button type="button" class="lg:hidden lg:invisible hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 [&>svg]:stroke-black dark:[&>svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Open navbar menu."
+                    <button type="button" class="lg:hidden lg:invisible hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 [&_svg]:stroke-black dark:[&_svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="navbar-menu" aria-label="Open navbar menu."
                         x-on:click="isNavbarMenuOpen = true"
                         :aria-expanded="isNavbarMenuOpen"
                     >
-                        <span class="[&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                        <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg>
                         </span>
                     </button>
@@ -189,7 +189,7 @@
                 <h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">UI Sandbox</h1>
                 <h2 class="font-medium text-neutral-800 dark:text-neutral-200 text-lg">
                     <span>This is a sandbox for </span>
-					<a href="https://github.com/mkfizi" target="_blank" class="font-medium text-black dark:hover:text-neutral-200 hover:text-neutral-700 dark:focus:text-neutral-200 focus:text-neutral-700 dark:text-white cursor-pointer">@mkfizi</a> 
+					<a href="https://github.com/mkfizi" target="_blank" class="font-medium text-black hover:text-neutral-700 focus:text-neutral-700 dark:hover:text-neutral-200 dark:focus:text-neutral-200 dark:text-white cursor-pointer">@mkfizi</a> 
                     <span> projects with TailwindCSS.</span>
                 </h2>
             </section>
@@ -203,7 +203,7 @@
                 </span>
                 <span>
                     <span class="text-neutral-800 dark:text-neutral-200 text-sm">Developed by </span>
-                    <a href="https://mkfizi.dev" target="_blank" class="[&>svg]:stroke-neutral-500 hover:[&>svg]:stroke-black dark:hover:[&>svg]:stroke-white focus:[&>svg]:stroke-black dark:focus:[&>svg]:stroke-white visited:[&>svg]:stroke-neutral-700 dark:[&>svg]:stroke-neutral-400 dark:visited:[&>svg]:stroke-neutral-200 font-medium text-neutral-500 dark:hover:text-white hover:text-black dark:focus:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">mkfizi</a>
+                    <a href="https://mkfizi.dev" target="_blank" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">mkfizi</a>
                 </span>
             </div>
         </footer>

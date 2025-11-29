@@ -30,7 +30,7 @@
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
             <div class="space-y-4 pt-32 max-w-screen-sm">
                 <!-- Offcanvas Open -->
-                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 [&>svg]:stroke-white dark:[&>svg]:stroke-black px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Open offcanvas."
+                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 [&_svg]:stroke-white dark:[&_svg]:stroke-black px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Open offcanvas."
                     x-data="{ isOffcanvasOpen: false }"
                     x-on:click="$dispatch('open-offcanvas', { id: 'offcanvas'})"
                     x-on:offcanvas-expanded.window="$event.detail.id === 'offcanvas' ? isOffcanvasOpen = $event.detail.isOffcanvasOpen : null"
@@ -55,11 +55,11 @@
                     <!-- Offcanvas Drawer -->
                     <div class="top-0 left-0 fixed bg-white dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800 border-r w-full sm:w-64 h-full">
                         <!-- Offcanvas Close -->
-                        <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 [&>svg]:stroke-black dark:[&>svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Close offcanvas."
+                        <button type="button" class="top-2 right-2 absolute hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 disabled:opacity-60 [&_svg]:stroke-black dark:[&_svg]:stroke-white p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Close offcanvas."
                             x-on:click="$dispatch('close-offcanvas', { id: 'offcanvas' })"
                             :aria-expanded="isOffcanvasOpen"
                         >
-                            <span class="[&>svg]:w-5 [&>svg]:h-5 shrink-0">
+                            <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
                             </span>
                         </button>
@@ -73,7 +73,7 @@
                 <!-- END Offcanvas Component -->
                 <!-- END METHOD 2 -->
                 <div class="mt-16">
-                    <a href="/index.html" class="[&>svg]:stroke-neutral-500 hover:[&>svg]:stroke-black dark:hover:[&>svg]:stroke-white focus:[&>svg]:stroke-black dark:focus:[&>svg]:stroke-white visited:[&>svg]:stroke-neutral-700 dark:[&>svg]:stroke-neutral-400 dark:visited:[&>svg]:stroke-neutral-200 font-medium text-neutral-500 dark:hover:text-white hover:text-black dark:focus:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                    <a href="/index.html" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
                 </div>
             </div>
         </main>

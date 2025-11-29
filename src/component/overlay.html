@@ -30,7 +30,7 @@
         <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl"> 
             <div class="space-y-4 pt-32 max-w-screen-sm">
                 <!-- Overlay Open -->
-                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 [&>svg]:stroke-white dark:[&>svg]:stroke-black px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="overlay" aria-label="Open overlay."
+                <button type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 [&_svg]:stroke-white dark:[&_svg]:stroke-black px-3 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="overlay" aria-label="Open overlay."
                     x-data="{ isOverlayOpen: false }"
                     x-on:click="$dispatch('open-overlay', { id: 'overlay' })"
                     x-on:overlay-expanded.window="$event.detail.id === 'overlay' ? isOverlayOpen = $event.detail.isOverlayOpen : null"
@@ -58,7 +58,7 @@
                 </div>
                 <!-- END Overlay Component -->
                 <div class="mt-16">
-                    <a href="/index.html" class="[&>svg]:stroke-neutral-500 hover:[&>svg]:stroke-black dark:hover:[&>svg]:stroke-white focus:[&>svg]:stroke-black dark:focus:[&>svg]:stroke-white visited:[&>svg]:stroke-neutral-700 dark:[&>svg]:stroke-neutral-400 dark:visited:[&>svg]:stroke-neutral-200 font-medium text-neutral-500 dark:hover:text-white hover:text-black dark:focus:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
+                    <a href="/index.html" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">Back</a>
                 </div>
             </div>
         </main>
