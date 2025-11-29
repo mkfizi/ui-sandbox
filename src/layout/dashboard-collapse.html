@@ -57,8 +57,8 @@
             x-on:open-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = true : null"
             x-on:close-sidebar.window="$event.detail.id === 'sidebar' ? isSidebarOpen = false : null"
             :class="{ 
-                'hidden invisible' : !isSidebarOpen,
-                'lg:block lg:visible' : isDesktopSidebarOpen
+                'hidden invisible pointer-events-none' : !isSidebarOpen,
+                'lg:block lg:visible lg:pointer-events-auto' : isDesktopSidebarOpen
             }"
             :inert="!isSidebarOpen && window.innerWidth < breakpoint"
         >
