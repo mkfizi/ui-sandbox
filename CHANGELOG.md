@@ -16,6 +16,34 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.8.0] - 
+### Added
+- VanillaJS components.
+- Tooltip component.
+- Documentation layouts.
+- Blog layouts.
+- Added icon to nav title.
+- Button link element.
+- Set `sm` breakpoint to start at 480px to handle small high resolution tablets with 2 DPR.
+- `pointer-events-none` to :class that uses `hidden` and `invisible`
+
+### Changed
+- Rewrite component logic with docoupling method.
+- Change shorthand '@' alpinejs handler to 'x-on:' for clarity.
+- Wrap svg icons in a container.
+- Change nav icon to svg.
+- Existing button link have `inline-block`
+- Remove text styles from table `th` and `td`.
+- Revise table content padding.
+- Update button style to support `stroke-*` for icons.
+- Put `!` class tag to back.
+- Update link style to support `stroke-*` for icons.
+- Move `dark:` classes to front.
+- Revise link to include svg classes.
+
+### Removed
+- Button outline background colour when hovered.
+
 ## [0.7.2] - 2025-11-17
 ### Added
 - Badge link element.
