@@ -26,6 +26,7 @@ Put unreleased changes here.
 - Button link element.
 - Set `sm` breakpoint to start at 480px to handle small high resolution tablets with 2 DPR.
 - `pointer-events-none` to :class that uses `hidden` and `invisible`
+- Password toggle element.
 
 ### Changed
 - Rewrite component logic with docoupling method.
