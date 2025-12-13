@@ -35,16 +35,25 @@
                     x-data="{
                         open: false,
                         placement: 'top',
+                        arrowLeft: '50%',
                         scrollHandler: null,
                         resizeHandler: null,
                         updatePlacement() {
-                            const anchor = $refs.anchor.getBoundingClientRect();
-                            const tooltip = $refs.tooltip.getBoundingClientRect();
-                            this.placement = (tooltip.top < anchor.top) ? 'top' : 'bottom';
+                            setTimeout(() => {
+                                const anchor = $refs.anchor.getBoundingClientRect();
+                                const tooltip = $refs.tooltip.getBoundingClientRect();
+                                this.placement = (tooltip.top < anchor.top) ? 'top' : 'bottom';
+                                
+                                // Calculate arrow position to point at anchor center
+                                const anchorCenter = anchor.left + (anchor.width / 2);
+                                const tooltipLeft = tooltip.left;
+                                const arrowPosition = anchorCenter - tooltipLeft;
+                                this.arrowLeft = arrowPosition + 'px';
+                            }, 10);
                         },
                         mouseEnter() {
                             this.open = true; 
-                            this.updatePlacement(); 
+                            this.$nextTick(() => this.updatePlacement());
                             window.addEventListener('scroll', this.scrollHandler); 
                             window.addEventListener('resize', this.resizeHandler);
                         },
@@ -64,18 +73,19 @@
                     <p x-ref="anchor" class="text-neutral-800 dark:text-neutral-200 text-sm">Hover me for tooltip</p>
                     <div 
                         x-ref="tooltip"
-                        class="z-10 absolute bg-black dark:bg-white shadow-lg px-2 py-1 rounded"
+                        class="left-1/2 z-10 absolute bg-black dark:bg-white shadow-lg px-2 py-1 rounded"
                         x-show="open" 
                         x-cloak
                         x-anchor.top.offset.8="$refs.anchor"
                     >
-                        <span class="text-white dark:text-black text-xs whitespace-nowrap">This is a tooltip example.</span>
                         <span class="left-1/2 absolute bg-black dark:bg-white border-transparent w-2 h-2 rotate-45 -translate-x-1/2"
+                            :style="`left: ${arrowLeft}`"
                             :class="{
-                                '-bottom-1 border-b border-l': placement === 'top',
+                                 '-bottom-1 border-b border-l': placement === 'top',
                                 '-top-1 border-t border-r': placement === 'bottom'
                             }"
                         ></span>
+                        <span class="text-white dark:text-black text-xs whitespace-nowrap">This is a tooltip example.</span>
                     </div>
                 </div>
             <!-- END Tooltip Component -->     
