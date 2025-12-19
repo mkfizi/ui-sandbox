@@ -536,22 +536,197 @@
                                                         </td>
                                                         <td class="px-4 py-3 w-16">
                                                             <div class="flex gap-2">
-                                                                <a href="#" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
-                                                                    <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icons-tabler-outline icon icon-tabler icon-tabler-note"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 20l7 -7" /><path d="M13 20v-6a1 1 0 0 1 1 -1h6v-7a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7" /></svg>
-                                                                    </span>
-                                                                </a>
-                                                                <a href="#" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
-                                                                    <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
-                                                                    </span>
-                                                                </a>
+                                                                <div class="relative w-fit"
+                                                                    x-data="{
+                                                                        open: false,
+                                                                        placement: 'top',
+                                                                        arrowLeft: '50%',
+                                                                        scrollHandler: null,
+                                                                        resizeHandler: null,
+                                                                        updatePlacement() {
+                                                                            setTimeout(() => {
+                                                                                const anchor = $refs.anchor.getBoundingClientRect();
+                                                                                const tooltip = $refs.tooltip.getBoundingClientRect();
+                                                                                this.placement = (tooltip.top < anchor.top) ? 'top' : 'bottom';
+                                                                                
+                                                                                // Calculate arrow position to point at anchor center
+                                                                                const anchorCenter = anchor.left + (anchor.width / 2);
+                                                                                const tooltipLeft = tooltip.left;
+                                                                                const arrowPosition = anchorCenter - tooltipLeft;
+                                                                                this.arrowLeft = arrowPosition + 'px';
+                                                                            }, 10);
+                                                                        },
+                                                                        mouseEnter() {
+                                                                            this.open = true; 
+                                                                            this.$nextTick(() => this.updatePlacement());
+                                                                            window.addEventListener('scroll', this.scrollHandler); 
+                                                                            window.addEventListener('resize', this.resizeHandler);
+                                                                        },
+                                                                        mouseLeave() {
+                                                                            this.open = false; 
+                                                                            window.removeEventListener('scroll', this.scrollHandler); 
+                                                                            window.removeEventListener('resize', this.resizeHandler);
+                                                                        },
+                                                                        init() {
+                                                                            this.scrollHandler = () => this.updatePlacement();
+                                                                            this.resizeHandler = () => this.updatePlacement();
+                                                                        }
+                                                                    }"
+                                                                    x-on:mouseenter="mouseEnter()"
+                                                                    x-on:mouseleave="mouseLeave()"
+                                                                >
+                                                                    <div x-ref="anchor">
+                                                                        <a href="#" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="View">
+                                                                            <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icons-tabler-outline icon icon-tabler icon-tabler-note"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 20l7 -7" /><path d="M13 20v-6a1 1 0 0 1 1 -1h6v-7a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7" /></svg>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div 
+                                                                        x-ref="tooltip"
+                                                                        class="left-1/2 z-10 absolute bg-black dark:bg-white shadow-lg px-2 py-1 rounded"
+                                                                        x-show="open" 
+                                                                        x-cloak
+                                                                        x-anchor.top.offset.8="$refs.anchor"
+                                                                    >
+                                                                        <span class="left-1/2 absolute bg-black dark:bg-white border-transparent w-2 h-2 rotate-45 -translate-x-1/2"
+                                                                            :style="`left: ${arrowLeft}`"
+                                                                            :class="{
+                                                                                '-bottom-1 border-b border-l': placement === 'top',
+                                                                                '-top-1 border-t border-r': placement === 'bottom'
+                                                                            }"
+                                                                        ></span>
+                                                                        <span class="text-white dark:text-black text-xs whitespace-nowrap">View item</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="relative w-fit"
+                                                                    x-data="{
+                                                                        open: false,
+                                                                        placement: 'top',
+                                                                        arrowLeft: '50%',
+                                                                        scrollHandler: null,
+                                                                        resizeHandler: null,
+                                                                        updatePlacement() {
+                                                                            setTimeout(() => {
+                                                                                const anchor = $refs.anchor.getBoundingClientRect();
+                                                                                const tooltip = $refs.tooltip.getBoundingClientRect();
+                                                                                this.placement = (tooltip.top < anchor.top) ? 'top' : 'bottom';
+                                                                                
+                                                                                // Calculate arrow position to point at anchor center
+                                                                                const anchorCenter = anchor.left + (anchor.width / 2);
+                                                                                const tooltipLeft = tooltip.left;
+                                                                                const arrowPosition = anchorCenter - tooltipLeft;
+                                                                                this.arrowLeft = arrowPosition + 'px';
+                                                                            }, 10);
+                                                                        },
+                                                                        mouseEnter() {
+                                                                            this.open = true; 
+                                                                            this.$nextTick(() => this.updatePlacement());
+                                                                            window.addEventListener('scroll', this.scrollHandler); 
+                                                                            window.addEventListener('resize', this.resizeHandler);
+                                                                        },
+                                                                        mouseLeave() {
+                                                                            this.open = false; 
+                                                                            window.removeEventListener('scroll', this.scrollHandler); 
+                                                                            window.removeEventListener('resize', this.resizeHandler);
+                                                                        },
+                                                                        init() {
+                                                                            this.scrollHandler = () => this.updatePlacement();
+                                                                            this.resizeHandler = () => this.updatePlacement();
+                                                                        }
+                                                                    }"
+                                                                    x-on:mouseenter="mouseEnter()"
+                                                                    x-on:mouseleave="mouseLeave()"
+                                                                >
+                                                                    <div x-ref="anchor">
+                                                                        
+                                                                        <a href="#" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Edit">
+                                                                            <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/><path d="M16 5l3 3"/></svg>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div 
+                                                                        x-ref="tooltip"
+                                                                        class="left-1/2 z-10 absolute bg-black dark:bg-white shadow-lg px-2 py-1 rounded"
+                                                                        x-show="open" 
+                                                                        x-cloak
+                                                                        x-anchor.top.offset.8="$refs.anchor"
+                                                                    >
+                                                                        <span class="left-1/2 absolute bg-black dark:bg-white border-transparent w-2 h-2 rotate-45 -translate-x-1/2"
+                                                                            :style="`left: ${arrowLeft}`"
+                                                                            :class="{
+                                                                                '-bottom-1 border-b border-l': placement === 'top',
+                                                                                '-top-1 border-t border-r': placement === 'bottom'
+                                                                            }"
+                                                                        ></span>
+                                                                        <span class="text-white dark:text-black text-xs whitespace-nowrap">Edit item</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="relative w-fit"
+                                                                    x-data="{
+                                                                        open: false,
+                                                                        placement: 'top',
+                                                                        arrowLeft: '50%',
+                                                                        scrollHandler: null,
+                                                                        resizeHandler: null,
+                                                                        updatePlacement() {
+                                                                            setTimeout(() => {
+                                                                                const anchor = $refs.anchor.getBoundingClientRect();
+                                                                                const tooltip = $refs.tooltip.getBoundingClientRect();
+                                                                                this.placement = (tooltip.top < anchor.top) ? 'top' : 'bottom';
+                                                                                
+                                                                                // Calculate arrow position to point at anchor center
+                                                                                const anchorCenter = anchor.left + (anchor.width / 2);
+                                                                                const tooltipLeft = tooltip.left;
+                                                                                const arrowPosition = anchorCenter - tooltipLeft;
+                                                                                this.arrowLeft = arrowPosition + 'px';
+                                                                            }, 10);
+                                                                        },
+                                                                        mouseEnter() {
+                                                                            this.open = true; 
+                                                                            this.$nextTick(() => this.updatePlacement());
+                                                                            window.addEventListener('scroll', this.scrollHandler); 
+                                                                            window.addEventListener('resize', this.resizeHandler);
+                                                                        },
+                                                                        mouseLeave() {
+                                                                            this.open = false; 
+                                                                            window.removeEventListener('scroll', this.scrollHandler); 
+                                                                            window.removeEventListener('resize', this.resizeHandler);
+                                                                        },
+                                                                        init() {
+                                                                            this.scrollHandler = () => this.updatePlacement();
+                                                                            this.resizeHandler = () => this.updatePlacement();
+                                                                        }
+                                                                    }"
+                                                                    x-on:mouseenter="mouseEnter()"
+                                                                    x-on:mouseleave="mouseLeave()"
+                                                                >
+                                                                    <div x-ref="anchor">
+                                                                        <a href="#" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
+                                                                            <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z"/><path d="M9 9l6 6m0 -6l-6 6"/></svg>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div 
+                                                                        x-ref="tooltip"
+                                                                        class="left-1/2 z-10 absolute bg-black dark:bg-white shadow-lg px-2 py-1 rounded"
+                                                                        x-show="open" 
+                                                                        x-cloak
+                                                                        x-anchor.top.offset.8="$refs.anchor"
+                                                                    >
+                                                                        <span class="left-1/2 absolute bg-black dark:bg-white border-transparent w-2 h-2 rotate-45 -translate-x-1/2"
+                                                                            :style="`left: ${arrowLeft}`"
+                                                                            :class="{
+                                                                                '-bottom-1 border-b border-l': placement === 'top',
+                                                                                '-top-1 border-t border-r': placement === 'bottom'
+                                                                            }"
+                                                                        ></span>
+                                                                        <span class="text-white dark:text-black text-xs whitespace-nowrap">Remove item</span>
+                                                                    </div>
+                                                                </div>
                                                                 
-                                                                <a href="#" class="[&_svg]:stroke-neutral-500 hover:[&_svg]:stroke-black focus:[&_svg]:stroke-black visited:[&_svg]:stroke-neutral-700 dark:[&_svg]:stroke-neutral-400 dark:hover:[&_svg]:stroke-white dark:focus:[&_svg]:stroke-white dark:visited:[&_svg]:stroke-neutral-200 font-medium text-neutral-500 hover:text-black focus:text-black visited:text-neutral-700 dark:hover:text-white dark:focus:text-white dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer" aria-label="Delete">
-                                                                    <span class="[&_svg]:w-5 [&_svg]:h-5 shrink-0">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z"/><path d="M9 9l6 6m0 -6l-6 6"/></svg>
-                                                                    </span>
-                                                                </a>
                                                             </div>
                                                         </td>
                                                     </tr>
